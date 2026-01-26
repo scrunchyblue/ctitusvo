@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Titus | Voice Overs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: #4a3f54;
+            background: transparent;
+            line-height: 1.0;
+            overflow-x: hidden;
+        }
+
+        html {
+            background: #ffffff;
+        }
+
+        /* Header / Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: #4a3f54;
+            z-index: 100;
+            border-bottom: none;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 49px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.875rem;
+            transition: color 0.3s;
+            padding-bottom: 4px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a.active {
+            color: white;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: -2px;
+            height: 2px;
+            background: linear-gradient(90deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+            transition: left 0.3s ease, width 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #4a3f54;
+            z-index: 150;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.25rem;
+            transition: color 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 4rem 2rem;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .mobile-break {
+            display: none;
+        }
+
+        .hero-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-sound-wave {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 28px;
+        }
+
+        .hero-sound-wave span {
+            width: 4px;
+            background: linear-gradient(to top, #8EDCC3, #C7C0E6);
+            border-radius: 2px;
+            animation: heroWave 1.2s ease-in-out infinite;
+        }
+
+        .hero-sound-wave span:nth-child(1) { height: 10px; animation-delay: 0s; }
+        .hero-sound-wave span:nth-child(2) { height: 20px; animation-delay: 0.15s; }
+        .hero-sound-wave span:nth-child(3) { height: 28px; animation-delay: 0.3s; }
+        .hero-sound-wave span:nth-child(4) { height: 20px; animation-delay: 0.45s; }
+        .hero-sound-wave span:nth-child(5) { height: 10px; animation-delay: 0.6s; }
+
+        @keyframes heroWave {
+            0%, 100% { transform: scaleY(0.5); }
+            50% { transform: scaleY(1); }
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.55rem 1.35rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #555;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            border-color: #4a3f54;
+            color: #4a3f54;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 1.5rem;
+            position: relative;
+        }
+
+        .hero-buttons::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+        }
+
+        .btn-primary {
+            background: #4a3f54;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            user-select: none;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: #4a3f54;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+            align-self: stretch;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Placeholder for headshot */
+        .headshot-placeholder {
+            width: 280px;
+            height: 100%;
+            min-height: 280px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .headshot-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* Mobile tags - hidden on desktop */
+        .mobile-tags {
+            display: none;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 4rem;
+            position: relative;
+        }
+
+        .section-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30' preserveAspectRatio='none'%3E%3Cpath d='M0 15 Q150 0 300 15 T600 15 T900 15 T1200 15' fill='none' stroke='%238EDCC3' stroke-width='2'/%3E%3Cpath d='M0 20 Q150 5 300 20 T600 20 T900 20 T1200 20' fill='none' stroke='%23C7C0E6' stroke-width='1.5'/%3E%3Cpath d='M0 10 Q150 -5 300 10 T600 10 T900 10 T1200 10' fill='none' stroke='%23FAAE78' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .section-title-underline {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.4;
+        }
+
+        /* Voice Samples */
+        .samples-section {
+            background: rgba(248, 247, 250, 0.85);
+        }
+
+        .sample-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .sample-tab {
+            padding: 0.55rem 1.35rem;
+            border: 1px solid #C7C0E6;
+            border-radius: 4px;
+            background: white;
+            color: #4a3f54;
+            font-size: 0.9rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .sample-tab.active {
+            background: #4a3f54;
+            color: white;
+            border-color: #4a3f54;
+        }
+
+        .sample-content {
+            display: none;
+        }
+
+        .sample-content.active {
+            display: block;
+        }
+
+        .audio-player {
+            background: white;
+            border-radius: 4px;
+            padding: 1.75rem 1.75rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audio-player.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .audio-player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100 Q25 60 50 100 T100 100 T150 100 T200 100' fill='none' stroke='%238EDCC3' stroke-width='2'/%3E%3Cpath d='M0 120 Q25 80 50 120 T100 120 T150 120 T200 120' fill='none' stroke='%23C7C0E6' stroke-width='1.5'/%3E%3Cpath d='M0 80 Q25 40 50 80 T100 80 T150 80 T200 80' fill='none' stroke='%23FAAE78' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 100px;
+            background-position: left center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .audio-title {
+            font-weight: 500;
+            font-size: 1rem;
+            min-width: 180px;
+        }
+
+        .audio-icon {
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            user-select: none;
+            width: 29px;
+            height: 26px;
+            flex-shrink: 0;
+            margin: 0 0.5rem;
+        }
+
+        .audio-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .audio-icon:active {
+            transform: scale(0.9);
+        }
+
+        .audio-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .audio-icon rect {
+            transition: all 0.3s ease;
+        }
+
+        .audio-progress-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .audio-time {
+            font-size: 0.75rem;
+            color: #999;
+            min-width: 35px;
+        }
+
+        .audio-time.current {
+            text-align: right;
+        }
+
+        .audio-time.duration {
+            text-align: left;
+        }
+
+        .audio-progress {
+            flex: 1;
+            height: 4px;
+            background: #8EDCC3;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .audio-progress-fill {
+            height: 100%;
+            background: #4a3f54;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s linear;
+        }
+
+        .audio-download {
+            color: #8a7b96;
+            cursor: pointer;
+            transition: transform 0.15s ease, color 0.15s ease;
+            user-select: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-download svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .audio-download:hover {
+            color: #4a3f54;
+            transform: scale(1.1);
+        }
+
+        .audio-download:active {
+            transform: scale(0.85);
+            color: #4a3f54;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: #4a3f54;
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-top: 1.5rem;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            user-select: none;
+        }
+
+        .btn-secondary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Tone Words */
+        .tone-words {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0 auto;
+        }
+
+        .tone-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tone-word {
+            padding: 0.55rem 1.35rem;
+            border: 1px solid #8EDCC3;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #555;
+            transition: all 0.3s;
+        }
+
+        .tone-word:nth-child(3n+2) {
+            border-color: #C7C0E6;
+        }
+
+        .tone-word:nth-child(3n) {
+            border-color: #FAAE78;
+        }
+
+        .tone-word:hover {
+            border-color: #4a3f54;
+            color: #4a3f54;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: rgba(248, 247, 250, 0.85);
+        }
+
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.25rem 1.75rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            width: calc(33.333% - 1rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.4;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100 Q25 60 50 100 T100 100 T150 100 T200 100' fill='none' stroke='%238EDCC3' stroke-width='3'/%3E%3Cpath d='M0 120 Q25 80 50 120 T100 120 T150 120 T200 120' fill='none' stroke='%23C7C0E6' stroke-width='2.5'/%3E%3Cpath d='M0 80 Q25 40 50 80 T100 80 T150 80 T200 80' fill='none' stroke='%23FAAE78' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 180px;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            flex-grow: 1;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-align: right;
+            margin-bottom: 0.35rem;
+        }
+
+        .testimonial-company {
+            color: #999;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        /* Brands */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 3rem 3rem;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+            justify-items: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .brand-row {
+            display: contents;
+        }
+
+        .brands-grid img {
+            height: auto;
+            width: 100%;
+            max-width: 132px;
+            max-height: 55px;
+            object-fit: contain;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .brands-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .brands-grid img.active {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .brand-player {
+            max-width: 500px;
+            margin: 2.5rem auto 0;
+            background: white;
+            border-radius: 4px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .brand-player.active {
+            opacity: 1;
+        }
+
+        .brand-player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100 Q25 60 50 100 T100 100 T150 100 T200 100' fill='none' stroke='%238EDCC3' stroke-width='2'/%3E%3Cpath d='M0 120 Q25 80 50 120 T100 120 T150 120 T200 120' fill='none' stroke='%23C7C0E6' stroke-width='1.5'/%3E%3Cpath d='M0 80 Q25 40 50 80 T100 80 T150 80 T200 80' fill='none' stroke='%23FAAE78' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 100px;
+            background-position: left center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .brand-player-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-player-title {
+            font-weight: 500;
+            font-size: 1rem;
+            min-width: 140px;
+            color: #4a3f54;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: rgba(248, 247, 250, 0.85);
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: box-shadow 0.2s ease;
+            gap: 1rem;
+            min-width: 0;
+        }
+
+        .faq-arrow {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            min-width: 20px;
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .faq-question span {
+            font-size: 1.25rem;
+            color: #999;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .faq-item.open .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.25rem;
+        }
+
+        /* Tools */
+        .tools-grid {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .tool-item {
+            text-align: center;
+        }
+
+        .tool-icon {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #C7C0E6;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background: white;
+        }
+
+        .tool-item:nth-child(1) .tool-icon {
+            border-color: #8EDCC3;
+        }
+
+        .tool-item:nth-child(2) .tool-icon {
+            border-color: #C7C0E6;
+        }
+
+        .tool-item:nth-child(3) .tool-icon {
+            border-color: #FAAE78;
+        }
+
+        .tool-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-detail {
+            color: #999;
+            font-size: 1rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: rgba(248, 247, 250, 0.85);
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 880px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            max-width: 320px;
+        }
+
+        .contact-info h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .contact-info p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Speech bubble accent */
+        .speech-bubble-accent {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            opacity: 0.15;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a3f54;
+            text-decoration: none;
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+
+        .contact-links a:hover {
+            opacity: 1;
+        }
+
+        .contact-links a svg {
+            height: 24px;
+            width: auto;
+        }
+
+        .contact-form {
+            flex: 1;
+            max-width: 360px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a3f54;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: #4a3f54;
+            color: white;
+            padding: 0.875rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.5s ease;
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+            height: 46px;
+        }
+
+        .btn-submit .btn-text {
+            display: block;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+
+        .btn-submit .btn-text-thank {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+            color: #333;
+        }
+
+        .btn-submit.submitted .btn-text {
+            transform: translateY(-150%);
+            opacity: 0;
+        }
+
+        .btn-submit.submitted .btn-text-thank {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        .btn-submit:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .btn-submit.submitted {
+            background: #8EDCC3;
+            cursor: default;
+        }
+
+        .btn-submit.submitted:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background: #4a3f54;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .footer-divider {
+            width: 2px;
+            height: 16px;
+            background: linear-gradient(180deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+        }
+
+        .footer-sound-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 20px;
+        }
+
+        .footer-sound-bars span {
+            width: 3px;
+            background: linear-gradient(to top, #8EDCC3, #C7C0E6);
+            border-radius: 2px;
+            animation: soundBar 1s ease-in-out infinite;
+        }
+
+        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+        .footer-sound-bars span:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+        .footer-sound-bars span:nth-child(4) { height: 18px; animation-delay: 0.3s; }
+        .footer-sound-bars span:nth-child(5) { height: 6px; animation-delay: 0.4s; }
+        .footer-sound-bars span:nth-child(6) { height: 12px; animation-delay: 0.5s; }
+        .footer-sound-bars span:nth-child(7) { height: 16px; animation-delay: 0.6s; }
+        .footer-sound-bars span:nth-child(8) { height: 9px; animation-delay: 0.7s; }
+        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
+        .footer-sound-bars span:nth-child(10) { height: 7px; animation-delay: 0.9s; }
+        .footer-sound-bars span:nth-child(11) { height: 11px; animation-delay: 0.15s; }
+        .footer-sound-bars span:nth-child(12) { height: 15px; animation-delay: 0.25s; }
+        .footer-sound-bars span:nth-child(13) { height: 8px; animation-delay: 0.35s; }
+        .footer-sound-bars span:nth-child(14) { height: 13px; animation-delay: 0.45s; }
+        .footer-sound-bars span:nth-child(15) { height: 17px; animation-delay: 0.55s; }
+        .footer-sound-bars span:nth-child(16) { height: 10px; animation-delay: 0.65s; }
+        .footer-sound-bars span:nth-child(17) { height: 6px; animation-delay: 0.75s; }
+        .footer-sound-bars span:nth-child(18) { height: 12px; animation-delay: 0.85s; }
+        .footer-sound-bars span:nth-child(19) { height: 15px; animation-delay: 0.05s; }
+        .footer-sound-bars span:nth-child(20) { height: 9px; animation-delay: 0.12s; }
+        .footer-sound-bars span:nth-child(21) { height: 18px; animation-delay: 0.22s; }
+        .footer-sound-bars span:nth-child(22) { height: 7px; animation-delay: 0.32s; }
+        .footer-sound-bars span:nth-child(23) { height: 11px; animation-delay: 0.42s; }
+        .footer-sound-bars span:nth-child(24) { height: 14px; animation-delay: 0.52s; }
+        .footer-sound-bars span:nth-child(25) { height: 8px; animation-delay: 0.62s; }
+        .footer-sound-bars span:nth-child(26) { height: 16px; animation-delay: 0.72s; }
+
+        @keyframes soundBar {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .header-content {
+                padding: 1rem 2rem;
+            }
+
+            .logo img {
+                height: 34px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 3rem 2rem;
+                text-align: left;
+            }
+
+            .hero h1 {
+                white-space: normal;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-content p {
+                text-align: center;
+            }
+
+            .hero-header {
+                justify-content: center;
+            }
+
+            .hero-sound-wave {
+                height: 35px;
+            }
+
+            .hero-sound-wave span {
+                width: 4px;
+            }
+
+            .mobile-break {
+                display: block;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-bottom: 0.25rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+                width: 100%;
+            }
+
+            .hero-image .mobile-tags {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .hero-image .mobile-tags .tag {
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+                margin: 0;
+                text-align: center;
+            }
+
+            /* Hide the regular tags row on mobile since they're shown next to headshot */
+            .hero-content .tags {
+                display: none;
+            }
+
+            .headshot-placeholder {
+                width: 100%;
+                max-width: 340px;
+                min-height: auto;
+                aspect-ratio: auto;
+                margin: 0 auto;
+            }
+
+            .headshot-placeholder img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                border-radius: 12px;
+                object-fit: cover;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            /* Add space after hero section */
+            .hero {
+                margin-bottom: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 2rem;
+            }
+
+            .testimonials-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .testimonial-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .contact-wrapper {
+                flex-direction: column;
+            }
+
+            .contact-form {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .tools-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .tool-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .tool-icon img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                white-space: normal;
+            }
+
+            .tools-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.25rem;
+            }
+
+            .tool-icon {
+                width: 90px;
+                height: 90px;
+            }
+
+            .tool-icon img {
+                width: 45px;
+                height: 45px;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                white-space: normal;
+            }
+
+            /* Tone words - organized grid on mobile */
+            .tone-words {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .tone-row {
+                display: contents;
+            }
+
+            .tone-word {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            /* Brand wall - 2 columns of 10 */
+            .brands-grid {
+                gap: 1.5rem;
+                max-width: 280px;
+            }
+
+            .brand-row {
+                display: contents;
+            }
+
+            .brands-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem 2rem;
+                justify-items: center;
+                align-items: center;
+            }
+
+            /* Equal sizing for all logos on mobile */
+            .brands-grid img {
+                height: auto !important;
+                width: 100px !important;
+                max-width: 100px !important;
+                max-height: 50px !important;
+                object-fit: contain;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-sound-bars {
+                order: 1;
+            }
+
+            .footer-sound-bars span:nth-child(n+14) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .headshot-placeholder {
+                width: 45%;
+            }
+
+            .btn-primary {
+                font-size: 0.85rem;
+                padding: 0.65rem 1.25rem;
+            }
+
+            section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .tone-word {
+                padding: 0.35rem 0.65rem;
+                font-size: 0.75rem;
+            }
+
+            .audio-player {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .audio-progress-container {
+                gap: 0.5rem;
+                min-width: 0;
+            }
+
+            .audio-time {
+                font-size: 0.65rem;
+                min-width: 28px;
+                flex-shrink: 0;
+            }
+
+            .brand-row {
+                gap: 1rem;
+            }
+
+            .faq-question {
+                font-size: 0.9rem;
+                padding: 1rem;
+                gap: 0.75rem;
+            }
+
+            .faq-question {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .faq-list {
+                max-width: 100%;
+            }
+
+            .faq-answer {
+                padding: 0 1rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .faq-item.open .faq-answer {
+                padding: 0 1rem 1rem;
+            }
+        }
+
+        /* ========== ELECTRIC EFFECTS ========== */
+        
+        /* Electric blue accent color */
+        :root {
+            --electric-blue: #00d4ff;
+            --electric-purple: #a855f7;
+            --electric-glow: rgba(0, 212, 255, 0.6);
+        }
+
+        /* Electric particles canvas */
+        #electric-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Ensure content is above particles */
+        header, section, footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Lightning bolt dividers */
+        .lightning-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            opacity: 0.3;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .lightning-divider svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Energy border on cards */
+        .testimonial-card,
+        .audio-player,
+        .faq-item {
+            position: relative;
+        }
+
+        .testimonial-card::after,
+        .faq-item::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(90deg, transparent, var(--electric-blue), transparent);
+            border-radius: 6px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .testimonial-card:hover::after,
+        .faq-item:hover::after {
+            opacity: 0.5;
+            animation: energyPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes energyPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Hero energy burst - removed */
+
+        /* Glow effect on headshot - removed */
+
+        /* Button effects - simplified */
+
+        /* Electric cursor trail - removed */
+
+        /* Lightning accent on hover for tone words */
+        .tone-word {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Electric zap connections */
+        .zap-line {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            stroke: var(--electric-blue);
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 3px var(--electric-blue));
+            opacity: 0;
+        }
+
+        /* Contact section electric accent */
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8EDCC3, #C7C0E6, #FAAE78, transparent);
+            animation: electricLine 3s linear infinite;
+        }
+
+        @keyframes electricLine {
+            0% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.4; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Electric particles background -->
+    <canvas id="electric-particles"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="clogo.svg" alt="Christian Titus Voice Overs">
+            </div>
+            <nav>
+                <a href="index.html" class="active">About</a>
+                <a href="audiobooks.html">Audiobooks</a>
+                <a href="production.html">Production</a>
+                <a href="#contact">Contact</a>
+                <span class="nav-underline"></span>
+            </nav>
+            <div class="hamburger" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" onclick="toggleMobileNav()">About</a>
+        <a href="audiobooks.html" onclick="toggleMobileNav()">Audiobooks</a>
+        <a href="production.html" onclick="toggleMobileNav()">Production</a>
+        <a href="#contact" onclick="toggleMobileNav()">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-header">
+                <h1>I'm <strong>Christian Titus</strong>.<br class="mobile-break"> I do voices.</h1>
+                <div class="hero-sound-wave">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <p>My job is to make information, thoughts, and feelings accessible to your audience through great storytelling and deep understanding. I've been an actor for over 20 years, and a voiceover artist for more than 10. With a wealth of experience behind me, I look forward to bringing your next project to life.</p>
+            <div class="tags">
+                <span class="tag">Male</span>
+                <span class="tag">Young Adult</span>
+                <span class="tag">Adult</span>
+                <span class="tag">18 - 36</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Let's Talk</a>
+                <div class="social-links">
+                    <a href="https://www.imdb.com/name/nm8034229/" target="_blank" title="IMDb">
+                        <svg width="49" height="20" viewBox="0 0 61 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.7252 24.3081H8.35791V0.262573H16.5162L18.019 10.3531H18.2337L19.3072 0.262573H27.4655V24.3081H22.0982V9.9237H21.8835L19.9513 24.3081H15.8721L13.7252 9.9237V24.3081Z" fill="currentColor"/>
+                            <path d="M29.6162 0.0536736C30.475 0.0536736 36.4863 -0.161019 39.7067 0.268364C42.283 0.483056 43.5712 2.62997 43.7859 5.20627C44.0006 9.92949 44.0006 14.6527 44.0006 19.3759C44.0006 19.8053 44.0006 20.4494 43.7859 21.0935C43.3565 23.0257 42.283 24.0991 39.7067 24.3138C36.4863 24.5285 33.266 24.5285 30.2603 24.5285C30.2603 24.5285 30.0456 24.5285 29.8309 24.5285V0.0536736H29.6162ZM36.057 4.5622V20.02C37.1304 20.02 37.7745 19.5906 37.7745 18.5172C37.7745 14.438 37.7745 10.1442 37.7745 5.85035C37.7745 4.77689 37.3451 4.34751 36.057 4.5622Z" fill="currentColor"/>
+                            <path d="M0 24.3081V0.262573H6.22606V24.3081H0Z" fill="currentColor"/>
+                            <path d="M59.9008 9.27963C59.6861 7.5621 58.6126 6.70333 56.8951 6.27394C55.1775 6.05925 53.46 6.27394 51.9572 7.77679V0.262573H45.9458V24.3081H51.5278C51.7425 23.8787 51.7425 23.4493 51.9572 23.2346C51.9572 23.2346 51.9572 23.2346 52.1719 23.2346C52.3866 23.4493 52.6012 23.664 52.8159 23.8787C54.3188 24.9521 56.0363 25.1668 57.7538 24.5227C59.2567 23.8787 59.9008 22.5905 59.9008 21.0877C59.9008 19.3701 60.1155 17.4379 60.1155 15.5057C60.1155 13.3588 60.1155 11.2119 59.9008 9.27963ZM53.8894 20.0142C53.8894 20.4436 53.46 20.873 53.0306 20.873C52.6012 20.873 52.1719 20.4436 52.1719 20.0142V10.7825C52.1719 10.3531 52.6012 9.9237 53.0306 9.9237C53.46 9.9237 53.8894 10.3531 53.8894 10.7825V20.0142Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/christian-titus-a222b543/" target="_blank" title="LinkedIn">
+                        <svg width="28" height="28" viewBox="0 0 45 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_linkedin)">
+                                <path d="M40.8992 3.14941H3.13536C1.40497 3.14941 -0.000976562 4.57412 -0.000976562 6.32306V43.9941C-0.000976562 45.7431 1.40497 47.1678 3.13536 47.1678H40.8992C42.6296 47.1678 44.0453 45.7431 44.0453 43.9941V6.32306C44.0453 4.57412 42.6296 3.14941 40.8992 3.14941ZM13.3112 40.8794H6.78294V19.8725H13.3211V40.8794H13.3112ZM10.0471 17.0034C7.95292 17.0034 6.26186 15.3036 6.26186 13.2206C6.26186 11.1376 7.95292 9.43775 10.0471 9.43775C12.1314 9.43775 13.8323 11.1376 13.8323 13.2206C13.8323 15.3134 12.1413 17.0034 10.0471 17.0034ZM37.7825 40.8794H31.2542V30.6609C31.2542 28.2242 31.205 25.0898 27.8622 25.0898C24.4605 25.0898 23.9394 27.7427 23.9394 30.484V40.8794H17.4111V19.8725H23.6739V22.7415H23.7624C24.6374 21.0908 26.7709 19.3517 29.9466 19.3517C36.5535 19.3517 37.7825 23.7044 37.7825 29.3639V40.8794Z" fill="currentColor"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_linkedin">
+                                    <rect width="44.0463" height="50.3067" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <a href="https://www.backstage.com/u/christiantitus/" target="_blank" title="Backstage">
+                        <img src="backstage-logo.png" alt="Backstage" style="height: 24px; width: auto;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="headshot-placeholder">
+                <img src="headshot.jpg" alt="Christian Titus">
+            </div>
+            <div class="mobile-tags">
+                <span class="tag">Male</span>
+                <span class="tag">Young Adult</span>
+                <span class="tag">Adult</span>
+                <span class="tag">18 - 36</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tone Words Section -->
+    <section class="samples-section">
+        <h2 class="section-title" style="margin-bottom: 2rem;">Tone words to describe me.</h2>
+
+        <div class="tone-words">
+            <div class="tone-row">
+                <span class="tone-word">Approachable</span>
+                <span class="tone-word">Trustworthy</span>
+                <span class="tone-word">Conversational</span>
+                <span class="tone-word">Professional</span>
+            </div>
+            <div class="tone-row">
+                <span class="tone-word">Sprightly</span>
+                <span class="tone-word">Relaxed</span>
+                <span class="tone-word">Assured</span>
+                <span class="tone-word">Upbeat</span>
+                <span class="tone-word">Confident</span>
+            </div>
+            <div class="tone-row">
+                <span class="tone-word">Enthusiastic</span>
+                <span class="tone-word">Persuasive</span>
+                <span class="tone-word">Emotional</span>
+                <span class="tone-word">Hyped</span>
+                <span class="tone-word">Positive</span>
+                <span class="tone-word">Inspiring</span>
+            </div>
+            <div class="tone-row">
+                <span class="tone-word">Youthful</span>
+                <span class="tone-word">Curious</span>
+                <span class="tone-word">Knowledgeable</span>
+                <span class="tone-word">Friendly</span>
+                <span class="tone-word">Humorous</span>
+            </div>
+            <div class="tone-row">
+                <span class="tone-word">Energetic</span>
+                <span class="tone-word">Dramatic</span>
+                <span class="tone-word">Calm</span>
+                <span class="tone-word">Warm</span>
+                <span class="tone-word">Encouraging</span>
+            </div>
+        </div>
+        <div class="section-divider"></div>
+    </section>
+
+    <!-- Voice Samples Section -->
+    <section id="samples">
+        <h2 class="section-title">Listen to my voice samples.</h2>
+        <p class="section-subtitle">Find the perfect tone for your next project.</p>
+
+        <div class="sample-tabs">
+            <button class="sample-tab active" data-tab="commercial">Commercial</button>
+            <button class="sample-tab" data-tab="narrative">Narrative</button>
+            <button class="sample-tab" data-tab="character">Character</button>
+            <button class="sample-tab" data-tab="elearning">E-Learning</button>
+        </div>
+
+        <div style="max-width: 700px; margin: 0 auto;">
+            <!-- Commercial Tab -->
+            <div class="sample-content active" data-content="commercial">
+                <div class="audio-player" data-audio="sample-commercial-2026.mp3">
+                    <span class="audio-title">Commercial Reel 2026</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #8EDCC3;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+                <div class="audio-player" data-audio="sample-commercial-tech.mp3">
+                    <span class="audio-title">Tech Demo</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #C7C0E6;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+                <div class="audio-player" data-audio="sample-commercial-food.mp3">
+                    <span class="audio-title">Food Demo</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #FAAE78;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+                <div class="audio-player" data-audio="sample-commercial-guy-next-door.mp3">
+                    <span class="audio-title">Streaming - Guy Next Door</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #8EDCC3;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+                <div class="audio-player" data-audio="sample-commercial-quirky.mp3">
+                    <span class="audio-title">Streaming - Quirky</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #C7C0E6;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+            </div>
+
+            <!-- Narrative Tab -->
+            <div class="sample-content" data-content="narrative">
+                <div class="audio-player" data-audio="sample-narration-documentary.mp3">
+                    <span class="audio-title">Documentary / Informational</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #8EDCC3;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+                <div class="audio-player" data-audio="sample-narration-hosting.mp3">
+                    <span class="audio-title">Hosting</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #C7C0E6;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+            </div>
+
+            <!-- Character Tab -->
+            <div class="sample-content" data-content="character">
+                <div class="audio-player" data-audio="sample-character-placeholder.mp3">
+                    <span class="audio-title">Character Reel</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #FAAE78;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+            </div>
+
+            <!-- E-Learning Tab -->
+            <div class="sample-content" data-content="elearning">
+                <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
+                    <span class="audio-title">E-Learning Reel</span>
+                    <div class="audio-icon">
+                        <svg width="47" height="42" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                            <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                        </svg>
+                    </div>
+                    <div class="audio-progress-container">
+                        <span class="audio-time current">0:00</span>
+                        <div class="audio-progress" style="background: #8EDCC3;">
+                            <div class="audio-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="audio-time duration">0:00</span>
+                    </div>
+                    <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="#contact" class="btn-secondary">Request Custom Demo</a>
+        </div>
+        <div class="section-divider"></div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2 class="section-title">What they say about me.</h2>
+        <p class="section-subtitle">Only the nice things.</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>I worked with CTVO on commercial ad copy, and after one recording pass, Christian's instincts and feedback helped spin my original slate into a brilliant tight-time piece.</p>
+                <div class="testimonial-author">Pat Marran</div>
+                <div class="testimonial-company">Bar Rover</div>
+            </div>
+            <div class="testimonial-card">
+                <p>Christian was great to work with and a total pro!</p>
+                <div class="testimonial-author">Chris Kind</div>
+                <div class="testimonial-company">Park Walk Productions</div>
+            </div>
+            <div class="testimonial-card">
+                <p>Christian is both captivating and professional in his line of work. He's sure to leave a lasting impression on anyone who has the pleasure of hearing him.</p>
+                <div class="testimonial-author">Chase Turnbow</div>
+                <div class="testimonial-company">Chase Me Films</div>
+            </div>
+            <div class="testimonial-card">
+                <p>As a producer and engineer, it's always a pleasure to work with Christian. He's very professional, has an incredible range of talents, and is always open to feedback and self-improvement.</p>
+                <div class="testimonial-author">Alex Yen</div>
+                <div class="testimonial-company">SpokenLayer</div>
+            </div>
+            <div class="testimonial-card">
+                <p>Christian took direction very well and provided a fast turnaround. It was a pleasure working with him to get the corporate video script read that I needed.</p>
+                <div class="testimonial-author">Giancarlo Castro</div>
+                <div class="testimonial-company">SpokenLayer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section>
+        <h2 class="section-title">Click a logo to hear the spot.</h2>
+        <p class="section-subtitle">One hundred brands and counting.</p>
+
+        <div class="brands-grid">
+            <!-- Row 1 -->
+            <div class="brand-row">
+                <img src="logo-walmart.svg" alt="Walmart" data-brand="Walmart" data-audio="audio-walmart.mp3">
+                <img src="logo-fanduel.svg" alt="FanDuel" data-brand="FanDuel" data-audio="audio-fanduel.mp3">
+                <img src="logo-homedepot.svg" alt="Home Depot" data-brand="Home Depot" data-audio="audio-homedepot.mp3">
+                <img src="logo-venmo.svg" alt="Venmo" data-brand="Venmo" data-audio="audio-venmo.mp3">
+                <img src="logo-volkswagen.svg" alt="Volkswagen" data-brand="Volkswagen" data-audio="audio-volkswagen.mp3">
+            </div>
+            <!-- Row 2 -->
+            <div class="brand-row">
+                <img src="logo-livenation.svg" alt="Live Nation" data-brand="Live Nation" data-audio="audio-livenation.mp3">
+                <img src="logo-mcdonalds.svg" alt="McDonald's" data-brand="McDonald's" data-audio="audio-mcdonalds.mp3">
+                <img src="logo-abc.svg" alt="ABC" data-brand="ABC" data-audio="audio-abc.mp3">
+                <img src="logo-microsoft.svg" alt="Microsoft" data-brand="Microsoft" data-audio="audio-microsoft.mp3">
+                <img src="logo-ford.svg" alt="Ford" data-brand="Ford" data-audio="audio-ford.mp3">
+            </div>
+            <!-- Row 3 -->
+            <div class="brand-row">
+                <img src="logo-sonic.svg" alt="Sonic" data-brand="Sonic" data-audio="audio-sonic.mp3">
+                <img src="logo-amazon.svg" alt="Amazon" data-brand="Amazon" data-audio="audio-amazon.mp3">
+                <img src="logo-showtime.svg" alt="Showtime" data-brand="Showtime" data-audio="audio-showtime.mp3">
+                <img src="logo-progressive.svg" alt="Progressive" data-brand="Progressive" data-audio="audio-progressive.mp3">
+                <img src="logo-peacock.svg" alt="Peacock" data-brand="Peacock" data-audio="audio-peacock.mp3">
+            </div>
+            <!-- Row 4 -->
+            <div class="brand-row">
+                <img src="logo-paramount.svg" alt="Paramount+" data-brand="Paramount+" data-audio="audio-paramount.mp3">
+                <img src="logo-naturevalley.svg" alt="Nature Valley" data-brand="Nature Valley" data-audio="audio-naturevalley.mp3">
+                <img src="logo-tdbank.svg" alt="TD Bank" data-brand="TD Bank" data-audio="audio-tdbank.mp3">
+                <img src="logo-amex.svg" alt="American Express" data-brand="American Express" data-audio="audio-amex.mp3">
+                <img src="logo-indeed.svg" alt="Indeed" data-brand="Indeed" data-audio="audio-indeed.mp3">
+            </div>
+        </div>
+
+        <!-- Shared Brand Player -->
+        <div class="brand-player" id="brandPlayer">
+            <div class="brand-player-content">
+                <span class="brand-player-title" id="brandPlayerTitle">Select a brand to play</span>
+                <div class="audio-icon" id="brandPlayBtn">
+                    <svg width="29" height="26" viewBox="0 0 47 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/>
+                        <rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/>
+                        <rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/>
+                        <rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/>
+                        <rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/>
+                        <rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/>
+                    </svg>
+                </div>
+                <div class="audio-progress-container">
+                    <span class="audio-time" id="brandCurrentTime">0:00</span>
+                    <div class="audio-progress" id="brandProgress" style="background: #C7C0E6;">
+                        <div class="audio-progress-fill" id="brandProgressFill" style="width: 0%;"></div>
+                    </div>
+                    <span class="audio-time" id="brandDuration">0:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider"></div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title" style="margin-bottom: 2rem;">Questions people usually ask me.</h2>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you authorize the use of your voice for AI training?
+                    <svg class="faq-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="faq-answer">
+                    No, I do not authorize the use of my voice for AI training, voice synthesis, or any machine learning purposes without explicit written consent and appropriate compensation.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you offer voice coaching?
+                    <svg class="faq-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="faq-answer">
+                    Yes! I offer one-on-one voice coaching sessions for aspiring voice actors. We can work on technique, delivery, home studio setup, and building your demo reel.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can you help me with my home studio?
+                    <svg class="faq-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. I can provide guidance on equipment selection, acoustic treatment, and optimizing your recording space for professional-quality audio.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can you help me produce a commercial demo?
+                    <svg class="faq-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="faq-answer">
+                    Yes, I offer demo production services. We'll select copy, direct your performance, and produce a polished demo that showcases your unique voice and range.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you have editing rates?
+                    <svg class="faq-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="faq-answer">
+                    Yes, I offer audio editing services at competitive rates. Contact me for a quote based on your project's scope and requirements.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can you direct?
+                    <svg class="faq-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="faq-answer">
+                    Yes! With over 20 years of acting experience, I can provide professional direction for your voiceover projects to help you get the best possible performance.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section>
+        <h2 class="section-title" style="margin-bottom: 2rem;">Tools of the trade.</h2>
+
+        <div class="tools-grid">
+            <div class="tool-item">
+                <div class="tool-icon"><img src="audio-interface.svg" alt="Audio Interface"></div>
+                <div class="tool-name">Audio Interface</div>
+                <div class="tool-detail">Black Lion 2x2</div>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><img src="microphone.svg" alt="Microphone"></div>
+                <div class="tool-name">Microphone</div>
+                <div class="tool-detail">AT 4040 Cardioid Condenser</div>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon"><img src="headphones.svg" alt="DAW"></div>
+                <div class="tool-name">DAW</div>
+                <div class="tool-detail">Pro Tools, Logic</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <svg class="speech-bubble-accent" viewBox="0 0 64 64" fill="none">
+            <path d="M32 8C18.7 8 8 17.2 8 28.5C8 35.1 11.8 40.9 17.5 44.5L14 56L28.5 48.5C29.6 48.7 30.8 48.8 32 48.8C45.3 48.8 56 39.6 56 28.3C56 17.2 45.3 8 32 8Z" fill="#C7C0E6" opacity="0.6"/>
+            <circle cx="24" cy="28" r="3" fill="#8EDCC3"/>
+            <circle cx="32" cy="28" r="3" fill="#FAAE78"/>
+            <circle cx="40" cy="28" r="3" fill="#8EDCC3"/>
+        </svg>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Let's work together.</h2>
+                <p>Have a project in mind? I'd love to hear about it. Drop me a line and let's create something great.</p>
+                <div class="contact-links">
+                    <a href="https://www.imdb.com/name/nm8034229/" target="_blank" title="IMDb">
+                        <svg width="49" height="20" viewBox="0 0 61 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.7252 24.3081H8.35791V0.262573H16.5162L18.019 10.3531H18.2337L19.3072 0.262573H27.4655V24.3081H22.0982V9.9237H21.8835L19.9513 24.3081H15.8721L13.7252 9.9237V24.3081Z" fill="currentColor"/>
+                            <path d="M29.6162 0.0536736C30.475 0.0536736 36.4863 -0.161019 39.7067 0.268364C42.283 0.483056 43.5712 2.62997 43.7859 5.20627C44.0006 9.92949 44.0006 14.6527 44.0006 19.3759C44.0006 19.8053 44.0006 20.4494 43.7859 21.0935C43.3565 23.0257 42.283 24.0991 39.7067 24.3138C36.4863 24.5285 33.266 24.5285 30.2603 24.5285C30.2603 24.5285 30.0456 24.5285 29.8309 24.5285V0.0536736H29.6162ZM36.057 4.5622V20.02C37.1304 20.02 37.7745 19.5906 37.7745 18.5172C37.7745 14.438 37.7745 10.1442 37.7745 5.85035C37.7745 4.77689 37.3451 4.34751 36.057 4.5622Z" fill="currentColor"/>
+                            <path d="M0 24.3081V0.262573H6.22606V24.3081H0Z" fill="currentColor"/>
+                            <path d="M59.9008 9.27963C59.6861 7.5621 58.6126 6.70333 56.8951 6.27394C55.1775 6.05925 53.46 6.27394 51.9572 7.77679V0.262573H45.9458V24.3081H51.5278C51.7425 23.8787 51.7425 23.4493 51.9572 23.2346C51.9572 23.2346 51.9572 23.2346 52.1719 23.2346C52.3866 23.4493 52.6012 23.664 52.8159 23.8787C54.3188 24.9521 56.0363 25.1668 57.7538 24.5227C59.2567 23.8787 59.9008 22.5905 59.9008 21.0877C59.9008 19.3701 60.1155 17.4379 60.1155 15.5057C60.1155 13.3588 60.1155 11.2119 59.9008 9.27963ZM53.8894 20.0142C53.8894 20.4436 53.46 20.873 53.0306 20.873C52.6012 20.873 52.1719 20.4436 52.1719 20.0142V10.7825C52.1719 10.3531 52.6012 9.9237 53.0306 9.9237C53.46 9.9237 53.8894 10.3531 53.8894 10.7825V20.0142Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/christian-titus-a222b543/" target="_blank" title="LinkedIn">
+                        <svg width="28" height="28" viewBox="0 0 45 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_linkedin_contact)">
+                                <path d="M40.8992 3.14941H3.13536C1.40497 3.14941 -0.000976562 4.57412 -0.000976562 6.32306V43.9941C-0.000976562 45.7431 1.40497 47.1678 3.13536 47.1678H40.8992C42.6296 47.1678 44.0453 45.7431 44.0453 43.9941V6.32306C44.0453 4.57412 42.6296 3.14941 40.8992 3.14941ZM13.3112 40.8794H6.78294V19.8725H13.3211V40.8794H13.3112ZM10.0471 17.0034C7.95292 17.0034 6.26186 15.3036 6.26186 13.2206C6.26186 11.1376 7.95292 9.43775 10.0471 9.43775C12.1314 9.43775 13.8323 11.1376 13.8323 13.2206C13.8323 15.3134 12.1413 17.0034 10.0471 17.0034ZM37.7825 40.8794H31.2542V30.6609C31.2542 28.2242 31.205 25.0898 27.8622 25.0898C24.4605 25.0898 23.9394 27.7427 23.9394 30.484V40.8794H17.4111V19.8725H23.6739V22.7415H23.7624C24.6374 21.0908 26.7709 19.3517 29.9466 19.3517C36.5535 19.3517 37.7825 23.7044 37.7825 29.3639V40.8794Z" fill="currentColor"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_linkedin_contact">
+                                    <rect width="44.0463" height="50.3067" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <a href="https://www.backstage.com/u/christiantitus/" target="_blank" title="Backstage">
+                        <img src="backstage-logo.png" alt="Backstage" style="height: 24px; width: auto;">
+                    </a>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="john@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Project Details</label>
+                    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">SUBMIT</span>
+                    <span class="btn-text-thank">THANK YOU</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <span>© 2025 Christian Titus Voice Overs</span>
+                <span class="footer-divider"></span>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-sound-bars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Nav underline animation
+        const navLinks = document.querySelectorAll('nav a');
+        const navUnderline = document.querySelector('.nav-underline');
+        
+        function positionUnderline(el) {
+            if (!el || !navUnderline) return;
+            navUnderline.style.left = el.offsetLeft + 'px';
+            navUnderline.style.width = el.offsetWidth + 'px';
+        }
+        
+        // Position underline on active link initially
+        const activeLink = document.querySelector('nav a.active');
+        if (activeLink && navUnderline) {
+            positionUnderline(activeLink);
+        }
+        
+        // Move underline on hover
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                positionUnderline(link);
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                const active = document.querySelector('nav a.active');
+                if (active) positionUnderline(active);
+            });
+        });
+        
+        // Reposition on window resize
+        window.addEventListener('resize', () => {
+            const active = document.querySelector('nav a.active');
+            if (active) positionUnderline(active);
+        });
+
+        // Submit button click effect
+        // Form submit handler with Google Sheets integration
+        document.querySelector('.contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-submit');
+            const form = this;
+            
+            if (btn.classList.contains('submitted')) return;
+            
+            // Get form data
+            const formData = {
+                name: form.querySelector('input[name="name"]').value,
+                email: form.querySelector('input[name="email"]').value,
+                message: form.querySelector('textarea[name="message"]').value
+            };
+            
+            // Show submitting state
+            btn.classList.add('submitted');
+            
+            try {
+                // Send to Google Sheets
+                await fetch('https://script.google.com/a/macros/alexjahani.com/s/AKfycbypdJex35CydJgcJ6PeZ7YGFkaYg5WsnTerGAtBZQ23JegMqOONXd76-tHGtmUItPwlwQ/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                // Success - keep thank you state for 3 seconds then reset
+                setTimeout(() => {
+                    btn.classList.remove('submitted');
+                    form.reset();
+                }, 3000);
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Still show success to user (no-cors doesn't return response)
+                setTimeout(() => {
+                    btn.classList.remove('submitted');
+                    form.reset();
+                }, 3000);
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                return false;
+            });
+        });
+
+        // Sample tabs switching
+        document.querySelectorAll('.sample-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.getAttribute('data-tab');
+                
+                // Remove active from all tabs
+                document.querySelectorAll('.sample-tab').forEach(t => t.classList.remove('active'));
+                // Add active to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all content
+                document.querySelectorAll('.sample-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show selected content
+                document.querySelector(`.sample-content[data-content="${tabName}"]`).classList.add('active');
+                
+                // Stop any playing audio
+                if (window.currentSampleAudio) {
+                    window.currentSampleAudio.pause();
+                    window.currentSampleAudio.currentTime = 0;
+                    window.currentSampleAudio = null;
+                }
+            });
+        });
+
+        // FAQ accordion toggle - only one open at a time
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isOpen = item.classList.contains('open');
+                
+                // Close all other FAQ items (not the current one yet)
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    if (faqItem !== item) {
+                        faqItem.classList.remove('open');
+                    }
+                });
+                
+                // Toggle the clicked item
+                item.classList.toggle('open');
+            });
+        });
+
+        // Audio player with real audio
+        window.currentSampleAudio = null;
+        window.currentSamplePlayer = null;
+
+        document.querySelectorAll('.audio-player:not(.disabled)').forEach((player) => {
+            const playBtn = player.querySelector('.audio-icon');
+            const progressFill = player.querySelector('.audio-progress-fill');
+            const progressBar = player.querySelector('.audio-progress');
+            const currentTimeEl = player.querySelector('.audio-time.current');
+            const durationEl = player.querySelector('.audio-time.duration');
+            const svg = playBtn.querySelector('svg');
+            const bars = svg.querySelectorAll('rect');
+            const audioSrc = player.getAttribute('data-audio');
+            
+            let audio = null;
+            let isPlaying = false;
+            
+            // Play state (arrow shape)
+            const playState = [
+                { x: 0, y: 0, height: 41.4496 },
+                { x: 8.0459, y: 3.41382, height: 34.6226 },
+                { x: 16.0918, y: 7.0708, height: 27.5518 },
+                { x: 24.1377, y: 10.7281, height: 20.2372 },
+                { x: 32.1836, y: 14.1419, height: 13.1663 },
+                { x: 40.2305, y: 17.5554, height: 6.33935 }
+            ];
+            
+            // Pause state
+            const pauseState = [
+                { x: 8, y: 5, height: 32 },
+                { x: 8, y: 5, height: 0 },
+                { x: 8, y: 5, height: 0 },
+                { x: 30, y: 5, height: 0 },
+                { x: 30, y: 5, height: 0 },
+                { x: 30, y: 5, height: 32 }
+            ];
+            
+            function setButtonState(state) {
+                bars.forEach((bar, i) => {
+                    if (state[i]) {
+                        bar.setAttribute('x', state[i].x);
+                        bar.setAttribute('y', state[i].y);
+                        bar.setAttribute('height', state[i].height);
+                    }
+                });
+            }
+            
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function stopOtherPlayers() {
+                if (window.currentSampleAudio && window.currentSampleAudio !== audio) {
+                    window.currentSampleAudio.pause();
+                    window.currentSampleAudio.currentTime = 0;
+                    if (window.currentSamplePlayer) {
+                        const otherBars = window.currentSamplePlayer.querySelectorAll('rect');
+                        otherBars.forEach((bar, i) => {
+                            if (playState[i]) {
+                                bar.setAttribute('x', playState[i].x);
+                                bar.setAttribute('y', playState[i].y);
+                                bar.setAttribute('height', playState[i].height);
+                            }
+                        });
+                        window.currentSamplePlayer.querySelector('.audio-progress-fill').style.width = '0%';
+                        window.currentSamplePlayer.querySelector('.audio-time.current').textContent = '0:00';
+                    }
+                }
+            }
+
+            // Initialize audio
+            if (audioSrc) {
+                audio = new Audio(audioSrc);
+                
+                audio.addEventListener('loadedmetadata', () => {
+                    durationEl.textContent = formatTime(audio.duration);
+                });
+
+                audio.addEventListener('timeupdate', () => {
+                    const percentage = (audio.currentTime / audio.duration) * 100;
+                    progressFill.style.width = percentage + '%';
+                    currentTimeEl.textContent = formatTime(audio.currentTime);
+                });
+
+                audio.addEventListener('ended', () => {
+                    isPlaying = false;
+                    setButtonState(playState);
+                    progressFill.style.width = '0%';
+                    currentTimeEl.textContent = '0:00';
+                    audio.currentTime = 0;
+                    window.currentSampleAudio = null;
+                    window.currentSamplePlayer = null;
+                });
+
+                // Progress bar click to seek
+                progressBar.addEventListener('click', (e) => {
+                    const rect = progressBar.getBoundingClientRect();
+                    const percentage = (e.clientX - rect.left) / rect.width;
+                    audio.currentTime = percentage * audio.duration;
+                });
+            }
+            
+            playBtn.addEventListener('click', () => {
+                if (!audio) return;
+
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                    setButtonState(playState);
+                } else {
+                    stopOtherPlayers();
+                    audio.play();
+                    isPlaying = true;
+                    setButtonState(pauseState);
+                    window.currentSampleAudio = audio;
+                    window.currentSamplePlayer = player;
+                }
+            });
+        });
+
+        // Brand player functionality
+        const brandPlayer = document.getElementById('brandPlayer');
+        const brandPlayerTitle = document.getElementById('brandPlayerTitle');
+        const brandPlayBtn = document.getElementById('brandPlayBtn');
+        const brandProgressFill = document.getElementById('brandProgressFill');
+        const brandProgress = document.getElementById('brandProgress');
+        const brandCurrentTime = document.getElementById('brandCurrentTime');
+        const brandDuration = document.getElementById('brandDuration');
+        const brandBars = brandPlayBtn.querySelectorAll('rect');
+        
+        let brandAudio = null;
+        let brandIsPlaying = false;
+        let activeBrandLogo = null;
+
+        const playState = [
+            { x: 0, y: 0, height: 41.4496 },
+            { x: 8.0459, y: 3.41382, height: 34.6226 },
+            { x: 16.0918, y: 7.0708, height: 27.5518 },
+            { x: 24.1377, y: 10.7281, height: 20.2372 },
+            { x: 32.1836, y: 14.1419, height: 13.1663 },
+            { x: 40.2305, y: 17.5554, height: 6.33935 }
+        ];
+
+        const pauseState = [
+            { x: 8, y: 5, height: 32 },
+            { x: 8, y: 5, height: 0 },
+            { x: 8, y: 5, height: 0 },
+            { x: 30, y: 5, height: 0 },
+            { x: 30, y: 5, height: 0 },
+            { x: 30, y: 5, height: 32 }
+        ];
+
+        function setBrandButtonState(state) {
+            brandBars.forEach((bar, i) => {
+                if (state[i]) {
+                    bar.setAttribute('x', state[i].x);
+                    bar.setAttribute('y', state[i].y);
+                    bar.setAttribute('height', state[i].height);
+                }
+            });
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function stopBrandPlayer() {
+            if (brandAudio) {
+                brandAudio.pause();
+                brandAudio.currentTime = 0;
+            }
+            brandIsPlaying = false;
+            setBrandButtonState(playState);
+            brandProgressFill.style.width = '0%';
+            brandCurrentTime.textContent = '0:00';
+            if (activeBrandLogo) {
+                activeBrandLogo.classList.remove('active');
+            }
+        }
+
+        // Brand logo click handler
+        document.querySelectorAll('.brands-grid img').forEach(logo => {
+            logo.addEventListener('click', () => {
+                const audioSrc = logo.getAttribute('data-audio');
+                
+                // If no audio file, do nothing
+                if (!audioSrc) {
+                    return;
+                }
+
+                // Stop current playback
+                stopBrandPlayer();
+
+                // Set new brand
+                const brandName = logo.getAttribute('data-brand');
+                brandPlayerTitle.textContent = brandName;
+                brandPlayer.classList.add('active');
+
+                // Mark logo as active
+                activeBrandLogo = logo;
+                logo.classList.add('active');
+
+                // Create new audio element
+                brandAudio = new Audio(audioSrc);
+                
+                // Set up audio event listeners
+                brandAudio.addEventListener('loadedmetadata', () => {
+                    brandDuration.textContent = formatTime(brandAudio.duration);
+                });
+
+                brandAudio.addEventListener('timeupdate', () => {
+                    const percentage = (brandAudio.currentTime / brandAudio.duration) * 100;
+                    brandProgressFill.style.width = percentage + '%';
+                    brandCurrentTime.textContent = formatTime(brandAudio.currentTime);
+                });
+
+                brandAudio.addEventListener('ended', () => {
+                    brandIsPlaying = false;
+                    setBrandButtonState(playState);
+                    brandProgressFill.style.width = '0%';
+                    brandCurrentTime.textContent = '0:00';
+                    brandAudio.currentTime = 0;
+                    if (activeBrandLogo) {
+                        activeBrandLogo.classList.remove('active');
+                    }
+                });
+
+                // Start playing
+                brandAudio.play();
+                brandIsPlaying = true;
+                setBrandButtonState(pauseState);
+            });
+        });
+
+        // Brand play button click handler
+        brandPlayBtn.addEventListener('click', () => {
+            if (!brandPlayer.classList.contains('active') || !brandAudio) return;
+
+            if (brandIsPlaying) {
+                brandAudio.pause();
+                brandIsPlaying = false;
+                setBrandButtonState(playState);
+                if (activeBrandLogo) {
+                    activeBrandLogo.classList.remove('active');
+                }
+            } else {
+                brandAudio.play();
+                brandIsPlaying = true;
+                setBrandButtonState(pauseState);
+                if (activeBrandLogo) {
+                    activeBrandLogo.classList.add('active');
+                }
+            }
+        });
+
+        // Progress bar click to seek
+        brandProgress.addEventListener('click', (e) => {
+            if (!brandAudio) return;
+            const rect = brandProgress.getBoundingClientRect();
+            const percentage = (e.clientX - rect.left) / rect.width;
+            brandAudio.currentTime = percentage * brandAudio.duration;
+        });
+
+        // ========== ELECTRIC EFFECTS ==========
+
+        // Electric Particles System
+        const canvas = document.getElementById('electric-particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            // Recalculate waveform positions on resize (only if waveforms exist)
+            if (window.waveformsReady && waveforms.length > 0) {
+                waveforms.forEach((wave, index) => {
+                    const isMobile = window.innerWidth <= 768;
+                    const startOffset = isMobile ? 0.05 : 0.05;
+                    const spacing = isMobile ? 0.10 : 0.11;
+                    wave.baseX = canvas.width * (startOffset + index * spacing);
+                });
+            }
+        });
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.3 + 0.1;
+                this.color = Math.random() > 0.5 ? '#00d4ff' : '#a855f7';
+                this.angle = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.angle += this.rotationSpeed;
+
+                // Slight attraction to mouse
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 200) {
+                    this.vx += dx * 0.00003;
+                    this.vy += dy * 0.00003;
+                }
+
+                // Boundary check
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.globalAlpha = this.opacity;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 0.5;
+                
+                // Draw small lightning/spark shape
+                ctx.beginPath();
+                ctx.moveTo(0, -this.size * 2);
+                ctx.lineTo(this.size * 0.5, -this.size * 0.3);
+                ctx.lineTo(-this.size * 0.3, 0);
+                ctx.lineTo(0, this.size * 2);
+                ctx.stroke();
+                
+                ctx.globalAlpha = 1;
+                ctx.restore();
+            }
+        }
+
+        // Create particles
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        // Large animated waveforms
+        const waveforms = [];
+        const numWaves = 9;
+        
+        // Brand color palette in HSL
+        const brandHues = [
+            { h: 160, s: 55, l: 70 },  // Mint
+            { h: 252, s: 45, l: 75 },  // Lavender
+            { h: 268, s: 50, l: 65 },  // Violet
+            { h: 180, s: 50, l: 65 },  // Teal/Blue-green
+            { h: 28, s: 85, l: 73 },   // Peach
+        ];
+
+        class Waveform {
+            constructor(index) {
+                this.index = index;
+                // Responsive positioning for 9 waves
+                const isMobile = window.innerWidth <= 768;
+                const startOffset = isMobile ? 0.05 : 0.05;
+                const spacing = isMobile ? 0.10 : 0.11;
+                this.baseX = canvas.width * (startOffset + index * spacing);
+                this.frequency = 0.008 + index * 0.001;
+                this.speed = 0.0004 + index * 0.00008;
+                this.phase = index * Math.PI * 0.25;
+                this.baseOpacity = 0.15 + (index % 3) * 0.03;
+                this.lineWidth = 1.5;
+                this.baseColor = brandHues[index % brandHues.length];
+            }
+
+            draw(time) {
+                ctx.beginPath();
+                
+                const hueShift = Math.sin(time * 0.0003 + this.index) * 10;
+                const satShift = Math.sin(time * 0.0005 + this.index) * 8;
+                const lightShift = Math.sin(time * 0.0004 + this.index * 0.5) * 6;
+                
+                const h = this.baseColor.h + hueShift;
+                const s = this.baseColor.s + satShift;
+                const l = this.baseColor.l + lightShift;
+                
+                ctx.strokeStyle = `hsl(${h}, ${s}%, ${l}%)`;
+                ctx.lineWidth = this.lineWidth;
+                
+                const opacityPulse = Math.sin(time * 0.0004 + this.index * 0.7) * 0.04;
+                ctx.globalAlpha = this.baseOpacity + opacityPulse;
+
+                const mouseInfluence = (mouseX / canvas.width - 0.5) * 25;
+
+                for (let y = 0; y <= canvas.height; y += 2) {
+                    const distFromMouse = Math.abs(y - mouseY) / canvas.height;
+                    const mousePull = (1 - distFromMouse) * mouseInfluence * 0.3;
+                    
+                    // Sound wave style - sharper peaks, more defined oscillation
+                    const primaryWave = Math.sin(y * this.frequency + time * this.speed + this.phase);
+                    const secondaryWave = Math.sin(y * this.frequency * 2.5 + time * this.speed * 1.8) * 0.3;
+                    const amplitude = 35 + Math.sin(y * 0.003 + time * 0.0002) * 20;
+                    
+                    const x = this.baseX + mousePull +
+                        (primaryWave + secondaryWave) * amplitude;
+                    
+                    if (y === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+
+                ctx.stroke();
+                
+                // Subtle glow
+                ctx.shadowColor = `hsl(${h}, ${s}%, ${l}%)`;
+                ctx.shadowBlur = 8;
+                ctx.globalAlpha = (this.baseOpacity + opacityPulse) * 0.2;
+                ctx.lineWidth = this.lineWidth * 2;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+                
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        // Create waveforms
+        for (let i = 0; i < numWaves; i++) {
+            waveforms.push(new Waveform(i));
+        }
+        window.waveformsReady = true;
+
+        let animationTime = 0;
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            animationTime += 16; // Approximate frame time
+            
+            // Draw waveforms
+            waveforms.forEach(wave => {
+                wave.draw(animationTime);
+            });
+            
+            // Draw particles
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Track mouse position for particle attraction
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+    </script>
+</body>
+</html>

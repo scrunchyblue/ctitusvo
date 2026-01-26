@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Christian Titus Voice Overs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: #4a3f54;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        ul {
+            margin-bottom: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        a {
+            color: #4a3f54;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: #4a3f54;
+        }
+
+        /* Electric Effects */
+        :root {
+            --electric-blue: #00d4ff;
+            --electric-purple: #a855f7;
+        }
+
+        #electric-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Electric particles background -->
+    <canvas id="electric-particles"></canvas>
+
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: January 2025</p>
+
+        <p>Christian Titus Voice Overs ("we," "our," or "us") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
+
+        <h2>Information We Collect</h2>
+        <p>We may collect the following types of information:</p>
+        <ul>
+            <li><strong>Personal Information:</strong> When you contact us through our website form, we collect your name, email address, and any project details you provide.</li>
+            <li><strong>Usage Data:</strong> We may automatically collect information about how you access and use our website, including your IP address, browser type, pages visited, and time spent on the site.</li>
+        </ul>
+
+        <h2>How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>Respond to your inquiries and communicate with you about potential projects</li>
+            <li>Provide and improve our voiceover services</li>
+            <li>Send you relevant information about our services (only if you've opted in)</li>
+            <li>Analyze website usage to improve user experience</li>
+        </ul>
+
+        <h2>Information Sharing</h2>
+        <p>We do not sell, trade, or otherwise transfer your personal information to third parties. We may share your information only in the following circumstances:</p>
+        <ul>
+            <li>With service providers who assist in operating our website or business (subject to confidentiality agreements)</li>
+            <li>When required by law or to protect our rights</li>
+        </ul>
+
+        <h2>Data Security</h2>
+        <p>We implement reasonable security measures to protect your personal information. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+        <h2>Cookies</h2>
+        <p>Our website may use cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings, though this may affect some website functionality.</p>
+
+        <h2>Third-Party Links</h2>
+        <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices of these external sites and encourage you to review their privacy policies.</p>
+
+        <h2>Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Request access to the personal information we hold about you</li>
+            <li>Request correction or deletion of your personal information</li>
+            <li>Opt out of marketing communications</li>
+        </ul>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy or our data practices, please contact us through the form on our website.</p>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        // Electric Particles and Waveforms
+        const canvas = document.getElementById('electric-particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.3 + 0.1;
+                this.color = Math.random() > 0.5 ? '#00d4ff' : '#a855f7';
+                this.angle = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.angle += this.rotationSpeed;
+
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 200) {
+                    this.vx += dx * 0.00003;
+                    this.vy += dy * 0.00003;
+                }
+
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.globalAlpha = this.opacity;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 0.5;
+                
+                ctx.beginPath();
+                ctx.moveTo(0, -this.size * 2);
+                ctx.lineTo(this.size * 0.5, -this.size * 0.3);
+                ctx.lineTo(-this.size * 0.3, 0);
+                ctx.lineTo(0, this.size * 2);
+                ctx.stroke();
+                
+                ctx.globalAlpha = 1;
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        const waveforms = [];
+        const numWaves = 4;
+        
+        const brandHues = [
+            { h: 160, s: 55, l: 70 },
+            { h: 252, s: 45, l: 75 },
+            { h: 268, s: 50, l: 65 },
+            { h: 180, s: 50, l: 65 },
+            { h: 28, s: 85, l: 73 },
+        ];
+
+        class Waveform {
+            constructor(index) {
+                this.index = index;
+                this.baseX = canvas.width * (0.12 + index * 0.25);
+                this.frequency = 0.008 + index * 0.002;
+                this.speed = 0.0004 + index * 0.0001;
+                this.phase = index * Math.PI * 0.3;
+                this.baseOpacity = 0.05 + (index % 3) * 0.01;
+                this.lineWidth = 1.5;
+                this.baseColor = brandHues[index % brandHues.length];
+            }
+
+            draw(time) {
+                ctx.beginPath();
+                
+                const hueShift = Math.sin(time * 0.0003 + this.index) * 10;
+                const satShift = Math.sin(time * 0.0005 + this.index) * 8;
+                const lightShift = Math.sin(time * 0.0004 + this.index * 0.5) * 6;
+                
+                const h = this.baseColor.h + hueShift;
+                const s = this.baseColor.s + satShift;
+                const l = this.baseColor.l + lightShift;
+                
+                ctx.strokeStyle = `hsl(${h}, ${s}%, ${l}%)`;
+                ctx.lineWidth = this.lineWidth;
+                
+                const opacityPulse = Math.sin(time * 0.0004 + this.index * 0.7) * 0.04;
+                ctx.globalAlpha = this.baseOpacity + opacityPulse;
+
+                const mouseInfluence = (mouseX / canvas.width - 0.5) * 25;
+
+                for (let y = 0; y <= canvas.height; y += 2) {
+                    const distFromMouse = Math.abs(y - mouseY) / canvas.height;
+                    const mousePull = (1 - distFromMouse) * mouseInfluence * 0.3;
+                    
+                    const primaryWave = Math.sin(y * this.frequency + time * this.speed + this.phase);
+                    const secondaryWave = Math.sin(y * this.frequency * 2.5 + time * this.speed * 1.8) * 0.3;
+                    const amplitude = 35 + Math.sin(y * 0.003 + time * 0.0002) * 20;
+                    
+                    const x = this.baseX + mousePull +
+                        (primaryWave + secondaryWave) * amplitude;
+                    
+                    if (y === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+
+                ctx.stroke();
+                
+                ctx.shadowColor = `hsl(${h}, ${s}%, ${l}%)`;
+                ctx.shadowBlur = 8;
+                ctx.globalAlpha = (this.baseOpacity + opacityPulse) * 0.1;
+                ctx.lineWidth = this.lineWidth * 2;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+                
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        for (let i = 0; i < numWaves; i++) {
+            waveforms.push(new Waveform(i));
+        }
+
+        let animationTime = 0;
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            animationTime += 16;
+            
+            waveforms.forEach(wave => {
+                wave.draw(animationTime);
+            });
+            
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+    </script>
+</body>
+</html>
