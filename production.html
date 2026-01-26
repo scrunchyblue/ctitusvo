@@ -1207,18 +1207,18 @@
                     </a>
                 </div>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" placeholder="John Doe">
+                    <input type="text" name="name" placeholder="John Doe" required>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" placeholder="john@company.com">
+                    <input type="email" name="email" placeholder="john@company.com" required>
                 </div>
                 <div class="form-group">
                     <label>Project Details</label>
-                    <textarea placeholder="Tell me about your project..."></textarea>
+                    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">
                     <span class="btn-text">SUBMIT</span>
@@ -1605,14 +1605,36 @@
         });
 
         // Form submit handler
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        document.querySelector('.contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = this.querySelector('.btn-submit');
-            if (!btn.classList.contains('submitted')) {
-                btn.classList.add('submitted');
+            const form = this;
+            
+            if (btn.classList.contains('submitted')) return;
+            
+            const formData = {
+                name: form.querySelector('input[name="name"]').value,
+                email: form.querySelector('input[name="email"]').value,
+                message: form.querySelector('textarea[name="message"]').value
+            };
+            
+            btn.classList.add('submitted');
+            
+            try {
+                await fetch('https://script.google.com/macros/s/AKfycbxtAFdk5LldViNBozCBbSIqix05WQu1SgktvLGqnbarxBKbLWBa8HPwp9E2OYqnEjaoaw/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
                 setTimeout(() => {
                     btn.classList.remove('submitted');
-                    this.reset();
+                    form.reset();
+                }, 3000);
+            } catch (error) {
+                setTimeout(() => {
+                    btn.classList.remove('submitted');
+                    form.reset();
                 }, 3000);
             }
         });
