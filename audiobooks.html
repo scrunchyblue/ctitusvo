@@ -2146,20 +2146,36 @@
             const prevBtn = section.querySelector('.carousel-prev');
             const nextBtn = section.querySelector('.carousel-next');
             let current = 0;
+            let observer = null;
 
             function isMobile() { return window.innerWidth <= 768; }
 
-            function setCard(next, direction) {
+            function updateHeight() {
+                const card = cards[current];
+                const h = card.getBoundingClientRect().height;
+                if (h > 10) track.style.minHeight = h + 'px';
+            }
+
+            function watchActiveCard() {
+                if (observer) observer.disconnect();
+                observer = new ResizeObserver(updateHeight);
+                observer.observe(cards[current]);
+                // Also watch images inside the card
+                cards[current].querySelectorAll('img').forEach(img => {
+                    if (!img.complete) img.addEventListener('load', updateHeight, { once: true });
+                });
+                updateHeight();
+            }
+
+            function setCard(next) {
                 if (isMobile()) return;
                 const prev = current;
                 if (next === prev) return;
                 current = next;
 
-                // Exit current
                 cards[prev].classList.add('carousel-exit');
                 cards[prev].classList.remove('carousel-active');
 
-                // Prepare incoming from right
                 cards[current].style.transform = 'translateX(60px)';
                 cards[current].style.opacity = '0';
                 cards[current].classList.remove('carousel-exit');
@@ -2169,26 +2185,16 @@
                         cards[current].classList.add('carousel-active');
                         cards[current].style.transform = '';
                         cards[current].style.opacity = '';
+                        setTimeout(watchActiveCard, 50);
                     });
                 });
 
-                setTimeout(() => {
-                    cards[prev].classList.remove('carousel-exit');
-                }, 300);
+                setTimeout(() => cards[prev].classList.remove('carousel-exit'), 300);
 
                 dots.forEach((d, i) => d.classList.toggle('active', i === current));
                 if (counter) counter.textContent = `${current + 1} / ${cards.length}`;
                 if (prevBtn) prevBtn.disabled = current === 0;
                 if (nextBtn) nextBtn.disabled = current === cards.length - 1;
-
-                // Update track min-height to match active card
-                const activeCard = cards[current];
-                setTimeout(() => { const h = activeCard.scrollHeight; if (h > 0) track.style.minHeight = h + 'px'; }, 50);
-            }
-
-            function updateHeight() {
-                const h = cards[current].scrollHeight;
-                if (h > 0) track.style.minHeight = h + 'px';
             }
 
             function initDesktop() {
@@ -2198,15 +2204,13 @@
                     c.style.opacity = '';
                     if (i === current) c.classList.add('carousel-active');
                 });
-                // Measure after short delay, then again after images/iframes settle
-                setTimeout(updateHeight, 50);
-                setTimeout(updateHeight, 300);
-                setTimeout(updateHeight, 800);
                 if (prevBtn) prevBtn.disabled = true;
                 if (nextBtn) nextBtn.disabled = cards.length <= 1;
+                setTimeout(watchActiveCard, 100);
             }
 
             function initMobileView() {
+                if (observer) observer.disconnect();
                 cards.forEach(c => {
                     c.classList.remove('carousel-active', 'carousel-exit');
                     c.style.transform = '';
@@ -2221,23 +2225,13 @@
             if (nextBtn) nextBtn.addEventListener('click', () => { if (current < cards.length - 1) setCard(current + 1); });
             dots.forEach((dot, i) => dot.addEventListener('click', () => setCard(i)));
 
-
             // Drag/swipe support
             let dragStartX = null;
             let isDragging = false;
 
-            track.addEventListener('mousedown', (e) => {
-                dragStartX = e.clientX;
-                isDragging = true;
-            });
-            track.addEventListener('touchstart', (e) => {
-                dragStartX = e.touches[0].clientX;
-                isDragging = true;
-            }, { passive: true });
-
-            track.addEventListener('mousemove', (e) => {
-                if (isDragging) e.preventDefault();
-            });
+            track.addEventListener('mousedown', (e) => { dragStartX = e.clientX; isDragging = true; });
+            track.addEventListener('touchstart', (e) => { dragStartX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+            track.addEventListener('mousemove', (e) => { if (isDragging) e.preventDefault(); });
 
             track.addEventListener('mouseup', (e) => {
                 if (!isDragging || dragStartX === null) return;
@@ -2246,8 +2240,7 @@
                     if (diff > 0 && current < cards.length - 1) setCard(current + 1);
                     else if (diff < 0 && current > 0) setCard(current - 1);
                 }
-                isDragging = false;
-                dragStartX = null;
+                isDragging = false; dragStartX = null;
             });
 
             track.addEventListener('touchend', (e) => {
@@ -2257,14 +2250,13 @@
                     if (diff > 0 && current < cards.length - 1) setCard(current + 1);
                     else if (diff < 0 && current > 0) setCard(current - 1);
                 }
-                isDragging = false;
-                dragStartX = null;
+                isDragging = false; dragStartX = null;
             });
 
             track.addEventListener('mouseleave', () => { isDragging = false; dragStartX = null; });
             window.addEventListener('resize', () => {
-                if (isMobile()) { initMobileView(); }
-                else { initDesktop(); }
+                if (isMobile()) initMobileView();
+                else initDesktop();
             });
         }
 
