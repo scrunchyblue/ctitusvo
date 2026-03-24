@@ -233,7 +233,7 @@
             grid-area: title;
             font-size: 1.5rem;
             font-weight: 600;
-            margin: 0 0 0.15rem 0;
+            margin: 0 0 0.15rem 0 !important;
             line-height: 1.2;
         }
 
@@ -242,7 +242,7 @@
             font-size: 0.85rem;
             color: #999;
             font-style: italic;
-            margin: 0 0 0.75rem 0;
+            margin: 0 0 0.75rem 0 !important;
         }
 
         .audiobook-tag {
@@ -925,7 +925,7 @@
                 opacity: 1;
                 transform: none;
             }
-            .carousel-nav { display: none; }
+            .carousel-nav { display: none !important; }
         }
 
         /* Nav controls */
@@ -1194,7 +1194,7 @@
             <h2 class="audiobook-title">Waste As A Critique</h2>
             <p class="audiobook-author">by Hervé Corvellec</p>
             <div class="audiobook-tags">
-                <span class="audiobook-tag">Audiobook</span>
+
                 <span class="audiobook-tag">Non-Fiction</span>
                 <span class="audiobook-tag">Science</span>
                 <span class="audiobook-tag">Environment</span>
@@ -1221,7 +1221,7 @@
             <h2 class="audiobook-title">The Intermittent Fasting Revolution</h2>
             <p class="audiobook-author">by Mark P. Mattson</p>
             <div class="audiobook-tags">
-                <span class="audiobook-tag">Audiobook</span>
+
                 <span class="audiobook-tag">Non-Fiction</span>
                 <span class="audiobook-tag">Health</span>
                 <span class="audiobook-tag">Fitness</span>
@@ -1249,7 +1249,7 @@
             <h2 class="audiobook-title">Tapping</h2>
             <p class="audiobook-author">by Donna Eden &amp; David Feinstein PhD</p>
             <div class="audiobook-tags">
-                <span class="audiobook-tag">Audiobook</span>
+
                 <span class="audiobook-tag">Non-Fiction</span>
                 <span class="audiobook-tag">Religion</span>
                 <span class="audiobook-tag">Spirituality</span>
@@ -1278,7 +1278,7 @@
             <h2 class="audiobook-title">The Generosity Crisis</h2>
             <p class="audiobook-author">by Brian Crimmins, Nathan Chappell &amp; Michael Ashley</p>
             <div class="audiobook-tags">
-                <span class="audiobook-tag">Audiobook</span>
+
                 <span class="audiobook-tag">Non-Fiction</span>
                 <span class="audiobook-tag">Social Sciences</span>
                 <span class="audiobook-tag">Philanthropy</span>
@@ -1305,7 +1305,7 @@
             <h2 class="audiobook-title">Black Forest</h2>
             <p class="audiobook-author">by J Scott Boyd</p>
             <div class="audiobook-tags">
-                <span class="audiobook-tag">Audiobook</span>
+
                 <span class="audiobook-tag">Fiction</span>
                 <span class="audiobook-tag">Teen</span>
                 <span class="audiobook-tag">Young Adult</span>
@@ -1332,7 +1332,7 @@
             <h2 class="audiobook-title">Guard Railing</h2>
             <p class="audiobook-author">by Michael Bush</p>
             <div class="audiobook-tags">
-                <span class="audiobook-tag">Audiobook</span>
+
                 <span class="audiobook-tag">Non-Fiction</span>
                 <span class="audiobook-tag">Business</span>
                 <span class="audiobook-tag">Money</span>
@@ -1373,16 +1373,36 @@
 
     <!-- Samples Section -->
     <section class="samples-section" id="samples">
-        <h2 class="section-title">Samples</h2>
+        <h2 class="section-title">Demos</h2>
 
-        <div class="sample-tabs" style="justify-content: center; flex-wrap: nowrap; margin-top: 0.75rem;">
-            <button class="sample-tab active" data-tab="fiction">Fiction</button>
-            <button class="sample-tab" data-tab="nonfiction">Non-Fiction</button>
-            <button class="sample-tab" data-tab="character">Character</button>
-            <a href="#contact" class="sample-tab" style="text-decoration: none;">Request Custom Demo</a>
+        <div style="max-width: 700px; margin: 2rem auto 0;">
+            <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
+                <span class="audio-title">Demo 1</span>
+                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            </div>
+            <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
+                <span class="audio-title">Demo 2</span>
+                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#C7C0E6;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            </div>
+            <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
+                <span class="audio-title">Demo 3</span>
+                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="btn-primary">Request Custom Demo</a>
+            </div>
         </div>
 
-        <div class="sample-content active" data-content="fiction">
+        <div style="height: 2px; background: linear-gradient(90deg, transparent, #8EDCC3, #C7C0E6, #FAAE78, transparent); margin-top: 3rem;"></div>
+
+    </section>
             <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
                 <span class="audio-title">Sample 1</span>
                 <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
@@ -1401,12 +1421,7 @@
                 <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
                 <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
             </div>
-        </div>
-        <div class="sample-content" data-content="nonfiction">
-            <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
-                <span class="audio-title">Sample 1</span>
-                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
-                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+        </div><span class="audio-time duration">0:00</span></div>
                 <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
             </div>
             <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
@@ -1421,12 +1436,7 @@
                 <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
                 <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
             </div>
-        </div>
-        <div class="sample-content" data-content="character">
-            <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
-                <span class="audio-title">Sample 1</span>
-                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
-                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+        </div><span class="audio-time duration">0:00</span></div>
                 <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
             </div>
             <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
