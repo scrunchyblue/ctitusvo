@@ -92,6 +92,70 @@
             position: relative;
             z-index: 1;
         }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-left a { color: rgba(255,255,255,0.5); text-decoration: none; }
+        .footer-left a:hover { color: white; }
+        .footer-divider {
+            width: 1px;
+            height: 12px;
+            background: rgba(255,255,255,0.2);
+        }
+        .footer-sitemap {
+            display: flex;
+            gap: 3rem;
+        }
+        .footer-sitemap-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .footer-sitemap a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-sitemap a:hover { color: white; }
+        .footer-sound-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 24px;
+        }
+        .footer-sound-bars span {
+            display: block;
+            width: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            animation: soundBar 1.2s ease-in-out infinite;
+        }
+        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+        .footer-sound-bars span:nth-child(3) { height: 20px; animation-delay: 0.2s; }
+        .footer-sound-bars span:nth-child(4) { height: 16px; animation-delay: 0.3s; }
+        .footer-sound-bars span:nth-child(5) { height: 10px; animation-delay: 0.4s; }
+        .footer-sound-bars span:nth-child(6) { height: 18px; animation-delay: 0.5s; }
+        .footer-sound-bars span:nth-child(7) { height: 24px; animation-delay: 0.6s; }
+        .footer-sound-bars span:nth-child(8) { height: 20px; animation-delay: 0.7s; }
+        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
+        .footer-sound-bars span:nth-child(10) { height: 18px; animation-delay: 0.9s; }
+        .footer-sound-bars span:nth-child(11) { height: 22px; animation-delay: 1.0s; }
+        .footer-sound-bars span:nth-child(12) { height: 16px; animation-delay: 1.1s; }
+        .footer-sound-bars span:nth-child(n+13) { display: none; }
     </style>
 </head>
 <body>
@@ -100,7 +164,7 @@
 
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: January 2025</p>
+        <p class="last-updated">Last updated: January 2026</p>
 
         <p>Christian Titus Voice Overs ("we," "our," or "us") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
 
@@ -559,5 +623,35 @@
         }
         drawWaves();
     </script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <span>© 2026 Christian Titus Voice Overs</span>
+                <span class="footer-divider"></span>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <nav class="footer-sitemap">
+                <div class="footer-sitemap-col">
+                    <a href="index.html#samples">Demos</a>
+                    <a href="audiobooks.html">Audiobooks</a>
+                    <a href="production.html">Production</a>
+                </div>
+                <div class="footer-sitemap-col">
+                    <a href="index.html#faq">FAQ</a>
+                    <a href="index.html#brands">Brand Wall</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </nav>
+            <div class="footer-sound-bars">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
