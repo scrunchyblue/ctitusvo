@@ -2032,6 +2032,11 @@
                 track.style.minHeight = cards[current].offsetHeight + 'px';
             }
 
+            function updateHeight() {
+                const h = cards[current].scrollHeight;
+                if (h > 0) track.style.minHeight = h + 'px';
+            }
+
             function initDesktop() {
                 cards.forEach((c, i) => {
                     c.classList.remove('carousel-active', 'carousel-exit');
@@ -2039,7 +2044,10 @@
                     c.style.opacity = '';
                     if (i === current) c.classList.add('carousel-active');
                 });
-                track.style.minHeight = cards[current].offsetHeight + 'px';
+                // Measure after short delay, then again after images/iframes settle
+                setTimeout(updateHeight, 50);
+                setTimeout(updateHeight, 300);
+                setTimeout(updateHeight, 800);
                 if (prevBtn) prevBtn.disabled = true;
                 if (nextBtn) nextBtn.disabled = cards.length <= 1;
             }
@@ -2106,7 +2114,9 @@
             });
         }
 
-        document.querySelectorAll('.audiobook-section, .production-section').forEach(initCarousel);
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.audiobook-section, .production-section').forEach(initCarousel);
+        });
 
     </script>
 </body>
