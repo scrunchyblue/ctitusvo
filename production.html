@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Production | Christian Titus Voice Overs</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -305,6 +306,95 @@
             transition: width 0.3s linear;
         }
 
+        /* ===== SERVICES SECTIONS ===== */
+        .services-section {
+            padding: 4rem max(2rem, calc(50% - 550px));
+            background: white;
+        }
+
+        .services-inner {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .services-icon-placeholder {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #8EDCC3, #C7C0E6);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .service-item:first-child {
+            border-top: 1px solid #eee;
+        }
+
+        .service-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.1rem 0;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #4a3f54;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .service-question:hover { color: #8EDCC3; }
+
+        .service-arrow {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item.open .service-arrow {
+            transform: rotate(180deg);
+        }
+
+        .service-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .service-item.open .service-answer {
+            max-height: 600px;
+        }
+
+        .service-answer p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            padding-bottom: 1rem;
+            margin: 0;
+        }
+
+        .gradient-divider-standalone {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8EDCC3, #C7C0E6, #FAAE78, transparent);
+        }
+
         .production-title {
             grid-area: title;
             font-size: 1.5rem;
@@ -327,7 +417,7 @@
             padding: 0.45rem 0.85rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 0.82rem;
+            font-size: 0.861rem;
             color: #555;
         }
 
@@ -391,7 +481,7 @@
             padding: 0.45rem 0.85rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 0.82rem;
+            font-size: 0.861rem;
             color: #555;
         }
 
@@ -1091,6 +1181,109 @@
             text-align: center;
         }
 
+        footer {
+            padding: 2rem max(2rem, calc(50% - 550px));
+            background: #4a3f54;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .footer-divider {
+            width: 2px;
+            height: 16px;
+            background: linear-gradient(180deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+        }
+
+        .footer-sound-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 20px;
+        }
+
+        .footer-sound-bars span {
+            width: 3px;
+            background: linear-gradient(to top, #8EDCC3, #C7C0E6);
+            border-radius: 2px;
+            animation: soundBar 1s ease-in-out infinite;
+        }
+
+        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+        .footer-sound-bars span:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+        .footer-sound-bars span:nth-child(4) { height: 18px; animation-delay: 0.3s; }
+        .footer-sound-bars span:nth-child(5) { height: 6px; animation-delay: 0.4s; }
+        .footer-sound-bars span:nth-child(6) { height: 12px; animation-delay: 0.5s; }
+        .footer-sound-bars span:nth-child(7) { height: 16px; animation-delay: 0.6s; }
+        .footer-sound-bars span:nth-child(8) { height: 9px; animation-delay: 0.7s; }
+        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
+        .footer-sound-bars span:nth-child(10) { height: 7px; animation-delay: 0.9s; }
+        .footer-sound-bars span:nth-child(11) { height: 11px; animation-delay: 0.15s; }
+        .footer-sound-bars span:nth-child(12) { height: 15px; animation-delay: 0.25s; }
+        .footer-sound-bars span:nth-child(13) { height: 8px; animation-delay: 0.35s; }
+        .footer-sound-bars span:nth-child(14) { height: 13px; animation-delay: 0.45s; }
+        .footer-sound-bars span:nth-child(15) { height: 17px; animation-delay: 0.55s; }
+        .footer-sound-bars span:nth-child(16) { height: 10px; animation-delay: 0.65s; }
+        .footer-sound-bars span:nth-child(17) { height: 6px; animation-delay: 0.75s; }
+        .footer-sound-bars span:nth-child(18) { height: 12px; animation-delay: 0.85s; }
+        .footer-sound-bars span:nth-child(19) { height: 15px; animation-delay: 0.05s; }
+        .footer-sound-bars span:nth-child(20) { height: 9px; animation-delay: 0.12s; }
+        .footer-sound-bars span:nth-child(21) { height: 18px; animation-delay: 0.22s; }
+        .footer-sound-bars span:nth-child(22) { height: 7px; animation-delay: 0.32s; }
+        .footer-sound-bars span:nth-child(23) { height: 11px; animation-delay: 0.42s; }
+        .footer-sound-bars span:nth-child(24) { height: 14px; animation-delay: 0.52s; }
+        .footer-sound-bars span:nth-child(25) { height: 8px; animation-delay: 0.62s; }
+        .footer-sound-bars span:nth-child(26) { height: 16px; animation-delay: 0.72s; }
+
+        @keyframes soundBar {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: white; }
+
+        .footer-sitemap {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+        }
+
+        .footer-sitemap-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-sitemap a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+
+        .footer-sitemap a:hover { color: white; }
     </style>
 </head>
 <body>
@@ -1319,6 +1512,131 @@
         </div>
     </section>
 
+    <!-- Audio Production Services -->
+    <section class="services-section" id="audio-production">
+        <div class="services-inner">
+            <div class="services-header">
+                <svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" fill="#4a3f54" style="width:53px;height:53px;flex-shrink:0;">
+ <path d="m1137.7 251.11h-505.45l33.984-4.9219 90.75-13.266 97.594-14.203 90.938-13.266 97.453-14.203 89.438-13.078c19.078-2.7188 32.344-20.531 29.625-39.797l-11.812-81.281c-1.2656-9.2812-6.1875-17.438-13.828-23.109-7.4531-5.625-16.734-8.0156-26.016-6.5625l-81.656 11.812-59.109 8.5312-90.891 13.266-97.453 14.203-90.891 13.266-97.453 14.203-119.11 17.25c-9.2812 1.2656-17.438 6.1875-23.109 13.828-5.625 7.4531-8.0156 16.734-6.5625 26.016l15.094 103.27v26.906c0 6.5625 5.25 11.625 11.625 11.625s11.625-5.25 11.625-11.625l0.09375-15.422h654.74c6.5625 0 11.625 5.1094 11.625 11.625v438c0 6.5625-5.1094 11.625-11.625 11.625h-496.55c-6.5625 0-11.625 5.25-11.625 11.625 0 6.5625 5.25 11.625 11.625 11.625h496.92c19.266 0 35.109-15.797 35.109-35.109l-0.046875-437.76c0-19.266-15.797-35.062-35.062-35.062zm-477.28-134.21 17.25-2.5312-22.734 109.83-72.891 10.547 22.734-109.83zm108-15.797-22.734 109.83-66.188 9.6562 22.734-109.83zm188.34-27.469-22.734 109.83-66.188 9.6562 22.734-109.83zm53.625-7.8281 43.641-6.375-22.734 109.83-72.703 10.734 22.734-109.83zm-144.52 21.094-22.734 109.83-72.891 10.547 22.734-109.83zm247.97-36.188c0.5625 0 1.0781-0.1875 1.6406-0.1875 2.5312 0 4.9219 0.75 6.8906 2.3438 2.5312 1.8281 4.1719 4.5469 4.5469 7.6406l11.812 81.281c0.89062 6.375-3.4688 12.375-9.7969 13.266l-73.078 10.734 22.734-109.83zm-643.97 97.266c1.8281-2.5312 4.5469-4.1719 7.6406-4.5469l102.56-14.906-22.734 109.83-76.359 11.109-13.453-92.719c-0.375-3.0938 0.32812-6.1875 2.3438-8.7656z"/>
+ <path d="m643.45 534.89c-6 1.6406-9.6562 7.8281-8.2031 14.016 4.5469 18.891 12 36.891 22.172 53.438 3.2812 5.4375 10.172 7.0781 15.656 3.9844 12-6.75 27.094-4.7344 36.891 5.1094 9.7969 9.7969 11.812 24.891 5.1094 36.891-3.0938 5.4375-1.2656 12.375 3.9844 15.656 16.547 10.172 34.547 17.625 53.438 22.172 0.89062 0.1875 1.8281 0.375 2.7188 0.375 5.1094 0 9.7969-3.4688 11.25-8.5312 3.6562-13.266 15.797-22.547 29.625-22.547s26.016 9.2812 29.625 22.547c1.6406 6 8.0156 9.6562 14.016 8.2031 18.891-4.5469 36.891-12 53.438-22.172 5.4375-3.2812 7.0781-10.172 3.9844-15.656-6.75-12-4.7344-27.094 5.1094-36.891 9.7969-9.7969 24.891-11.812 36.891-5.1094 5.4375 3.0938 12.375 1.2656 15.656-3.9844 10.172-16.547 17.625-34.547 22.172-53.438 1.4531-6.1875-2.2031-12.375-8.2031-14.016-13.266-3.6562-22.547-15.797-22.547-29.625s9.2812-26.016 22.547-29.625c6-1.6406 9.6562-7.8281 8.2031-14.016-4.5469-18.891-12-36.891-22.172-53.438-3.2812-5.4375-10.172-7.0781-15.656-3.9844-12 6.75-27.094 4.7344-36.891-5.1094-9.7969-9.7969-11.812-24.891-5.1094-36.891 3.0938-5.4375 1.2656-12.375-3.9844-15.656-16.547-10.172-34.547-17.625-53.438-22.172-6-1.4531-12.375 2.2031-14.016 8.2031-3.6562 13.266-15.797 22.547-29.625 22.547s-26.016-9.2812-29.625-22.547c-1.6406-6-7.8281-9.6562-14.016-8.2031-18.891 4.5469-36.891 12-53.438 22.172-5.4375 3.2812-7.0781 10.172-3.9844 15.656 6.75 12 4.7344 27.094-5.1094 36.891-9.7969 9.7969-24.891 11.812-36.891 5.1094-5.4375-3.0938-12.375-1.2656-15.656 3.9844-10.172 16.547-17.625 34.547-22.172 53.438-1.4531 6.1875 2.2031 12.375 8.2031 14.016 13.266 3.6562 22.547 15.797 22.547 29.625 0.046875 13.781-9.4219 25.969-22.5 29.578zm45.797-29.625c0-20.344-11.438-38.531-28.734-47.812 3.0938-9.7969 6.8906-19.266 11.812-28.359 18.891 5.8125 39.797 0.89062 54.188-13.453 14.344-14.344 19.266-35.25 13.453-54.188 9.0938-4.9219 18.562-8.7188 28.359-11.812 9.2812 17.438 27.656 28.734 47.812 28.734 20.344 0 38.531-11.438 47.812-28.734 9.7969 3.0938 19.266 6.8906 28.359 11.812-5.8125 18.75-0.89062 39.797 13.453 54.188 14.344 14.344 35.25 19.266 54.188 13.453 4.9219 9.0938 8.7188 18.562 11.812 28.359-17.25 9.2812-28.734 27.656-28.734 47.812 0 20.344 11.438 38.531 28.734 47.812-3.0938 9.7969-6.8906 19.266-11.812 28.359-18.891-5.8125-39.797-0.89062-54.188 13.453-14.344 14.344-19.266 35.25-13.453 54.188-9.0938 4.7344-18.562 8.7188-28.359 11.812-9.2812-17.438-27.656-28.734-47.812-28.734-20.344 0-38.531 11.438-47.812 28.734-9.7969-3.0938-19.266-6.8906-28.359-11.812 5.8125-18.891 0.89062-39.797-13.453-54.188-14.344-14.344-35.25-19.266-54.188-13.453-4.7344-9.0938-8.7188-18.562-11.812-28.359 17.297-9.2812 28.734-27.609 28.734-47.812z"/>
+ <path d="m816.19 582.74c42.75 0 77.438-34.734 77.438-77.438 0-42.75-34.734-77.438-77.438-77.438-42.75 0-77.438 34.734-77.438 77.438 0 42.703 34.688 77.438 77.438 77.438zm0-131.68c29.812 0 54.188 24.375 54.188 54.188s-24.375 54.188-54.188 54.188-54.188-24.375-54.188-54.188 24.375-54.188 54.188-54.188z"/>
+ <path d="m557.26 585.1h-37.641v-96.891c0-3.9844-0.375-8.0156-0.5625-12 0.1875-0.89062 0.5625-2.0156 0.5625-2.9062 0-1.6406-0.375-3.2812-0.89063-4.7344-9.7969-104.91-98.344-187.31-205.97-187.31-107.67 0-196.03 82.406-206.02 187.31-0.5625 1.4531-0.89063 3.0938-0.89063 4.7344 0 1.0781 0.375 2.0156 0.5625 2.9062-0.1875 3.9844-0.5625 7.8281-0.5625 12v96.891h-37.641c-22.547 0-40.922 18.375-40.922 40.922v74.016c0 78.188 31.078 151.26 87.656 205.64 38.906 37.453 86.203 62.203 137.26 73.266v84.75l-44.906-0.046874c-22.359 0-40.547 18.188-40.547 40.547v56.719c0 6.5625 5.25 11.625 11.625 11.625h268.74c6.5625 0 11.625-5.25 11.625-11.625v-56.719c0-22.359-18.188-40.547-40.547-40.547h-44.906v-84.891c127.64-28.922 224.72-147.47 224.72-285.47v-67.266c0.1875-22.547-18.188-40.922-40.734-40.922zm-244.5-280.55c92.203 0 168.56 68.344 181.45 156.89h-68.531c-6.5625 0-11.625 5.25-11.625 11.625 0 6.5625 5.25 11.625 11.625 11.625h70.547c0 1.0781 0.1875 2.2031 0.1875 3.2812v75.281h-70.734c-6.5625 0-11.625 5.25-11.625 11.625 0 6.5625 5.25 11.625 11.625 11.625h70.734v78.562h-70.734c-6.5625 0-11.625 5.25-11.625 11.625s5.25 11.625 11.625 11.625h70.734v16.359c0 101.25-82.359 183.66-183.66 183.66-101.25 0-183.66-82.359-183.66-183.66v-16.359l70.922 0.046875c6.5625 0 11.625-5.25 11.625-11.625s-5.2969-11.297-11.625-11.297h-70.734v-78.562l70.734 0.046875c6.5625 0 11.625-5.25 11.625-11.625 0-6.5625-5.25-11.625-11.625-11.625l-70.734-0.046875v-75.281c0-1.0781 0.1875-2.2031 0.1875-3.2812l70.547 0.046875c6.5625 0 11.625-5.25 11.625-11.625s-5.25-11.625-11.625-11.625l-68.766-0.046875c13.125-88.922 89.297-157.26 181.5-157.26zm122.72 799.64v45.094h-245.44v-45.094c0-9.4688 7.6406-17.109 17.109-17.109h211.08c9.6094 0 17.25 7.6406 17.25 17.109zm-85.453-40.547h-74.531v-80.719c12.188 1.6406 24.562 2.7188 37.078 2.7188 3.6562 0 7.4531 0 11.109-0.1875 8.9062-0.375 17.625-1.0781 26.344-2.3438zm224.9-370.18c0 142.92-113.11 263.44-252 268.74-19.828 0.75-39.281-0.75-58.172-4.1719-0.375 0-0.5625-0.1875-0.89062-0.1875-49.641-9.2812-95.25-32.719-132.74-68.719-51.797-50.016-80.344-116.91-80.344-188.72v-74.016c0-9.6562 7.8281-17.625 17.625-17.625h37.641v96.891c0 114.19 92.906 206.9 206.9 206.9 114 0 206.9-92.906 206.9-206.9v-96.891h37.641c9.6562 0 17.625 7.8281 17.625 17.625v67.078z"/>
+</svg>
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 0.25rem;">Audio Production Services</h2>
+                    <p class="section-subtitle" style="margin-top: 0;">Voice Direction · Recording Engineering · Project Management</p>
+                </div>
+            </div>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-question">
+                        Voice Direction
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>I specialize in directing voice performance, particularly in situations where actors are recorded separately. Drawing on my experience in theatre and voiceover, I focus on maintaining emotional continuity across sessions — ensuring that each performance feels connected, even when actors aren't in the room together.</p>
+                        <p>Whether working remotely or in person, I help talent deliver natural, grounded reads while keeping the broader context of the project in mind.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-question">
+                        Remote Recording Support
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>As a working voice actor, I've spent years refining remote recording workflows. I help talent and teams get the most out of home studios by focusing on practical improvements — mic technique, room setup, and signal quality — so recordings meet professional standards without unnecessary complexity.</p>
+                        <p>When needed, I can guide talent (or their support teams) through setup and troubleshooting to ensure sessions run smoothly and efficiently.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-question">
+                        Recording Engineering
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>My engineering approach is built around supporting performance. I ensure that recording setups — whether remote or in-studio — are reliable, clean, and organized, so actors can focus on their work without distraction.</p>
+                        <p>I'm comfortable delivering everything from simple, ready-to-use audio files to fully organized sessions with clearly labeled takes, depending on the needs of the project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider-standalone"></div>
+
+    <!-- Post-Production Services -->
+    <section class="services-section" id="post-production">
+        <div class="services-inner">
+            <div class="services-header">
+                <svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" fill="#4a3f54" style="width:53px;height:53px;flex-shrink:0;">
+ <path d="m1005.1 94.219h-810.28c-74.438 0.046875-134.81 60.375-134.86 134.86v481.69c0.046875 74.484 60.375 134.86 134.86 135h285.14l-37.219 136.18h-54.844c-34.172 0-61.875 27.75-61.875 61.922 0 34.219 27.703 61.922 61.875 61.922h424.13c34.172 0 61.875-27.703 61.875-61.922 0-34.172-27.703-61.922-61.875-61.922h-54.844l-37.219-136.18h285.14c74.484-0.14062 134.81-60.516 134.86-135v-481.69c-0.046875-74.484-60.422-134.81-134.86-134.86zm-193.08 901.78c23.625 3.375 41.203 23.625 41.203 47.531 0 23.859-17.578 44.156-41.203 47.531h-424.13c-13.734 1.9219-27.703-2.1562-38.203-11.297-10.5-9.0938-16.547-22.312-16.547-36.234s6.0469-27.141 16.547-36.281c10.5-9.0938 24.469-13.219 38.203-11.25zm-69.703-14.391h-284.68l36.844-136.22h210.94zm383.26-270.84c-0.09375 66.328-53.672 120.19-120 120.61h-810.74c-66.328-0.42188-119.91-54.281-120-120.61v-481.69c0.32812-66.141 53.906-119.67 120-120h810.28c66.094 0.32812 119.67 53.859 120 120zm-120-543.61h-810.74c-34.172 0.046875-61.828 27.75-61.922 61.922v481.69c0.09375 34.172 27.75 61.828 61.922 61.922h810.28c34.172-0.09375 61.828-27.75 61.922-61.922v-481.69c-0.09375-34.172-27.75-61.875-61.922-61.922zm48 543.61c0 12.703-5.0625 24.938-14.062 33.938s-21.234 14.062-33.938 14.062h-810.74c-26.484 0-48-21.516-48-48v-166.82c14.625 4.3125 24 21.844 33.234 40.312 12 23.062 25.453 49.219 53.156 49.219s41.297-26.156 53.297-49.219 21.375-41.531 40.453-41.531 29.391 20.156 40.312 41.531 25.453 49.219 53.297 49.219 41.297-26.156 53.156-49.219 21.469-41.531 40.453-41.531c18.938 0 29.391 20.156 40.453 41.531s25.453 49.219 53.297 49.219 41.297-26.156 53.156-49.219 21.375-41.531 40.453-41.531 29.391 20.156 40.453 41.531 25.453 49.219 53.297 49.219 41.297-26.156 53.297-49.219 21.375-41.531 40.453-41.531 29.391 20.156 40.453 41.531 25.453 49.219 53.297 49.219h-0.14062c3.9844 0 7.1719-3.2344 7.1719-7.1719 0-3.9844-3.1875-7.2188-7.1719-7.2188-19.078 0-29.391-20.062-40.453-41.391-11.016-21.375-24.938-49.688-52.781-49.688s-41.391 26.156-53.297 49.312c-11.859 23.156-21.469 41.391-40.453 41.391-18.938 0-29.531-20.062-40.547-41.391-11.016-21.375-25.453-49.312-53.156-49.312s-41.297 26.297-53.297 49.312c-12 23.062-21.375 41.391-40.312 41.391s-29.531-20.062-40.453-41.391c-10.875-21.375-25.406-49.312-53.25-49.312s-41.297 26.297-53.156 49.312c-11.859 23.062-21.469 41.391-40.453 41.391-18.938 0-29.391-20.062-40.453-41.391-11.016-21.375-25.406-49.312-53.156-49.312-27.703 0-41.391 26.297-53.297 49.312-11.859 23.062-21.375 41.391-40.453 41.391-19.031 0-29.719-19.641-40.266-41.016s-23.156-44.297-46.078-48v-300c0-26.531 21.469-48 48-48h809.76c12.703 0 24.938 5.0625 33.938 14.062s14.062 21.188 14.062 33.938zm-79.547-420c4.4062-14.062-0.23438-29.391-11.625-38.672-11.438-9.3281-27.375-10.734-40.219-3.5625l-123.74 71.391c-10.922 6.4688-17.625 18.234-17.625 30.938 0 12.75 6.7031 24.516 17.625 30.984l122.76 70.922c5.4375 3.1406 11.625 4.7812 17.906 4.7812 11.438-0.09375 22.172-5.625 28.875-14.906s8.5781-21.234 5.0625-32.109l-17.531-52.922c-1.3125-4.4062-1.3125-9.0469 0-13.453zm-31.219 70.781 17.156 53.531c2.7656 8.4375 0.09375 17.672-6.7969 23.25-6.8906 5.625-16.5 6.375-24.141 1.9688l-123.37-70.922c-6.6094-3.8438-10.641-10.875-10.641-18.516 0-7.5938 4.0312-14.625 10.641-18.469l122.76-70.922c7.5469-4.5469 17.25-3.7969 24 1.9219 7.2188 5.3906 10.219 14.719 7.5469 23.297l-17.531 53.062v-0.046875c-2.4844 7.2188-2.6719 15-0.60938 22.359zm-608.06-136.92c-51.047 0-97.078 30.75-116.62 77.953-19.547 47.156-8.7188 101.48 27.375 137.58s90.422 46.875 137.58 27.375c47.156-19.547 77.953-65.578 77.953-116.67-0.14062-69.656-56.578-126.1-126.28-126.24zm0 238.08c-45.234 0-86.016-27.234-103.31-69.047-17.297-41.766-7.7344-89.859 24.234-121.87 32.016-31.969 80.109-41.531 121.87-24.234 41.812 17.297 69.047 58.078 69.047 103.31-0.09375 61.734-50.109 111.75-111.84 111.84zm56.156-142.78-58.453-33.703h0.046875c-11.109-6.2344-24.656-6.1875-35.672 0.1875-10.969 6.3281-17.812 18.047-18 30.75v67.453c0.1875 12.703 7.0312 24.375 18 30.75 11.016 6.375 24.562 6.4219 35.672 0.1875l58.453-33.703h-0.046875c10.969-6.4688 17.672-18.234 17.672-30.984 0-12.703-6.7031-24.469-17.672-30.938zm-6.9375 49.453-58.453 33.703c-6.6094 3.7969-14.719 3.7969-21.328 0s-10.688-10.828-10.688-18.469v-67.453c-0.046875-7.6406 4.0312-14.719 10.688-18.469 3.2344-1.875 6.8906-2.8594 10.641-2.9062 3.75 0.046875 7.4531 1.0312 10.688 2.9062l58.453 33.703c6.6094 3.8438 10.641 10.875 10.641 18.469 0 7.6406-4.0312 14.672-10.641 18.516z"/>
+</svg>
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 0.25rem;">Post-Production Services</h2>
+                    <p class="section-subtitle" style="margin-top: 0;">Dialogue Editing · ADR · Sound Design & Mixing · QC · Coordination</p>
+                </div>
+            </div>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-question">
+                        Dialogue Editing & Cleanup
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>I have an ear for dialogue. Whether it's out of phase audio from a shoot, long form narration with mouth clicks and pops, or an entire radio play with actors from all over the world, I know how to clean and assemble dialogue so it feels seamless and ready for mixing, while preserving the integrity of the performance.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-question">
+                        ADR & Voiceover Production
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>Years of experience as a voice artist has kept me familiar with a myriad of voiceover projects and getting the right performance for each of them. Delivering dialogue for multiple animated series and features has honed my skills at making sure that performance syncs, so the final result sounds like it was captured in a single, continuous performance.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-question">
+                        Sound Design & Mixing
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>Coming from a theatrical background, I always saw sound design as a superpower for a voiceover artist — something akin to being an actor on stage who can build their own props and sets. Being a voiceover artist is a superpower in sound design: I'm wired to think of sound design like a character. Sound design as best supporting actor, elevates the world of the story by evoking emotional memories and defining action.</p>
+                        <p>In the mix, I prioritize balance and clarity — ensuring that dialogue remains the focal point while the world around it feels fully realized.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-question">
+                        Quality Control
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>Every stage in production requires attention to detail — each with its own specific needs. In recording, we focus on getting the performance right while limiting the work that post-production will need to take on. Often in audiobook production, this means researching pronunciations and character accents to maintain accuracy and consistency in both recording and editing phases.</p>
+                        <p>My experienced ear helps catch issues early — whether technical or performance-related — so projects stay efficient and avoid unnecessary revisions later on.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-question">
+                        Project Support & Coordination
+                        <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="service-answer">
+                        <p>Because I understand each stage of the voice production process, I'm able to support projects beyond performance — helping teams stay organized, communicate clearly, and keep work moving forward. My goal is to make the process as smooth and collaborative as possible for everyone involved.</p>
+                        <p>In my philosophy, good support sets the table for artists to do their best, on a deadline, without getting overloaded.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <svg class="speech-bubble-accent" viewBox="0 0 64 64" fill="none">
@@ -1353,11 +1671,11 @@
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" placeholder="John Doe" required>
+                    <input type="text" name="name" placeholder="Your name" required>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="john@company.com" required>
+                    <input type="email" name="email" placeholder="Your email" required>
                 </div>
                 <div class="form-group">
                     <label>Project Details</label>
@@ -1383,12 +1701,12 @@
                 <div class="footer-sitemap-col">
                     <a href="index.html#samples">Demos</a>
                     <a href="audiobooks.html">Audiobooks</a>
-                    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Production</a>
+                    <a href="production.html">Production</a>
                 </div>
                 <div class="footer-sitemap-col">
                     <a href="index.html#faq">FAQ</a>
                     <a href="index.html#brands">Brand Wall</a>
-                    <a href="#contact" onclick="smoothScroll(event,'contact')">Contact</a>
+                    <a href="index.html#contact">Contact</a>
                 </div>
             </nav>
             <div class="footer-sound-bars">
@@ -2115,6 +2433,16 @@
 
         window.addEventListener('load', () => {
             document.querySelectorAll('.audiobook-section, .production-section').forEach(initCarousel);
+        });
+
+        // ===== SERVICES ACCORDION =====
+        document.querySelectorAll('.service-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.service-item.open').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
         });
 
     </script>

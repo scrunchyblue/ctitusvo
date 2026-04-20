@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Christian Titus Voice Overs</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -92,70 +93,109 @@
             position: relative;
             z-index: 1;
         }
+        footer {
+            padding: 2rem max(2rem, calc(50% - 550px));
+            background: #4a3f54;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            position: relative;
+        }
 
         .footer-content {
+            max-width: 100%;
+            margin: 0 auto;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: flex-start;
             gap: 2rem;
-            flex-wrap: wrap;
         }
+
         .footer-left {
             display: flex;
+            gap: 1.5rem;
             align-items: center;
-            gap: 1rem;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
         }
-        .footer-left a { color: rgba(255,255,255,0.5); text-decoration: none; }
-        .footer-left a:hover { color: white; }
+
         .footer-divider {
-            width: 1px;
-            height: 12px;
-            background: rgba(255,255,255,0.2);
+            width: 2px;
+            height: 16px;
+            background: linear-gradient(180deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
         }
+
+        .footer-sound-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 20px;
+        }
+
+        .footer-sound-bars span {
+            width: 3px;
+            background: linear-gradient(to top, #8EDCC3, #C7C0E6);
+            border-radius: 2px;
+            animation: soundBar 1s ease-in-out infinite;
+        }
+
+        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+        .footer-sound-bars span:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+        .footer-sound-bars span:nth-child(4) { height: 18px; animation-delay: 0.3s; }
+        .footer-sound-bars span:nth-child(5) { height: 6px; animation-delay: 0.4s; }
+        .footer-sound-bars span:nth-child(6) { height: 12px; animation-delay: 0.5s; }
+        .footer-sound-bars span:nth-child(7) { height: 16px; animation-delay: 0.6s; }
+        .footer-sound-bars span:nth-child(8) { height: 9px; animation-delay: 0.7s; }
+        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
+        .footer-sound-bars span:nth-child(10) { height: 7px; animation-delay: 0.9s; }
+        .footer-sound-bars span:nth-child(11) { height: 11px; animation-delay: 0.15s; }
+        .footer-sound-bars span:nth-child(12) { height: 15px; animation-delay: 0.25s; }
+        .footer-sound-bars span:nth-child(13) { height: 8px; animation-delay: 0.35s; }
+        .footer-sound-bars span:nth-child(14) { height: 13px; animation-delay: 0.45s; }
+        .footer-sound-bars span:nth-child(15) { height: 17px; animation-delay: 0.55s; }
+        .footer-sound-bars span:nth-child(16) { height: 10px; animation-delay: 0.65s; }
+        .footer-sound-bars span:nth-child(17) { height: 6px; animation-delay: 0.75s; }
+        .footer-sound-bars span:nth-child(18) { height: 12px; animation-delay: 0.85s; }
+        .footer-sound-bars span:nth-child(19) { height: 15px; animation-delay: 0.05s; }
+        .footer-sound-bars span:nth-child(20) { height: 9px; animation-delay: 0.12s; }
+        .footer-sound-bars span:nth-child(21) { height: 18px; animation-delay: 0.22s; }
+        .footer-sound-bars span:nth-child(22) { height: 7px; animation-delay: 0.32s; }
+        .footer-sound-bars span:nth-child(23) { height: 11px; animation-delay: 0.42s; }
+        .footer-sound-bars span:nth-child(24) { height: 14px; animation-delay: 0.52s; }
+        .footer-sound-bars span:nth-child(25) { height: 8px; animation-delay: 0.62s; }
+        .footer-sound-bars span:nth-child(26) { height: 16px; animation-delay: 0.72s; }
+
+        @keyframes soundBar {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: white; }
+
         .footer-sitemap {
             display: flex;
-            gap: 3rem;
+            flex-direction: row;
+            gap: 2rem;
         }
+
         .footer-sitemap-col {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
+
         .footer-sitemap a {
-            color: rgba(255,255,255,0.5);
             text-decoration: none;
+            color: rgba(255,255,255,0.7);
             font-size: 0.8rem;
             transition: color 0.2s;
         }
+
         .footer-sitemap a:hover { color: white; }
-        .footer-sound-bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 3px;
-            height: 24px;
-        }
-        .footer-sound-bars span {
-            display: block;
-            width: 3px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 2px;
-            animation: soundBar 1.2s ease-in-out infinite;
-        }
-        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
-        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
-        .footer-sound-bars span:nth-child(3) { height: 20px; animation-delay: 0.2s; }
-        .footer-sound-bars span:nth-child(4) { height: 16px; animation-delay: 0.3s; }
-        .footer-sound-bars span:nth-child(5) { height: 10px; animation-delay: 0.4s; }
-        .footer-sound-bars span:nth-child(6) { height: 18px; animation-delay: 0.5s; }
-        .footer-sound-bars span:nth-child(7) { height: 24px; animation-delay: 0.6s; }
-        .footer-sound-bars span:nth-child(8) { height: 20px; animation-delay: 0.7s; }
-        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
-        .footer-sound-bars span:nth-child(10) { height: 18px; animation-delay: 0.9s; }
-        .footer-sound-bars span:nth-child(11) { height: 22px; animation-delay: 1.0s; }
-        .footer-sound-bars span:nth-child(12) { height: 16px; animation-delay: 1.1s; }
-        .footer-sound-bars span:nth-child(n+13) { display: none; }
     </style>
 </head>
 <body>
@@ -623,6 +663,7 @@
         }
         drawWaves();
     </script>
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-left">

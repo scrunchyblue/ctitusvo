@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audiobooks | Christian Titus Voice Overs</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -250,7 +251,7 @@
             padding: 0.45rem 0.85rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 0.82rem;
+            font-size: 0.861rem;
             color: #555;
             width: fit-content;
         }
@@ -1121,7 +1122,7 @@
             border-radius: 4px;
             background: white;
             color: #4a3f54;
-            font-size: 0.82rem;
+            font-size: 0.861rem;
             font-weight: 400;
             cursor: pointer;
             transition: all 0.3s;
@@ -1154,6 +1155,109 @@
             animation: electricLine 3s linear infinite;
             pointer-events: none;
         }
+        footer {
+            padding: 2rem max(2rem, calc(50% - 550px));
+            background: #4a3f54;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .footer-divider {
+            width: 2px;
+            height: 16px;
+            background: linear-gradient(180deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+        }
+
+        .footer-sound-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 20px;
+        }
+
+        .footer-sound-bars span {
+            width: 3px;
+            background: linear-gradient(to top, #8EDCC3, #C7C0E6);
+            border-radius: 2px;
+            animation: soundBar 1s ease-in-out infinite;
+        }
+
+        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+        .footer-sound-bars span:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+        .footer-sound-bars span:nth-child(4) { height: 18px; animation-delay: 0.3s; }
+        .footer-sound-bars span:nth-child(5) { height: 6px; animation-delay: 0.4s; }
+        .footer-sound-bars span:nth-child(6) { height: 12px; animation-delay: 0.5s; }
+        .footer-sound-bars span:nth-child(7) { height: 16px; animation-delay: 0.6s; }
+        .footer-sound-bars span:nth-child(8) { height: 9px; animation-delay: 0.7s; }
+        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
+        .footer-sound-bars span:nth-child(10) { height: 7px; animation-delay: 0.9s; }
+        .footer-sound-bars span:nth-child(11) { height: 11px; animation-delay: 0.15s; }
+        .footer-sound-bars span:nth-child(12) { height: 15px; animation-delay: 0.25s; }
+        .footer-sound-bars span:nth-child(13) { height: 8px; animation-delay: 0.35s; }
+        .footer-sound-bars span:nth-child(14) { height: 13px; animation-delay: 0.45s; }
+        .footer-sound-bars span:nth-child(15) { height: 17px; animation-delay: 0.55s; }
+        .footer-sound-bars span:nth-child(16) { height: 10px; animation-delay: 0.65s; }
+        .footer-sound-bars span:nth-child(17) { height: 6px; animation-delay: 0.75s; }
+        .footer-sound-bars span:nth-child(18) { height: 12px; animation-delay: 0.85s; }
+        .footer-sound-bars span:nth-child(19) { height: 15px; animation-delay: 0.05s; }
+        .footer-sound-bars span:nth-child(20) { height: 9px; animation-delay: 0.12s; }
+        .footer-sound-bars span:nth-child(21) { height: 18px; animation-delay: 0.22s; }
+        .footer-sound-bars span:nth-child(22) { height: 7px; animation-delay: 0.32s; }
+        .footer-sound-bars span:nth-child(23) { height: 11px; animation-delay: 0.42s; }
+        .footer-sound-bars span:nth-child(24) { height: 14px; animation-delay: 0.52s; }
+        .footer-sound-bars span:nth-child(25) { height: 8px; animation-delay: 0.62s; }
+        .footer-sound-bars span:nth-child(26) { height: 16px; animation-delay: 0.72s; }
+
+        @keyframes soundBar {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: white; }
+
+        .footer-sitemap {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+        }
+
+        .footer-sitemap-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-sitemap a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+
+        .footer-sitemap a:hover { color: white; }
     </style>
 </head>
 <body>
@@ -1447,11 +1551,11 @@
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" placeholder="John Doe" required>
+                    <input type="text" name="name" placeholder="Your name" required>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="john@company.com" required>
+                    <input type="email" name="email" placeholder="Your email" required>
                 </div>
                 <div class="form-group">
                     <label>Project Details</label>
@@ -1476,13 +1580,13 @@
             <nav class="footer-sitemap">
                 <div class="footer-sitemap-col">
                     <a href="index.html#samples">Demos</a>
-                    <a href="#samples" onclick="smoothScroll(event,'samples')">Audiobooks</a>
+                    <a href="audiobooks.html">Audiobooks</a>
                     <a href="production.html">Production</a>
                 </div>
                 <div class="footer-sitemap-col">
                     <a href="index.html#faq">FAQ</a>
                     <a href="index.html#brands">Brand Wall</a>
-                    <a href="#contact" onclick="smoothScroll(event,'contact')">Contact</a>
+                    <a href="index.html#contact">Contact</a>
                 </div>
             </nav>
             <div class="footer-sound-bars">
