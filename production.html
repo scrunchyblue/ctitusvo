@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production | Christian Titus Voice Overs</title>
+    <title>Christian Titus Voice Overs | Production</title>
+    <meta property="og:title" content="Christian Titus Voice Overs | Production">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1174,12 +1175,7 @@
             transform: scale(1.3);
         }
 
-        .carousel-counter {
-            font-size: 0.85rem;
-            color: #999;
-            min-width: 50px;
-            text-align: center;
-        }
+
 
         footer {
             padding: 2rem max(2rem, calc(50% - 550px));
@@ -1507,7 +1503,6 @@
                 <span class="carousel-dot"></span>
                 <span class="carousel-dot"></span>
             </div>
-            <span class="carousel-counter">1 / 6</span>
             <button class="carousel-btn carousel-next" aria-label="Next">&#8594;</button>
         </div>
     </section>
@@ -1576,7 +1571,7 @@
 </svg>
                 <div>
                     <h2 class="section-title" style="margin-bottom: 0.25rem;">Post-Production Services</h2>
-                    <p class="section-subtitle" style="margin-top: 0;">Dialogue Editing · ADR · Sound Design & Mixing · QC · Coordination</p>
+                    <p class="section-subtitle" style="margin-top: 0;">Dialogue Editing · ADR · Sound Design & Mixing · Quality Control · Coordination</p>
                 </div>
             </div>
 
@@ -2313,7 +2308,7 @@
             if (!track) return;
             const cards = Array.from(track.querySelectorAll('.audiobook-card, .production-card'));
             const dots = Array.from(section.querySelectorAll('.carousel-dot'));
-            const counter = section.querySelector('.carousel-counter');
+            
             const prevBtn = section.querySelector('.carousel-prev');
             const nextBtn = section.querySelector('.carousel-next');
             let current = 0;
@@ -2363,7 +2358,7 @@
                 setTimeout(() => cards[prev].classList.remove('carousel-exit'), 300);
 
                 dots.forEach((d, i) => d.classList.toggle('active', i === current));
-                if (counter) counter.textContent = `${current + 1} / ${cards.length}`;
+                
                 if (prevBtn) prevBtn.disabled = current === 0;
                 if (nextBtn) nextBtn.disabled = current === cards.length - 1;
             }
