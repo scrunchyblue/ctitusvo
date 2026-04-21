@@ -574,7 +574,6 @@
             overflow: hidden;
             border-radius: 4px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.12);
-            background: #1a1a1a;
         }
 
         .video-wrapper iframe,
@@ -671,6 +670,27 @@
 
         .sample-content.active {
             display: block;
+        }
+
+        .demos-scroll-container {
+            max-height: calc(480px - 0.5rem);
+            overflow-y: auto;
+            padding-right: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: #C7C0E6 transparent;
+        }
+
+        .demos-scroll-container::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .demos-scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .demos-scroll-container::-webkit-scrollbar-thumb {
+            background: #C7C0E6;
+            border-radius: 2px;
         }
 
         .audio-player {
@@ -1976,6 +1996,7 @@
                 </div>
             </div>
 
+
             <!-- DIVIDER -->
             <div class="hero-split-divider"></div>
 
@@ -1990,35 +2011,49 @@
                 <div class="hero-split-players">
                     <!-- Commercial Tab -->
                     <div class="sample-content active" data-content="commercial">
-                        <div class="audio-player" data-audio="sample-commercial-2026.mp3">
-                            <span class="audio-title">Commercial Demos</span>
-                            <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
-                            <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
-                            <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
-                        </div>
-                        <div class="audio-player" data-audio="sample-commercial-tech.mp3">
-                            <span class="audio-title">Tech</span>
-                            <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
-                            <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#C7C0E6;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
-                            <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
-                        </div>
-                        <div class="audio-player" data-audio="sample-commercial-food.mp3">
-                            <span class="audio-title">Food</span>
-                            <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
-                            <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
-                            <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
-                        </div>
-                        <div class="audio-player" data-audio="sample-commercial-guy-next-door.mp3">
-                            <span class="audio-title">Guy Next Door</span>
-                            <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
-                            <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
-                            <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
-                        </div>
-                        <div class="audio-player" data-audio="sample-commercial-quirky.mp3">
-                            <span class="audio-title">Quirky</span>
-                            <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
-                            <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#C7C0E6;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
-                            <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                        <div class="demos-scroll-container">
+                            <div class="audio-player" data-audio="sample-commercial-2026.mp3">
+                                <span class="audio-title">Commercial</span>
+                                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                            </div>
+                            <div class="audio-player" data-audio="sample-commercial-tech.mp3">
+                                <span class="audio-title">Tech</span>
+                                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#C7C0E6;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                            </div>
+                            <div class="audio-player" data-audio="sample-commercial-food.mp3">
+                                <span class="audio-title">Food</span>
+                                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                            </div>
+                            <div class="audio-player" data-audio="sample-commercial-guy-next-door.mp3">
+                                <span class="audio-title">Guy Next Door</span>
+                                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                            </div>
+                            <div class="audio-player" data-audio="sample-commercial-quirky.mp3">
+                                <span class="audio-title">Quirky</span>
+                                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#C7C0E6;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                            </div>
+                            <div class="audio-player" data-audio="sample-promo-2026.mp3">
+                                <span class="audio-title">Promo</span>
+                                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                            </div>
+                            <div class="audio-player" data-audio="sample-promo-live-comedy-2025.mp3">
+                                <span class="audio-title">Promo — Live Comedy</span>
+                                <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                                <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                                <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                            </div>
                         </div>
                     </div>
                     <!-- Narrative Tab -->
@@ -2041,9 +2076,10 @@
                             <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
                             <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
                         </div>
+                    </div>
                     <!-- Character Tab -->
                     <div class="sample-content" data-content="character">
-                        <div class="audio-player" data-audio="sample-character-placeholder.mp3">
+                        <div class="audio-player" data-audio="sample-character-demo.mp3">
                             <span class="audio-title">Character Demo</span>
                             <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
                             <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#FAAE78;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
@@ -2060,6 +2096,7 @@
                 <div style="text-align: center; margin-top: 1.5rem;">
                     <a href="#contact" class="btn-primary">Request Custom Demo</a>
                 </div>
+            </div>
             </div>
 
             <!-- FULL-WIDTH FOOTER BAR -->
@@ -2080,15 +2117,16 @@
                                 <path d="M520.002 0H479.412L433.406 71.506L452.303 99.736L452.229 99.862L433.381 128.118L479.412 200H520.002V189.049L462.049 99.862L462.024 99.837L520.002 10.951V0ZM254.226 159.938C228.106 159.938 215.219 146.149 215.219 127.061V70.75C215.219 51.662 228.106 37.873 254.226 37.873C273.989 37.873 287.667 44.88 297.537 58.971L325.339 41.54C314.752 16.901 289.473 2.48401 254.226 2.48401C207.23 2.48401 176.93 27.601 176.93 70.022V127.764C176.93 170.185 207.23 195.301 254.226 195.301C289.473 195.301 314.752 180.91 325.339 156.271L297.537 138.84C287.667 152.93 273.964 159.938 254.226 159.938ZM79.424 2.715C42.247 2.715 18.155 17.935 8.78101 40.816L38.71 59.729C51.201 39.51 63.148 38.078 79.399 38.078C102.724 38.078 113.533 49.406 113.533 67.439V81.806L81.427 81.856C58.003 81.856 0 89.943 0 140.979C0 177.046 26.837 195.08 59.561 195.08C85.335 195.08 104.48 183.049 114.943 170.34L129.561 190.86H151.847V64.953C151.847 28.886 128.176 2.715 79.424 2.715ZM113.558 131.963C113.261 134.776 113.211 138.342 109.328 143.24C103.49 151.679 88.897 159.716 71.558 159.716C54.219 159.716 40.219 152.282 40.219 136.735C40.219 114.683 75.441 109.911 97.084 109.032H113.582V131.963H113.558Z" fill="#4a3f54"/>
                             </svg>
                         </a>
-                        <a href="https://www.backstage.com/u/christiantitus/" target="_blank" title="Backstage">
+                        <a href="https://www.backstage.com/vo/christiantitus/" target="_blank" title="Backstage">
                             <img src="backstage-logo.png" alt="Backstage" style="height: 24px; width: auto;">
                         </a>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
+
+
 
     <!-- Video Section -->
     <section id="video">
@@ -2101,7 +2139,7 @@
                         <source src="Kombina_Clip.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="video-meta"><span class="video-show">Kombina</span> &mdash; <span class="video-character">Various</span></div>
+                <div class="video-meta"><span class="video-show">Kombina</span> &mdash; <span class="video-character">Vinny</span></div>
                 <div class="video-tags">
                     <span class="tag">Comedy</span>
                     <span class="tag">Animation</span>
@@ -2111,9 +2149,9 @@
             <!-- Outsider Trading -->
             <div class="video-item">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/iwYIHkm982o" title="OUTSIDER TRADING - Inside Edition" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/iwYIHkm982o?start=4482" title="OUTSIDER TRADING - Inside Edition" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <div class="video-meta"><span class="video-show">Outsider Trading</span> &mdash; <span class="video-character">Inside Edition Reporter</span></div>
+                <div class="video-meta"><span class="video-show">Outsider Trading</span> &mdash; <span class="video-character">Wendigo</span></div>
                 <div class="video-tags">
                     <span class="tag">Comedy</span>
                     <span class="tag">Animated</span>
@@ -2434,7 +2472,7 @@
                             <path d="M520.002 0H479.412L433.406 71.506L452.303 99.736L452.229 99.862L433.381 128.118L479.412 200H520.002V189.049L462.049 99.862L462.024 99.837L520.002 10.951V0ZM254.226 159.938C228.106 159.938 215.219 146.149 215.219 127.061V70.75C215.219 51.662 228.106 37.873 254.226 37.873C273.989 37.873 287.667 44.88 297.537 58.971L325.339 41.54C314.752 16.901 289.473 2.48401 254.226 2.48401C207.23 2.48401 176.93 27.601 176.93 70.022V127.764C176.93 170.185 207.23 195.301 254.226 195.301C289.473 195.301 314.752 180.91 325.339 156.271L297.537 138.84C287.667 152.93 273.964 159.938 254.226 159.938ZM79.424 2.715C42.247 2.715 18.155 17.935 8.78101 40.816L38.71 59.729C51.201 39.51 63.148 38.078 79.399 38.078C102.724 38.078 113.533 49.406 113.533 67.439V81.806L81.427 81.856C58.003 81.856 0 89.943 0 140.979C0 177.046 26.837 195.08 59.561 195.08C85.335 195.08 104.48 183.049 114.943 170.34L129.561 190.86H151.847V64.953C151.847 28.886 128.176 2.715 79.424 2.715ZM113.558 131.963C113.261 134.776 113.211 138.342 109.328 143.24C103.49 151.679 88.897 159.716 71.558 159.716C54.219 159.716 40.219 152.282 40.219 136.735C40.219 114.683 75.441 109.911 97.084 109.032H113.582V131.963H113.558Z" fill="#4a3f54"/>
                         </svg>
                     </a>
-                    <a href="https://www.backstage.com/u/christiantitus/" target="_blank" title="Backstage">
+                    <a href="https://www.backstage.com/vo/christiantitus/" target="_blank" title="Backstage">
                         <img src="backstage-logo.png" alt="Backstage" style="height: 24px; width: auto;">
                     </a>
                 </div>
