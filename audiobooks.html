@@ -570,7 +570,7 @@
 
         .form-group label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
@@ -1439,7 +1439,7 @@
 
         <!-- Guard Railing -->
         <div class="audiobook-card">
-            <h2 class="audiobook-title">Guard Railing</h2>
+            <h2 class="audiobook-title">Guardrailing: Authentically Guide Your Natural Products Company from Spark to Sale</h2>
             <p class="audiobook-author">by Michael Bush</p>
             <div class="audiobook-tags">
 
@@ -1482,7 +1482,7 @@
 
     <!-- Samples Section -->
     <section class="samples-section" id="samples">
-        <h2 class="section-title">Demos</h2>
+        
 
         <div style="max-width: 700px; margin: 2rem auto 0;">
             <div class="audio-player" data-audio="sample-elearning-placeholder.mp3">
@@ -1543,7 +1543,10 @@
                     </a>
                 </div>
             </div>
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+                    <input type="hidden" name="form-name" value="contact">
+                    <input type="hidden" name="_replyto" value="talent@christiantitus.com">
+                    <p class="hidden" style="display:none;"><input name="bot-field"></p>
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" name="name" placeholder="Your name" required>

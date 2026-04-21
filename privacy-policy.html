@@ -21,6 +21,46 @@
             line-height: 1.6;
         }
 
+        .privacy-page {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .privacy-topbar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            background: #4a3f54;
+            flex-shrink: 0;
+        }
+
+        .privacy-back {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .privacy-back:hover { opacity: 0.75; }
+
+        .privacy-topbar-title {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .privacy-scroll {
+            flex: 1;
+            overflow-y: auto;
+        }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -203,9 +243,18 @@
     <!-- Electric particles background -->
     <canvas id="electric-particles"></canvas>
 
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: January 2026</p>
+    <div class="privacy-page">
+        <div class="privacy-topbar">
+            <a href="index.html" class="privacy-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                Back to Home
+            </a>
+            <span class="privacy-topbar-title">Privacy Policy</span>
+        </div>
+        <div class="privacy-scroll">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p class="last-updated">Last updated: January 2026</p>
 
         <p>Christian Titus Voice Overs ("we," "our," or "us") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
 
@@ -256,6 +305,8 @@
         <p>If you have any questions about this Privacy Policy or our data practices, please contact us through the form on our website.</p>
 
         <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
     </div>
 
     <script>
