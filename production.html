@@ -25,6 +25,11 @@
             line-height: 1.4;
         }
 
+        section {
+            padding: 3.5rem max(2rem, calc(50% - 550px));
+            position: relative;
+        }
+
         /* Header / Navigation */
         header {
             position: sticky;
@@ -149,8 +154,9 @@
         .hero {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 0;
             text-align: center;
+            background: rgba(248, 247, 250, 0.85);
         }
 
         .hero-quote {
@@ -181,19 +187,24 @@
         .production-section {
             max-width: 750px;
             margin: 0 auto;
-            padding: 2rem 16px;
+            padding: 3.5rem 0;
+        }
+
+        .production-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100%;
+            background: rgba(248, 247, 250, 0.85);
+            z-index: -1;
         }
 
         .production-card {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            grid-template-areas:
-                "title cover"
-                "tags cover"
-                "desc cover"
-                "icons cover"
-                "trailer trailer";
-            gap: 0;
+            display: flex;
+            flex-direction: column;
             background: white;
             border-radius: 4px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
@@ -203,8 +214,7 @@
         }
 
         .card-trailer-inline {
-            grid-column: 1 / -1;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
         .card-trailer-line {
@@ -421,7 +431,6 @@
         }
 
         .production-title {
-            grid-area: title;
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
@@ -429,12 +438,11 @@
         }
 
         .production-tags {
-            grid-area: tags;
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 0.75rem;
-            
-            margin-bottom: 1rem;
+            margin-top: 0.75rem;
+            overflow-x: auto;
         }
 
         .production-tag {
@@ -442,7 +450,7 @@
             padding: 0.45rem 0.85rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 0.861rem;
+            font-size: 1rem;
             color: #555;
         }
 
@@ -494,11 +502,7 @@
         }
 
         .production-card > .platform-icons {
-            grid-area: icons;
-            margin-top: 1rem;
-        }
-            gap: 0.75rem;
-            margin-bottom: 1rem;
+            margin-top: 1.25rem;
         }
 
         .production-tag {
@@ -506,7 +510,7 @@
             padding: 0.45rem 0.85rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 0.861rem;
+            font-size: 1rem;
             color: #555;
         }
 
@@ -554,6 +558,40 @@
             white-space: nowrap;
             position: relative;
             z-index: 1;
+        }
+
+        .audio-player {
+            background: white;
+            border-radius: 4px;
+            padding: 1.75rem 1.75rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audio-player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100 Q25 60 50 100 T100 100 T150 100 T200 100' fill='none' stroke='%238EDCC3' stroke-width='2'/%3E%3Cpath d='M0 120 Q25 80 50 120 T100 120 T150 120 T200 120' fill='none' stroke='%23C7C0E6' stroke-width='1.5'/%3E%3Cpath d='M0 80 Q25 40 50 80 T100 80 T150 80 T200 80' fill='none' stroke='%23FAAE78' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 100px;
+            background-position: left center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .audio-title {
+            font-weight: 500;
+            font-size: 1rem;
+            min-width: 180px;
         }
 
         .audio-icon {
@@ -706,11 +744,10 @@
         }
 
         /* Contact Section */
-        .contact-section {
-            background: #f8f7fa;
-            padding: 5rem 16px;
-            position: relative;
+        .samples-section {
+            background: rgba(248, 247, 250, 0.85);
         }
+
 
         /* Speech bubble accent */
         .speech-bubble-accent {
@@ -722,14 +759,6 @@
             opacity: 0.15;
         }
 
-        .contact-wrapper {
-            max-width: 880px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 4rem;
-        }
 
         .contact-info {
             flex: 1;
@@ -832,7 +861,7 @@
             border: none;
             border-radius: 50px;
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 400;
             text-transform: uppercase;
             cursor: pointer;
@@ -894,96 +923,6 @@
         }
 
         /* Footer */
-        footer {
-            padding: 2rem;
-            background: #4a3f54;
-            color: rgba(255,255,255,0.7);
-            font-size: 1rem;
-            position: relative;
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-left {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .footer-divider {
-            width: 2px;
-            height: 16px;
-            background: linear-gradient(180deg, #8EDCC3, #C7C0E6);
-            border-radius: 1px;
-        }
-
-        .footer-sound-bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 4px;
-            height: 20px;
-        }
-
-        .footer-sound-bars span {
-            width: 3px;
-            background: linear-gradient(to top, #8EDCC3, #C7C0E6);
-            border-radius: 2px;
-            animation: soundBar 1s ease-in-out infinite;
-        }
-
-        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
-        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
-        .footer-sound-bars span:nth-child(3) { height: 10px; animation-delay: 0.2s; }
-        .footer-sound-bars span:nth-child(4) { height: 18px; animation-delay: 0.3s; }
-        .footer-sound-bars span:nth-child(5) { height: 6px; animation-delay: 0.4s; }
-        .footer-sound-bars span:nth-child(6) { height: 12px; animation-delay: 0.5s; }
-        .footer-sound-bars span:nth-child(7) { height: 16px; animation-delay: 0.6s; }
-        .footer-sound-bars span:nth-child(8) { height: 9px; animation-delay: 0.7s; }
-        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
-        .footer-sound-bars span:nth-child(10) { height: 7px; animation-delay: 0.9s; }
-        .footer-sound-bars span:nth-child(11) { height: 11px; animation-delay: 0.15s; }
-        .footer-sound-bars span:nth-child(12) { height: 15px; animation-delay: 0.25s; }
-        .footer-sound-bars span:nth-child(13) { height: 8px; animation-delay: 0.35s; }
-        .footer-sound-bars span:nth-child(14) { height: 13px; animation-delay: 0.45s; }
-        .footer-sound-bars span:nth-child(15) { height: 17px; animation-delay: 0.55s; }
-        .footer-sound-bars span:nth-child(16) { height: 10px; animation-delay: 0.65s; }
-        .footer-sound-bars span:nth-child(17) { height: 6px; animation-delay: 0.75s; }
-        .footer-sound-bars span:nth-child(18) { height: 12px; animation-delay: 0.85s; }
-        .footer-sound-bars span:nth-child(19) { height: 15px; animation-delay: 0.05s; }
-        .footer-sound-bars span:nth-child(20) { height: 9px; animation-delay: 0.12s; }
-        .footer-sound-bars span:nth-child(21) { height: 18px; animation-delay: 0.22s; }
-        .footer-sound-bars span:nth-child(22) { height: 7px; animation-delay: 0.32s; }
-        .footer-sound-bars span:nth-child(23) { height: 11px; animation-delay: 0.42s; }
-        .footer-sound-bars span:nth-child(24) { height: 14px; animation-delay: 0.52s; }
-        .footer-sound-bars span:nth-child(25) { height: 8px; animation-delay: 0.62s; }
-        .footer-sound-bars span:nth-child(26) { height: 16px; animation-delay: 0.72s; }
-
-        @keyframes soundBar {
-            0%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(0.5); }
-        }
-
-        footer a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        /* Electric Effects */
-        :root {
-            --electric-blue: #00d4ff;
-            --electric-purple: #a855f7;
-        }
-
         #electric-particles {
             position: fixed;
             top: 0;
@@ -993,224 +932,6 @@
             pointer-events: none;
             z-index: 0;
         }
-
-        header, section, footer {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 1rem 2rem;
-            }
-
-            .logo img {
-                height: 34px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .production-card {
-                display: flex;
-                flex-direction: column;
-                padding: 1.5rem;
-            }
-
-            .production-title {
-                order: 1;
-            }
-
-            .production-tags {
-                order: 2;
-                gap: 0.5rem;
-            }
-
-            .production-tag {
-                padding: 0.4rem 0.9rem;
-                font-size: 0.75rem;
-            }
-
-            .production-player {
-                order: 3;
-            }
-
-            .production-cover {
-                order: 4;
-                width: 100%;
-                max-width: 100%;
-                margin: 1rem 0;
-                padding: 0;
-                align-items: center;
-            }
-
-            .production-cover img {
-                max-width: 350px;
-                height: auto;
-            }
-
-            .production-description {
-                order: 5;
-                margin: 1rem 0;
-            }
-
-            .production-card > .platform-icons {
-                order: 6;
-                justify-content: center;
-                margin-top: 0.5rem;
-            }
-
-            .contact-wrapper {
-                flex-direction: column;
-            }
-
-            .contact-form {
-                max-width: 100%;
-                width: 100%;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .footer-sound-bars {
-                order: -1;
-            }
-
-            .footer-sound-bars span:nth-child(n+14) {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            section {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .hero-quote {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* ===== CAROUSEL (desktop only) ===== */
-        @media (min-width: 769px) {
-            .audiobook-section,
-            .production-section {
-                position: relative;
-            }
-
-            .carousel-track {
-                position: relative;
-                overflow: visible;
-                min-height: 0;
-                padding: 1rem;
-                margin: -1rem;
-            }
-
-            .audiobook-card,
-            .production-card {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                opacity: 0;
-                pointer-events: none;
-                transform: translateX(60px);
-                transition: opacity 0.35s ease, transform 0.35s ease;
-            }
-
-            .audiobook-card.carousel-active,
-            .production-card.carousel-active {
-                opacity: 1;
-                pointer-events: auto;
-                transform: translateX(0);
-            }
-
-            .audiobook-card.carousel-exit,
-            .production-card.carousel-exit {
-                opacity: 0;
-                transform: translateX(-60px);
-                transition: opacity 0.25s ease, transform 0.25s ease;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .carousel-track {
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .audiobook-card,
-            .production-card {
-                position: static;
-                opacity: 1;
-                transform: none;
-            }
-            .carousel-nav { display: none !important; }
-        }
-
-        .carousel-nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .carousel-btn {
-            background: none;
-            border: 1px solid #C7C0E6;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: #4a3f54;
-            transition: background 0.2s, border-color 0.2s;
-            font-family: inherit;
-        }
-
-        .carousel-btn:hover {
-            background: #4a3f54;
-            color: white;
-            border-color: #4a3f54;
-        }
-
-        .carousel-btn:disabled {
-            opacity: 0.3;
-            cursor: default;
-        }
-
-        .carousel-dots {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .carousel-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #C7C0E6;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .carousel-dot.active {
-            background: #4a3f54;
-            transform: scale(1.3);
-        }
-
 
 
         footer {
@@ -1230,7 +951,8 @@
             gap: 2rem;
         }
 
-        .footer-left {
+                .footer-left {
+            flex: 1;
             display: flex;
             gap: 1.5rem;
             align-items: center;
@@ -1243,9 +965,11 @@
             border-radius: 1px;
         }
 
-        .footer-sound-bars {
+                .footer-sound-bars {
+            flex: 1;
             display: flex;
             align-items: flex-end;
+            justify-content: flex-end;
             gap: 4px;
             height: 20px;
         }
@@ -1355,7 +1079,887 @@
             margin-top: 0.4rem;
             margin-left: 0.25rem;
         }
-    </style>
+    
+        /* Carousel - desktop slide animation */
+        @media (min-width: 769px) {
+            .audiobook-section,
+            .production-section {
+                position: relative;
+            }
+
+            .carousel-track {
+                position: relative;
+                overflow: visible;
+                min-height: 0;
+                padding: 1rem;
+                margin: -1rem;
+            }
+
+            .audiobook-card,
+            .production-card {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateX(60px);
+                transition: opacity 0.35s ease, transform 0.35s ease;
+            }
+
+            .audiobook-card.carousel-active,
+            .production-card.carousel-active {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateX(0);
+            }
+
+            .audiobook-card.carousel-exit,
+            .production-card.carousel-exit {
+                opacity: 0;
+                transform: translateX(-60px);
+                transition: opacity 0.25s ease, transform 0.25s ease;
+            }
+        }
+
+        /* Mobile: stacked, no carousel */
+        @media (max-width: 768px) {
+            .carousel-track {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .audiobook-card,
+            .production-card {
+                position: static;
+                opacity: 1;
+                transform: none;
+            }
+            .carousel-nav { display: none !important; }
+        }
+
+        .carousel-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: none;
+            border: 1px solid #C7C0E6;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            color: #4a3f54;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .carousel-btn:hover {
+            background: #4a3f54;
+            color: white;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #C7C0E6;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .carousel-dot.active {
+            background: #4a3f54;
+            transform: scale(1.3);
+        }
+
+        .carousel-counter {
+            font-size: 0.85rem;
+            color: #999;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        
+        .sample-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .sample-tab {
+            padding: 0.55rem 1.35rem;
+            border: 1px solid #C7C0E6;
+            border-radius: 4px;
+            background: white;
+            color: #4a3f54;
+            font-size: 0.9rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .sample-tab.active {
+            background: #4a3f54;
+            color: white;
+            border-color: #4a3f54;
+        }
+
+        .sample-content {
+            display: none;
+        }
+
+        .sample-content.active {
+            display: block;
+        }
+
+        .audio-player {
+            background: white;
+            border-radius: 4px;
+            padding: 1.75rem 1.75rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .audio-player.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .audio-player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100 Q25 60 50 100 T100 100 T150 100 T200 100' fill='none' stroke='%238EDCC3' stroke-width='2'/%3E%3Cpath d='M0 120 Q25 80 50 120 T100 120 T150 120 T200 120' fill='none' stroke='%23C7C0E6' stroke-width='1.5'/%3E%3Cpath d='M0 80 Q25 40 50 80 T100 80 T150 80 T200 80' fill='none' stroke='%23FAAE78' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 100px;
+            background-position: left center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .audio-title {
+            font-weight: 500;
+            font-size: 1rem;
+            min-width: 180px;
+        }
+
+        .audio-icon {
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            user-select: none;
+            width: 29px;
+            height: 26px;
+            flex-shrink: 0;
+            margin: 0 0.5rem;
+        }
+
+        .audio-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .audio-icon:active {
+            transform: scale(0.9);
+        }
+
+        .audio-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .audio-icon rect {
+            transition: all 0.3s ease;
+        }
+
+        .audio-progress-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .audio-time {
+            font-size: 0.75rem;
+            color: #999;
+            min-width: 35px;
+        }
+
+        .audio-time.current {
+            text-align: right;
+        }
+
+        .audio-time.duration {
+            text-align: left;
+        }
+
+        .audio-progress {
+            flex: 1;
+            height: 4px;
+            background: #8EDCC3;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .audio-progress-fill {
+            height: 100%;
+            background: #4a3f54;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s linear;
+        }
+
+        .audio-download {
+            color: #8a7b96;
+            cursor: pointer;
+            transition: transform 0.15s ease, color 0.15s ease;
+            user-select: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .audio-download svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .audio-download:hover {
+            color: #4a3f54;
+            transform: scale(1.1);
+        }
+
+        .audio-download:active {
+            transform: scale(0.85);
+            color: #4a3f54;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: #4a3f54;
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+
+            margin-top: 1.5rem;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            user-select: none;
+        }
+
+        .btn-secondary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Tone Words */
+        .tone-words {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0 auto;
+        }
+
+        .tone-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tone-word {
+            padding: 0.55rem 1.35rem;
+            border: 1px solid #8EDCC3;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #555;
+            transition: all 0.3s;
+        }
+
+        .tone-word:nth-child(3n+2) {
+            border-color: #C7C0E6;
+        }
+
+        .tone-word:nth-child(3n) {
+            border-color: #FAAE78;
+        }
+
+        .tone-word:hover {
+            border-color: #4a3f54;
+            color: #4a3f54;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: rgba(248, 247, 250, 0.85);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            column-gap: 3rem;
+            row-gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.25rem 1.75rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            grid-column: span 2;
+        }
+
+        /* Bottom row: 2 cards centered - start at col 2 and col 4 */
+        .testimonial-card:nth-child(4) { grid-column: 2 / 4; }
+        .testimonial-card:nth-child(5) { grid-column: 4 / 6; }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.4;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100 Q25 60 50 100 T100 100 T150 100 T200 100' fill='none' stroke='%238EDCC3' stroke-width='3'/%3E%3Cpath d='M0 120 Q25 80 50 120 T100 120 T150 120 T200 120' fill='none' stroke='%23C7C0E6' stroke-width='2.5'/%3E%3Cpath d='M0 80 Q25 40 50 80 T100 80 T150 80 T200 80' fill='none' stroke='%23FAAE78' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 180px;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            flex-grow: 1;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-align: right;
+            margin-bottom: 0.35rem;
+        }
+
+        .testimonial-company {
+            color: #999;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        /* Brands */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 3rem 3rem;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+            justify-items: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .brand-row {
+            display: contents;
+        }
+
+        .brands-grid img {
+            height: auto;
+            width: 100%;
+            max-width: 132px;
+            max-height: 55px;
+            object-fit: contain;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .brands-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .brands-grid img.active {
+            animation: pulse 0.6s ease-in-out 3;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes pulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .brand-player {
+            max-width: 900px;
+            margin: 2.5rem auto 0;
+            background: white;
+            border-radius: 4px;
+            padding: 1.75rem 1.75rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-player.active {
+            opacity: 1;
+        }
+
+        .brand-player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100 Q25 60 50 100 T100 100 T150 100 T200 100' fill='none' stroke='%238EDCC3' stroke-width='2'/%3E%3Cpath d='M0 120 Q25 80 50 120 T100 120 T150 120 T200 120' fill='none' stroke='%23C7C0E6' stroke-width='1.5'/%3E%3Cpath d='M0 80 Q25 40 50 80 T100 80 T150 80 T200 80' fill='none' stroke='%23FAAE78' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 100px;
+            background-position: left center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .brand-player-content {
+            display: contents;
+        }
+
+        .brand-player-title {
+            font-weight: 500;
+            font-size: 1rem;
+            min-width: 180px;
+            color: #4a3f54;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: rgba(248, 247, 250, 0.85);
+        }
+
+        .faq-list {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: box-shadow 0.2s ease;
+            gap: 1rem;
+            min-width: 0;
+        }
+
+        .faq-arrow {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.25s ease-in-out;
+            flex-shrink: 0;
+            min-width: 20px;
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .faq-question span {
+            font-size: 1.25rem;
+            color: #999;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .faq-item.open .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            overflow: hidden;
+            height: 0;
+            transition: height 0.25s ease-in-out, padding 0.25s ease-in-out;
+            padding: 0 1.5rem;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.open .faq-answer {
+            padding: 0 1.5rem 1.25rem;
+        }
+
+        /* Tools */
+        .tools-grid {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .tool-item {
+            text-align: center;
+        }
+
+        .tool-icon {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background: white;
+        }
+
+        .tool-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-detail {
+            color: #999;
+            font-size: 1rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: rgba(248, 247, 250, 0.85);
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 max(2rem, calc(50% - 550px));
+            gap: 6rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            max-width: 320px;
+        }
+
+        .contact-info h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .contact-info p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Speech bubble accent */
+        .speech-bubble-accent {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            opacity: 0.15;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a3f54;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            opacity: 1;
+        }
+
+        .contact-links a svg {
+            height: 24px;
+            width: auto;
+        }
+
+        .contact-links a svg[viewBox="0 0 45 51"],
+        .social-links a svg[viewBox="0 0 45 51"] {
+            height: 38px;
+            width: 38px;
+        }
+
+        .social-links a svg[viewBox="0 0 520 200"],
+        .contact-links a svg[viewBox="0 0 520 200"] {
+            height: 20px;
+            width: auto;
+        }
+
+        .contact-form {
+            flex: 2;
+            max-width: 560px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a3f54;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: #4a3f54;
+            color: white;
+            padding: 0.875rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 400;
+
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.5s ease;
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+        }
+
+        .btn-submit .btn-text {
+            transition: transform 0.4s ease, opacity 0.3s ease;
+            line-height: 1;
+        }
+
+        .btn-submit .btn-text-thank {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+            color: #333;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .btn-submit.submitted .btn-text {
+            transform: translateY(-150%);
+            opacity: 0;
+        }
+
+        .btn-submit.submitted .btn-text-thank {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        .btn-submit:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .btn-submit.submitted {
+            background: #8EDCC3;
+            cursor: default;
+        }
+
+        .btn-submit.submitted:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Footer */
+        #electric-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+
+        footer {
+            padding: 2rem max(2rem, calc(50% - 550px));
+            background: #4a3f54;
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .footer-divider {
+            width: 2px;
+            height: 16px;
+            background: linear-gradient(180deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+        }
+
+        .footer-sound-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 20px;
+        }
+
+        .footer-sound-bars span {
+            width: 3px;
+            background: linear-gradient(to top, #8EDCC3, #C7C0E6);
+            border-radius: 2px;
+            animation: soundBar 1s ease-in-out infinite;
+        }
+
+        .footer-sound-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+        .footer-sound-bars span:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+        .footer-sound-bars span:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+        .footer-sound-bars span:nth-child(4) { height: 18px; animation-delay: 0.3s; }
+        .footer-sound-bars span:nth-child(5) { height: 6px; animation-delay: 0.4s; }
+        .footer-sound-bars span:nth-child(6) { height: 12px; animation-delay: 0.5s; }
+        .footer-sound-bars span:nth-child(7) { height: 16px; animation-delay: 0.6s; }
+        .footer-sound-bars span:nth-child(8) { height: 9px; animation-delay: 0.7s; }
+        .footer-sound-bars span:nth-child(9) { height: 14px; animation-delay: 0.8s; }
+        .footer-sound-bars span:nth-child(10) { height: 7px; animation-delay: 0.9s; }
+        .footer-sound-bars span:nth-child(11) { height: 11px; animation-delay: 0.15s; }
+        .footer-sound-bars span:nth-child(12) { height: 15px; animation-delay: 0.25s; }
+        .footer-sound-bars span:nth-child(13) { height: 8px; animation-delay: 0.35s; }
+        .footer-sound-bars span:nth-child(14) { height: 13px; animation-delay: 0.45s; }
+        .footer-sound-bars span:nth-child(15) { height: 17px; animation-delay: 0.55s; }
+        .footer-sound-bars span:nth-child(16) { height: 10px; animation-delay: 0.65s; }
+        .footer-sound-bars span:nth-child(17) { height: 6px; animation-delay: 0.75s; }
+        .footer-sound-bars span:nth-child(18) { height: 12px; animation-delay: 0.85s; }
+        .footer-sound-bars span:nth-child(19) { height: 15px; animation-delay: 0.05s; }
+        .footer-sound-bars span:nth-child(20) { height: 9px; animation-delay: 0.12s; }
+        .footer-sound-bars span:nth-child(21) { height: 18px; animation-delay: 0.22s; }
+        .footer-sound-bars span:nth-child(22) { height: 7px; animation-delay: 0.32s; }
+        .footer-sound-bars span:nth-child(23) { height: 11px; animation-delay: 0.42s; }
+        .footer-sound-bars span:nth-child(24) { height: 14px; animation-delay: 0.52s; }
+        .footer-sound-bars span:nth-child(25) { height: 8px; animation-delay: 0.62s; }
+        .footer-sound-bars span:nth-child(26) { height: 16px; animation-delay: 0.72s; }
+
+        </style>
 </head>
 <body>
     <!-- Electric particles background -->
@@ -1390,10 +1994,6 @@
         <a href="#contact" onclick="toggleMobileNav()">Contact</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-
-    </section>
 
     <!-- Production Section -->
     <section class="production-section">
@@ -1401,7 +2001,14 @@
         <div class="carousel-track">
         <!-- Katuri -->
         <div class="production-card carousel-active">
-            <h2 class="production-title">Katuri</h2>
+            <h2 class="production-title">Katuri, Season 5</h2>
+
+            <!-- Katuri Trailer -->
+            <div class="card-trailer-inline">
+                <div class="card-trailer-embed">
+                    <iframe src="https://www.youtube.com/embed/_B6iETHRlLs" title="Katuri Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
             <div class="production-tags">
                     <span class="production-tag">Voice Production Coordinator</span>
                     <span class="production-tag">Recording Engineer</span>
@@ -1417,40 +2024,15 @@
                 <a href="#" class="platform-icon" title="Apple Books">
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </a>
-            </div>
-
-            <!-- Katuri Trailer -->
-            <div class="card-trailer-inline">
-                <div class="card-trailer-line"></div>
-                <div class="card-trailer-embed">
-                    <iframe src="https://www.youtube.com/embed/_B6iETHRlLs" title="Katuri Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
             </div>
         </div>
 
         <!-- Reggie Rex! -->
         <div class="production-card">
             <h2 class="production-title">Reggie Rex!</h2>
-            <div class="production-tags">
-                    <span class="production-tag">Voice Production Coordinator</span>
-                    <span class="production-tag">Recording Engineer</span>
-                    <span class="production-tag">Director</span>
-                </div>
-            <div class="platform-icons">
-                <a href="#" class="platform-icon" title="Spotify">
-                    <svg viewBox="0 0 94 97" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.0156 4C21.6229 4 1.01562 24.6073 1.01562 50C1.01562 75.3927 21.6229 96 47.0156 96C72.4084 96 93.0156 75.3927 93.0156 50C93.0156 24.6073 72.4084 4 47.0156 4ZM65.6939 71.6831C64.9148 71.6831 64.4326 71.4419 63.7092 71.0153C52.135 64.0411 38.6689 63.7444 25.3697 66.471C24.6463 66.6564 23.7003 66.9532 23.1624 66.9532C21.3632 66.9532 20.2318 65.525 20.2318 64.0226C20.2318 62.1121 21.3632 61.2032 22.7543 60.9064C37.9455 57.5492 53.4705 57.846 66.714 65.7661C67.8455 66.4895 68.5132 67.1387 68.5132 68.8266C68.5132 70.5145 67.1963 71.6831 65.6939 71.6831ZM70.6834 59.5153C69.7189 59.5153 69.0697 59.0887 68.4019 58.7363C56.8092 51.8734 39.5221 49.1097 24.1455 53.2831C23.2551 53.5242 22.7729 53.7653 21.9382 53.7653C19.9535 53.7653 18.3398 52.1516 18.3398 50.1669C18.3398 48.1823 19.3043 46.8653 21.2148 46.3274C26.3713 44.8806 31.639 43.8048 39.3551 43.8048C51.393 43.8048 63.0229 46.7911 72.1858 52.2444C73.6882 53.1347 74.2818 54.2847 74.2818 55.8984C74.2632 57.9016 72.7051 59.5153 70.6834 59.5153ZM76.4334 45.3815C75.4689 45.3815 74.8753 45.1403 74.0406 44.6581C60.8342 36.775 37.2221 34.8831 21.9382 39.1492C21.2705 39.3347 20.4358 39.6315 19.5455 39.6315C17.0971 39.6315 15.2237 37.721 15.2237 35.254C15.2237 32.7315 16.7818 31.3032 18.4511 30.821C24.9801 28.9105 32.2882 28.0016 40.2455 28.0016C53.7858 28.0016 67.9753 30.821 78.3439 36.8677C79.7906 37.7024 80.7366 38.8524 80.7366 41.0597C80.7366 43.5823 78.6963 45.3815 76.4334 45.3815Z" fill="currentColor"/></svg>
-                </a>
-                <a href="#" class="platform-icon" title="Amazon">
-                    <svg viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47 0C72.9574 0 94 21.0426 94 47C94 72.9574 72.9574 94 47 94C21.0426 94 0 72.9574 0 47C0 21.0426 21.0426 0 47 0ZM20.9316 63.0635C20.3604 62.6826 19.3701 63.1396 20.2334 64.1172C23.3439 67.8624 33.5002 76.9395 46.7666 76.9395C60.033 76.9393 67.9424 69.7031 68.9199 68.4336C69.9098 67.1643 69.1736 66.4408 68.2217 66.9102C44.7737 78.0184 30.2373 68.7129 20.9316 63.0635ZM74.7979 63.2412C74.1631 62.4161 70.9512 62.2891 68.958 62.5176C66.9521 62.7715 63.9053 64.0156 64.1973 64.7393C64.3242 65.0311 64.6037 64.9043 65.9746 64.7773C67.3714 64.6376 71.2432 64.13 72.0684 65.1836C72.9059 66.263 70.8371 71.3403 70.4561 72.166C70.0752 72.9912 70.583 73.2197 71.2812 72.6484C71.9415 72.1151 73.1476 70.7185 73.9727 68.7129C74.7977 66.6818 75.2674 63.8889 74.7979 63.2412ZM48.0361 20.0645C36.8643 20.0645 30.9356 27.0469 30.9355 33.3057L40.2666 34.1689C42.336 27.8849 47.1475 27.8848 47.1475 27.8848C52.314 27.8723 51.6543 31.6681 51.6543 36.6572C45.4717 36.8857 30.1358 38.625 30.1357 51.5742C30.1357 65.4756 47.6934 66.0469 53.4316 57.0586C54.257 58.3536 57.9258 61.8194 59.1826 63L66.3936 55.8906C66.3936 55.8906 62.293 52.6787 62.293 49.1875V30.5127C62.2929 27.3008 59.1823 20.0646 48.0361 20.0645ZM51.6543 47.6768C51.6543 57.833 40.9648 56.3096 40.9648 49.8604C40.9649 43.8682 47.376 42.6621 51.6543 42.5225V47.6768Z" fill="currentColor"/></svg>
-                </a>
-                <a href="#" class="platform-icon" title="Apple Books">
-                    <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
-                </a>
-            </div>
 
             <!-- Reggie Rex Trailer -->
             <div class="card-trailer-inline">
-                <div class="card-trailer-line"></div>
                 <a href="https://watch.yippee.tv/reggie-rex/videos/reggie-rex-trailer" target="_blank" class="card-trailer-link">
                     <div class="card-trailer-link-inner">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -1459,11 +2041,34 @@
                     </div>
                 </a>
             </div>
+            <div class="production-tags">
+                    <span class="production-tag">Voice Production Coordinator</span>
+                    <span class="production-tag">Recording Engineer</span>
+                    <span class="production-tag">Director</span>
+                </div>
+            <div class="platform-icons">
+                <a href="#" class="platform-icon" title="Spotify">
+                    <svg viewBox="0 0 94 97" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.0156 4C21.6229 4 1.01562 24.6073 1.01562 50C1.01562 75.3927 21.6229 96 47.0156 96C72.4084 96 93.0156 75.3927 93.0156 50C93.0156 24.6073 72.4084 4 47.0156 4ZM65.6939 71.6831C64.9148 71.6831 64.4326 71.4419 63.7092 71.0153C52.135 64.0411 38.6689 63.7444 25.3697 66.471C24.6463 66.6564 23.7003 66.9532 23.1624 66.9532C21.3632 66.9532 20.2318 65.525 20.2318 64.0226C20.2318 62.1121 21.3632 61.2032 22.7543 60.9064C37.9455 57.5492 53.4705 57.846 66.714 65.7661C67.8455 66.4895 68.5132 67.1387 68.5132 68.8266C68.5132 70.5145 67.1963 71.6831 65.6939 71.6831ZM70.6834 59.5153C69.7189 59.5153 69.0697 59.0887 68.4019 58.7363C56.8092 51.8734 39.5221 49.1097 24.1455 53.2831C23.2551 53.5242 22.7729 53.7653 21.9382 53.7653C19.9535 53.7653 18.3398 52.1516 18.3398 50.1669C18.3398 48.1823 19.3043 46.8653 21.2148 46.3274C26.3713 44.8806 31.639 43.8048 39.3551 43.8048C51.393 43.8048 63.0229 46.7911 72.1858 52.2444C73.6882 53.1347 74.2818 54.2847 74.2818 55.8984C74.2632 57.9016 72.7051 59.5153 70.6834 59.5153ZM76.4334 45.3815C75.4689 45.3815 74.8753 45.1403 74.0406 44.6581C60.8342 36.775 37.2221 34.8831 21.9382 39.1492C21.2705 39.3347 20.4358 39.6315 19.5455 39.6315C17.0971 39.6315 15.2237 37.721 15.2237 35.254C15.2237 32.7315 16.7818 31.3032 18.4511 30.821C24.9801 28.9105 32.2882 28.0016 40.2455 28.0016C53.7858 28.0016 67.9753 30.821 78.3439 36.8677C79.7906 37.7024 80.7366 38.8524 80.7366 41.0597C80.7366 43.5823 78.6963 45.3815 76.4334 45.3815Z" fill="currentColor"/></svg>
+                </a>
+                <a href="#" class="platform-icon" title="Amazon">
+                    <svg viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47 0C72.9574 0 94 21.0426 94 47C94 72.9574 72.9574 94 47 94C21.0426 94 0 72.9574 0 47C0 21.0426 21.0426 0 47 0ZM20.9316 63.0635C20.3604 62.6826 19.3701 63.1396 20.2334 64.1172C23.3439 67.8624 33.5002 76.9395 46.7666 76.9395C60.033 76.9393 67.9424 69.7031 68.9199 68.4336C69.9098 67.1643 69.1736 66.4408 68.2217 66.9102C44.7737 78.0184 30.2373 68.7129 20.9316 63.0635ZM74.7979 63.2412C74.1631 62.4161 70.9512 62.2891 68.958 62.5176C66.9521 62.7715 63.9053 64.0156 64.1973 64.7393C64.3242 65.0311 64.6037 64.9043 65.9746 64.7773C67.3714 64.6376 71.2432 64.13 72.0684 65.1836C72.9059 66.263 70.8371 71.3403 70.4561 72.166C70.0752 72.9912 70.583 73.2197 71.2812 72.6484C71.9415 72.1151 73.1476 70.7185 73.9727 68.7129C74.7977 66.6818 75.2674 63.8889 74.7979 63.2412ZM48.0361 20.0645C36.8643 20.0645 30.9356 27.0469 30.9355 33.3057L40.2666 34.1689C42.336 27.8849 47.1475 27.8848 47.1475 27.8848C52.314 27.8723 51.6543 31.6681 51.6543 36.6572C45.4717 36.8857 30.1358 38.625 30.1357 51.5742C30.1357 65.4756 47.6934 66.0469 53.4316 57.0586C54.257 58.3536 57.9258 61.8194 59.1826 63L66.3936 55.8906C66.3936 55.8906 62.293 52.6787 62.293 49.1875V30.5127C62.2929 27.3008 59.1823 20.0646 48.0361 20.0645ZM51.6543 47.6768C51.6543 57.833 40.9648 56.3096 40.9648 49.8604C40.9649 43.8682 47.376 42.6621 51.6543 42.5225V47.6768Z" fill="currentColor"/></svg>
+                </a>
+                <a href="#" class="platform-icon" title="Apple Books">
+                    <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
+                </a>
+            </div>
         </div>
 
         <!-- Ed & Edda: Grand Prix of Europe -->
         <div class="production-card">
-            <h2 class="production-title">Ed & Edda: Grand Prix of Europe</h2>
+            <h2 class="production-title">Grand Prix of Europe</h2>
+
+            <!-- Grand Prix of Europe Trailer -->
+            <div class="card-trailer-inline">
+                <div class="card-trailer-embed">
+                    <iframe src="https://www.youtube.com/embed/hnCOBoaKGTM" title="Grand Prix of Europe Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
             <div class="production-tags">
                     <span class="production-tag">Voice Production Coordinator</span>
                     <span class="production-tag">Scratch Editor</span>
@@ -1484,6 +2089,13 @@
         <!-- Kayara -->
         <div class="production-card">
             <h2 class="production-title">Kayara</h2>
+
+            <!-- Kayara Trailer -->
+            <div class="card-trailer-inline">
+                <div class="card-trailer-embed">
+                    <iframe src="https://www.youtube.com/embed/Rvd0zxANttM" title="Kayara Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
             <div class="production-tags">
                     <span class="production-tag">ADR Voice Production Coordinator</span>
                     <span class="production-tag">Recording Engineer</span>
@@ -1499,19 +2111,20 @@
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </a>
             </div>
-
-            <!-- Kayara Trailer -->
-            <div class="card-trailer-inline">
-                <div class="card-trailer-line"></div>
-                <div class="card-trailer-embed">
-                    <iframe src="https://www.youtube.com/embed/Rvd0zxANttM" title="Kayara Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
         </div>
 
         <!-- How Tall is Jeffrey? -->
         <div class="production-card">
             <h2 class="production-title">How Tall is Jeffrey?</h2>
+
+            <!-- Sound Design Sample -->
+            <div class="card-trailer-inline">
+                <div class="card-trailer-embed" style="background: #000;">
+                    <video preload="metadata" controls style="position:absolute; top:0; left:0; width:100%; height:100%;">
+                        <source src="CTVO_-_Short_Film_-_HTIJ_-_Sample_-_Sound_Design.mov" type="video/mp4">
+                    </video>
+                </div>
+            </div>
             <div class="production-tags">
                     <span class="production-tag">Sound Mixer</span>
                     <span class="production-tag">Sound Design</span>
@@ -1527,37 +2140,40 @@
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </a>
             </div>
-
-            <!-- Sound Design Sample -->
-            <div class="card-trailer-inline">
-                <div class="card-trailer-line"></div>
-                <div class="card-trailer-embed" style="background: #000;">
-                    <video preload="metadata" controls style="position:absolute; top:0; left:0; width:100%; height:100%;">
-                        <source src="CTVO_-_Short_Film_-_HTIJ_-_Sample_-_Sound_Design.mov" type="video/mp4">
-                    </video>
-                </div>
-            </div>
         </div>
 
         <!-- Dicey Roles -->
-        <div class="production-card">
-            <h2 class="production-title">Dicey Roles</h2>
-            <div class="production-tags">
+        <div class="production-card" style="flex-direction: row; gap: 2rem; align-items: flex-start;">
+            <div style="flex: 1; min-width: 0;">
+                <h2 class="production-title">Dicey Roles</h2>
+                <div class="production-tags">
                     <span class="production-tag">Producer</span>
                     <span class="production-tag">Host</span>
                     <span class="production-tag">Game Designer</span>
                     <span class="production-tag">Sound Designer</span>
                 </div>
-            <div class="platform-icons">
-                <a href="DICEY_ROLES_SPOTIFY_URL" class="platform-icon" title="Spotify">
-                    <svg viewBox="0 0 94 97" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.0156 4C21.6229 4 1.01562 24.6073 1.01562 50C1.01562 75.3927 21.6229 96 47.0156 96C72.4084 96 93.0156 75.3927 93.0156 50C93.0156 24.6073 72.4084 4 47.0156 4ZM65.6939 71.6831C64.9148 71.6831 64.4326 71.4419 63.7092 71.0153C52.135 64.0411 38.6689 63.7444 25.3697 66.471C24.6463 66.6564 23.7003 66.9532 23.1624 66.9532C21.3632 66.9532 20.2318 65.525 20.2318 64.0226C20.2318 62.1121 21.3632 61.2032 22.7543 60.9064C37.9455 57.5492 53.4705 57.846 66.714 65.7661C67.8455 66.4895 68.5132 67.1387 68.5132 68.8266C68.5132 70.5145 67.1963 71.6831 65.6939 71.6831ZM70.6834 59.5153C69.7189 59.5153 69.0697 59.0887 68.4019 58.7363C56.8092 51.8734 39.5221 49.1097 24.1455 53.2831C23.2551 53.5242 22.7729 53.7653 21.9382 53.7653C19.9535 53.7653 18.3398 52.1516 18.3398 50.1669C18.3398 48.1823 19.3043 46.8653 21.2148 46.3274C26.3713 44.8806 31.639 43.8048 39.3551 43.8048C51.393 43.8048 63.0229 46.7911 72.1858 52.2444C73.6882 53.1347 74.2818 54.2847 74.2818 55.8984C74.2632 57.9016 72.7051 59.5153 70.6834 59.5153ZM76.4334 45.3815C75.4689 45.3815 74.8753 45.1403 74.0406 44.6581C60.8342 36.775 37.2221 34.8831 21.9382 39.1492C21.2705 39.3347 20.4358 39.6315 19.5455 39.6315C17.0971 39.6315 15.2237 37.721 15.2237 35.254C15.2237 32.7315 16.7818 31.3032 18.4511 30.821C24.9801 28.9105 32.2882 28.0016 40.2455 28.0016C53.7858 28.0016 67.9753 30.821 78.3439 36.8677C79.7906 37.7024 80.7366 38.8524 80.7366 41.0597C80.7366 43.5823 78.6963 45.3815 76.4334 45.3815Z" fill="currentColor"/></svg>
-                </a>
-                <a href="#" class="platform-icon" title="Amazon">
-                    <svg viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47 0C72.9574 0 94 21.0426 94 47C94 72.9574 72.9574 94 47 94C21.0426 94 0 72.9574 0 47C0 21.0426 21.0426 0 47 0ZM20.9316 63.0635C20.3604 62.6826 19.3701 63.1396 20.2334 64.1172C23.3439 67.8624 33.5002 76.9395 46.7666 76.9395C60.033 76.9393 67.9424 69.7031 68.9199 68.4336C69.9098 67.1643 69.1736 66.4408 68.2217 66.9102C44.7737 78.0184 30.2373 68.7129 20.9316 63.0635ZM74.7979 63.2412C74.1631 62.4161 70.9512 62.2891 68.958 62.5176C66.9521 62.7715 63.9053 64.0156 64.1973 64.7393C64.3242 65.0311 64.6037 64.9043 65.9746 64.7773C67.3714 64.6376 71.2432 64.13 72.0684 65.1836C72.9059 66.263 70.8371 71.3403 70.4561 72.166C70.0752 72.9912 70.583 73.2197 71.2812 72.6484C71.9415 72.1151 73.1476 70.7185 73.9727 68.7129C74.7977 66.6818 75.2674 63.8889 74.7979 63.2412ZM48.0361 20.0645C36.8643 20.0645 30.9356 27.0469 30.9355 33.3057L40.2666 34.1689C42.336 27.8849 47.1475 27.8848 47.1475 27.8848C52.314 27.8723 51.6543 31.6681 51.6543 36.6572C45.4717 36.8857 30.1358 38.625 30.1357 51.5742C30.1357 65.4756 47.6934 66.0469 53.4316 57.0586C54.257 58.3536 57.9258 61.8194 59.1826 63L66.3936 55.8906C66.3936 55.8906 62.293 52.6787 62.293 49.1875V30.5127C62.2929 27.3008 59.1823 20.0646 48.0361 20.0645ZM51.6543 47.6768C51.6543 57.833 40.9648 56.3096 40.9648 49.8604C40.9649 43.8682 47.376 42.6621 51.6543 42.5225V47.6768Z" fill="currentColor"/></svg>
-                </a>
-                <a href="#" class="platform-icon" title="Apple Books">
-                    <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
-                </a>
+                <div class="platform-icons">
+                    <a href="DICEY_ROLES_SPOTIFY_URL" class="platform-icon" title="Spotify">
+                        <svg viewBox="0 0 94 97" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.0156 4C21.6229 4 1.01562 24.6073 1.01562 50C1.01562 75.3927 21.6229 96 47.0156 96C72.4084 96 93.0156 75.3927 93.0156 50C93.0156 24.6073 72.4084 4 47.0156 4ZM65.6939 71.6831C64.9148 71.6831 64.4326 71.4419 63.7092 71.0153C52.135 64.0411 38.6689 63.7444 25.3697 66.471C24.6463 66.6564 23.7003 66.9532 23.1624 66.9532C21.3632 66.9532 20.2318 65.525 20.2318 64.0226C20.2318 62.1121 21.3632 61.2032 22.7543 60.9064C37.9455 57.5492 53.4705 57.846 66.714 65.7661C67.8455 66.4895 68.5132 67.1387 68.5132 68.8266C68.5132 70.5145 67.1963 71.6831 65.6939 71.6831ZM70.6834 59.5153C69.7189 59.5153 69.0697 59.0887 68.4019 58.7363C56.8092 51.8734 39.5221 49.1097 24.1455 53.2831C23.2551 53.5242 22.7729 53.7653 21.9382 53.7653C19.9535 53.7653 18.3398 52.1516 18.3398 50.1669C18.3398 48.1823 19.3043 46.8653 21.2148 46.3274C26.3713 44.8806 31.639 43.8048 39.3551 43.8048C51.393 43.8048 63.0229 46.7911 72.1858 52.2444C73.6882 53.1347 74.2818 54.2847 74.2818 55.8984C74.2632 57.9016 72.7051 59.5153 70.6834 59.5153ZM76.4334 45.3815C75.4689 45.3815 74.8753 45.1403 74.0406 44.6581C60.8342 36.775 37.2221 34.8831 21.9382 39.1492C21.2705 39.3347 20.4358 39.6315 19.5455 39.6315C17.0971 39.6315 15.2237 37.721 15.2237 35.254C15.2237 32.7315 16.7818 31.3032 18.4511 30.821C24.9801 28.9105 32.2882 28.0016 40.2455 28.0016C53.7858 28.0016 67.9753 30.821 78.3439 36.8677C79.7906 37.7024 80.7366 38.8524 80.7366 41.0597C80.7366 43.5823 78.6963 45.3815 76.4334 45.3815Z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" class="platform-icon" title="Amazon">
+                        <svg viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47 0C72.9574 0 94 21.0426 94 47C94 72.9574 72.9574 94 47 94C21.0426 94 0 72.9574 0 47C0 21.0426 21.0426 0 47 0ZM20.9316 63.0635C20.3604 62.6826 19.3701 63.1396 20.2334 64.1172C23.3439 67.8624 33.5002 76.9395 46.7666 76.9395C60.033 76.9393 67.9424 69.7031 68.9199 68.4336C69.9098 67.1643 69.1736 66.4408 68.2217 66.9102C44.7737 78.0184 30.2373 68.7129 20.9316 63.0635ZM74.7979 63.2412C74.1631 62.4161 70.9512 62.2891 68.958 62.5176C66.9521 62.7715 63.9053 64.0156 64.1973 64.7393C64.3242 65.0311 64.6037 64.9043 65.9746 64.7773C67.3714 64.6376 71.2432 64.13 72.0684 65.1836C72.9059 66.263 70.8371 71.3403 70.4561 72.166C70.0752 72.9912 70.583 73.2197 71.2812 72.6484C71.9415 72.1151 73.1476 70.7185 73.9727 68.7129C74.7977 66.6818 75.2674 63.8889 74.7979 63.2412ZM48.0361 20.0645C36.8643 20.0645 30.9356 27.0469 30.9355 33.3057L40.2666 34.1689C42.336 27.8849 47.1475 27.8848 47.1475 27.8848C52.314 27.8723 51.6543 31.6681 51.6543 36.6572C45.4717 36.8857 30.1358 38.625 30.1357 51.5742C30.1357 65.4756 47.6934 66.0469 53.4316 57.0586C54.257 58.3536 57.9258 61.8194 59.1826 63L66.3936 55.8906C66.3936 55.8906 62.293 52.6787 62.293 49.1875V30.5127C62.2929 27.3008 59.1823 20.0646 48.0361 20.0645ZM51.6543 47.6768C51.6543 57.833 40.9648 56.3096 40.9648 49.8604C40.9649 43.8682 47.376 42.6621 51.6543 42.5225V47.6768Z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" class="platform-icon" title="Apple Books">
+                        <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+                <div class="production-audio">
+                    <div class="audio-player" data-audio="Dicey_Roles_Theme.wav">
+                        <span class="audio-title">Theme</span>
+                        <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
+                        <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#C7C0E6;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
+                        <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                    </div>
+                </div>
+            </div>
+            <div class="production-cover" style="flex-shrink: 0; width: 200px;">
+                <img src="Dicey_Roles_cover_art.jpg" alt="Dicey Roles" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
             </div>
         </div>
 
@@ -1578,10 +2194,10 @@
 
     <!-- Sound Design Reel -->
     <section class="sound-design-reel-section">
-        <h2 class="section-title" style="margin-bottom: 1.5rem;">Sound Design Reel</h2>
+        
         <div style="max-width: 820px; margin: 0 auto;">
-            <div class="audio-player" data-audio="CTVO-Reel-Sound-Design-2026.mp3">
-                <span class="audio-title">Sound Design Reel — 2026</span>
+            <div class="audio-player" data-audio="CTVO_-_Sound_Design_Reel_-_2026.mp3">
+                <span class="audio-title">Sound Design 2026</span>
                 <div class="audio-icon"><svg width="47" height="42" viewBox="0 0 47 42" fill="none"><rect class="bar1" width="5.85171" height="41.4496" rx="2.92585" fill="#4a3f54"/><rect class="bar2" x="8.0459" y="3.41382" width="5.85171" height="34.6226" rx="2.92585" fill="#4a3f54"/><rect class="bar3" x="16.0918" y="7.0708" width="5.85171" height="27.5518" rx="2.92585" fill="#4a3f54"/><rect class="bar4" x="24.1377" y="10.7281" width="5.85171" height="20.2372" rx="2.92585" fill="#4a3f54"/><rect class="bar5" x="32.1836" y="14.1419" width="5.85171" height="13.1663" rx="2.92585" fill="#4a3f54"/><rect class="bar6" x="40.2305" y="17.5554" width="5.85171" height="6.33935" rx="2.92585" fill="#4a3f54"/></svg></div>
                 <div class="audio-progress-container"><span class="audio-time current">0:00</span><div class="audio-progress" style="background:#8EDCC3;"><div class="audio-progress-fill" style="width:0%;"></div></div><span class="audio-time duration">0:00</span></div>
                 <span class="audio-download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
@@ -1614,7 +2230,7 @@
                         <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="service-answer">
-                        <p>I specialize in directing voice performance, particularly in situations where actors are recorded separately. Drawing on my experience in theatre and voiceover, I focus on maintaining emotional continuity across sessions — ensuring that each performance feels connected, even when actors aren't in the room together.</p>
+                        <p>I specialize in directing voice performance, particularly in situations where actors are recorded separately. Drawing on my experience in theatre and voiceover, I focus on maintaining emotional continuity across sessions - ensuring that each performance feels connected, even when actors aren't in the room together.</p>
                         <p>Whether working remotely or in person, I help talent deliver natural, grounded reads while keeping the broader context of the project in mind.</p>
                     </div>
                 </div>
@@ -1625,7 +2241,7 @@
                         <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="service-answer">
-                        <p>As a working voice actor, I've spent years refining remote recording workflows. I help talent and teams get the most out of home studios by focusing on practical improvements — mic technique, room setup, and signal quality — so recordings meet professional standards without unnecessary complexity.</p>
+                        <p>As a working voice actor, I've spent years refining remote recording workflows. I help talent and teams get the most out of home studios by focusing on practical improvements - mic technique, room setup, and signal quality - so recordings meet professional standards without unnecessary complexity.</p>
                         <p>When needed, I can guide talent (or their support teams) through setup and troubleshooting to ensure sessions run smoothly and efficiently.</p>
                     </div>
                 </div>
@@ -1636,7 +2252,7 @@
                         <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="service-answer">
-                        <p>My engineering approach is built around supporting performance. I ensure that recording setups — whether remote or in-studio — are reliable, clean, and organized, so actors can focus on their work without distraction.</p>
+                        <p>My engineering approach is built around supporting performance. I ensure that recording setups - whether remote or in-studio - are reliable, clean, and organized, so actors can focus on their work without distraction.</p>
                         <p>I'm comfortable delivering everything from simple, ready-to-use audio files to fully organized sessions with clearly labeled takes, depending on the needs of the project.</p>
                     </div>
                 </div>
@@ -1686,8 +2302,8 @@
                         <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="service-answer">
-                        <p>Coming from a theatrical background, I always saw sound design as a superpower for a voiceover artist — something akin to being an actor on stage who can build their own props and sets. Being a voiceover artist is a superpower in sound design: I'm wired to think of sound design like a character. Sound design as best supporting actor, elevates the world of the story by evoking emotional memories and defining action.</p>
-                        <p>In the mix, I prioritize balance and clarity — ensuring that dialogue remains the focal point while the world around it feels fully realized.</p>
+                        <p>Coming from a theatrical background, I always saw sound design as a superpower for a voiceover artist - something akin to being an actor on stage who can build their own props and sets. Being a voiceover artist is a superpower in sound design: I'm wired to think of sound design like a character. Sound design as best supporting actor, elevates the world of the story by evoking emotional memories and defining action.</p>
+                        <p>In the mix, I prioritize balance and clarity - ensuring that dialogue remains the focal point while the world around it feels fully realized.</p>
                     </div>
                 </div>
 
@@ -1697,8 +2313,8 @@
                         <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="service-answer">
-                        <p>Every stage in production requires attention to detail — each with its own specific needs. In recording, we focus on getting the performance right while limiting the work that post-production will need to take on. Often in audiobook production, this means researching pronunciations and character accents to maintain accuracy and consistency in both recording and editing phases.</p>
-                        <p>My experienced ear helps catch issues early — whether technical or performance-related — so projects stay efficient and avoid unnecessary revisions later on.</p>
+                        <p>Every stage in production requires attention to detail - each with its own specific needs. In recording, we focus on getting the performance right while limiting the work that post-production will need to take on. Often in audiobook production, this means researching pronunciations and character accents to maintain accuracy and consistency in both recording and editing phases.</p>
+                        <p>My experienced ear helps catch issues early - whether technical or performance-related - so projects stay efficient and avoid unnecessary revisions later on.</p>
                     </div>
                 </div>
 
@@ -1708,13 +2324,17 @@
                         <svg class="service-arrow" viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="service-answer">
-                        <p>Because I understand each stage of the voice production process, I'm able to support projects beyond performance — helping teams stay organized, communicate clearly, and keep work moving forward. My goal is to make the process as smooth and collaborative as possible for everyone involved.</p>
+                        <p>Because I understand each stage of the voice production process, I'm able to support projects beyond performance - helping teams stay organized, communicate clearly, and keep work moving forward. My goal is to make the process as smooth and collaborative as possible for everyone involved.</p>
                         <p>In my philosophy, good support sets the table for artists to do their best, on a deadline, without getting overloaded.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div style="background: rgba(248, 247, 250, 0.85); position: relative;">
+        <div class="gradient-divider-standalone"></div>
+    </div>
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
@@ -1727,19 +2347,26 @@
         <div class="contact-wrapper">
             <div class="contact-info">
                 <h2>Let's Talk.</h2>
-                <p>When you work with me you get the whole beast: the director, the engineer, the editor, mixer, designer, and actor all in one. Your project, handled with care from start to finish.</p>
+                <p>Have a project in mind? I'd love to hear about it. Drop me a line and let's create something great.</p>
                 <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/christian-titus-a222b543/" target="_blank" title="LinkedIn">
+                        <svg width="38" height="38" viewBox="0 0 45 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_linkedin_contact)">
+                                <path d="M40.8992 3.14941H3.13536C1.40497 3.14941 -0.000976562 4.57412 -0.000976562 6.32306V43.9941C-0.000976562 45.7431 1.40497 47.1678 3.13536 47.1678H40.8992C42.6296 47.1678 44.0453 45.7431 44.0453 43.9941V6.32306C44.0453 4.57412 42.6296 3.14941 40.8992 3.14941ZM13.3112 40.8794H6.78294V19.8725H13.3211V40.8794H13.3112ZM10.0471 17.0034C7.95292 17.0034 6.26186 15.3036 6.26186 13.2206C6.26186 11.1376 7.95292 9.43775 10.0471 9.43775C12.1314 9.43775 13.8323 11.1376 13.8323 13.2206C13.8323 15.3134 12.1413 17.0034 10.0471 17.0034ZM37.7825 40.8794H31.2542V30.6609C31.2542 28.2242 31.205 25.0898 27.8622 25.0898C24.4605 25.0898 23.9394 27.7427 23.9394 30.484V40.8794H17.4111V19.8725H23.6739V22.7415H23.7624C24.6374 21.0908 26.7709 19.3517 29.9466 19.3517C36.5535 19.3517 37.7825 23.7044 37.7825 29.3639V40.8794Z" fill="currentColor"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_linkedin_contact">
+                                    <rect width="44.0463" height="50.3067" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
                     <a href="https://www.imdb.com/name/nm8034229/" target="_blank" title="IMDb">
                         <svg width="49" height="20" viewBox="0 0 61 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.7252 24.3081H8.35791V0.262573H16.5162L18.019 10.3531H18.2337L19.3072 0.262573H27.4655V24.3081H22.0982V9.9237H21.8835L19.9513 24.3081H15.8721L13.7252 9.9237V24.3081Z" fill="currentColor"/>
                             <path d="M29.6162 0.0536736C30.475 0.0536736 36.4863 -0.161019 39.7067 0.268364C42.283 0.483056 43.5712 2.62997 43.7859 5.20627C44.0006 9.92949 44.0006 14.6527 44.0006 19.3759C44.0006 19.8053 44.0006 20.4494 43.7859 21.0935C43.3565 23.0257 42.283 24.0991 39.7067 24.3138C36.4863 24.5285 33.266 24.5285 30.2603 24.5285C30.2603 24.5285 30.0456 24.5285 29.8309 24.5285V0.0536736H29.6162ZM36.057 4.5622V20.02C37.1304 20.02 37.7745 19.5906 37.7745 18.5172C37.7745 14.438 37.7745 10.1442 37.7745 5.85035C37.7745 4.77689 37.3451 4.34751 36.057 4.5622Z" fill="currentColor"/>
                             <path d="M0 24.3081V0.262573H6.22606V24.3081H0Z" fill="currentColor"/>
                             <path d="M59.9008 9.27963C59.6861 7.5621 58.6126 6.70333 56.8951 6.27394C55.1775 6.05925 53.46 6.27394 51.9572 7.77679V0.262573H45.9458V24.3081H51.5278C51.7425 23.8787 51.7425 23.4493 51.9572 23.2346C51.9572 23.2346 51.9572 23.2346 52.1719 23.2346C52.3866 23.4493 52.6012 23.664 52.8159 23.8787C54.3188 24.9521 56.0363 25.1668 57.7538 24.5227C59.2567 23.8787 59.9008 22.5905 59.9008 21.0877C59.9008 19.3701 60.1155 17.4379 60.1155 15.5057C60.1155 13.3588 60.1155 11.2119 59.9008 9.27963ZM53.8894 20.0142C53.8894 20.4436 53.46 20.873 53.0306 20.873C52.6012 20.873 52.1719 20.4436 52.1719 20.0142V10.7825C52.1719 10.3531 52.6012 9.9237 53.0306 9.9237C53.46 9.9237 53.8894 10.3531 53.8894 10.7825V20.0142Z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/christian-titus-a222b543/" target="_blank" title="LinkedIn">
-                        <svg width="38" height="38" viewBox="0 0 45 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M40.8992 3.14941H3.13536C1.40497 3.14941 -0.000976562 4.57412 -0.000976562 6.32306V43.9941C-0.000976562 45.7431 1.40497 47.1678 3.13536 47.1678H40.8992C42.6296 47.1678 44.0453 45.7431 44.0453 43.9941V6.32306C44.0453 4.57412 42.6296 3.14941 40.8992 3.14941ZM13.3112 40.8794H6.78294V19.8725H13.3211V40.8794H13.3112ZM10.0471 17.0034C7.95292 17.0034 6.26186 15.3036 6.26186 13.2206C6.26186 11.1376 7.95292 9.43775 10.0471 9.43775C12.1314 9.43775 13.8323 11.1376 13.8323 13.2206C13.8323 15.3134 12.1413 17.0034 10.0471 17.0034ZM37.7825 40.8794H31.2542V30.6609C31.2542 28.2242 31.205 25.0898 27.8622 25.0898C24.4605 25.0898 23.9394 27.7427 23.9394 30.484V40.8794H17.4111V19.8725H23.6739V22.7415H23.7624C24.6374 21.0908 26.7709 19.3517 29.9466 19.3517C36.5535 19.3517 37.7825 23.7044 37.7825 29.3639V40.8794Z" fill="currentColor"/>
                         </svg>
                     </a>
                     <a href="https://www.acx.com/narrator?p=A2GW8EQD1XWJK5" target="_blank" title="ACX">
@@ -1766,7 +2393,7 @@
                     <input type="email" name="email" placeholder="Your email" required>
                 </div>
                 <div class="form-group">
-                    <label>Project Details</label>
+                    <label>Casting Breakdown & Project Details</label>
                     <textarea name="message" placeholder="Tell me about your project..." required></textarea>
                 </div>
                 <div class="form-attachment">
@@ -1778,8 +2405,8 @@
                     <div class="attachment-filename" id="attachmentName"></div>
                 </div>
                                 <button type="submit" class="btn-submit">
-                    <span class="btn-text">SUBMIT</span>
-                    <span class="btn-text-thank">THANK YOU</span>
+                    <span class="btn-text">Submit</span>
+                    <span class="btn-text-thank">Thank you</span>
                 </button>
             </form>
         </div>
@@ -1795,14 +2422,14 @@
             </div>
             <nav class="footer-sitemap">
                 <div class="footer-sitemap-col">
-                    <a href="index.html">Demos</a>
+                    <a href="index.html#samples">Demos</a>
                     <a href="audiobooks.html">Audiobooks</a>
                     <a href="production.html">Production</a>
                 </div>
                 <div class="footer-sitemap-col">
                     <a href="index.html#faq">FAQ</a>
                     <a href="index.html#brands">Brand Wall</a>
-                    <a href="#contact">Contact</a>
+                    <a href="index.html#contact">Contact</a>
                 </div>
             </nav>
             <div class="footer-sound-bars">
@@ -2331,7 +2958,7 @@
                 ctx.globalAlpha = 1;
             });
 
-            // Spark pass — very sparse, very subtle
+            // Spark pass - very sparse, very subtle
             const proximity = 6;
             const numSamples = Math.floor(canvas.width / sampleStep) + 1;
             for (let xi = 0; xi < numSamples; xi++) {

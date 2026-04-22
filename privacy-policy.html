@@ -47,7 +47,7 @@
             gap: 0.4rem;
             color: white;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 500;
             transition: opacity 0.2s;
         }
@@ -56,7 +56,7 @@
 
         .privacy-topbar-title {
             color: rgba(255,255,255,0.45);
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
 
         .privacy-scroll {
@@ -161,7 +161,8 @@
             gap: 2rem;
         }
 
-        .footer-left {
+                .footer-left {
+            flex: 1;
             display: flex;
             gap: 1.5rem;
             align-items: center;
@@ -174,9 +175,11 @@
             border-radius: 1px;
         }
 
-        .footer-sound-bars {
+                .footer-sound-bars {
+            flex: 1;
             display: flex;
             align-items: flex-end;
+            justify-content: flex-end;
             gap: 4px;
             height: 20px;
         }
@@ -688,7 +691,7 @@
                 ctx.globalAlpha = 1;
             });
 
-            // Spark pass — very sparse, very subtle
+            // Spark pass - very sparse, very subtle
             const proximity = 6;
             const numSamples = Math.floor(canvas.width / sampleStep) + 1;
             for (let xi = 0; xi < numSamples; xi++) {
