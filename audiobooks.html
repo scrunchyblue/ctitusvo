@@ -2716,6 +2716,14 @@
             btn.classList.add('submitted');
             
             try {
+                // Send to Netlify Forms
+                await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(new FormData(form)).toString()
+                });
+
+                // Send to Google Sheets
                 await fetch('https://script.google.com/macros/s/AKfycbxtAFdk5LldViNBozCBbSIqix05WQu1SgktvLGqnbarxBKbLWBa8HPwp9E2OYqnEjaoaw/exec', {
                     method: 'POST',
                     mode: 'no-cors',
