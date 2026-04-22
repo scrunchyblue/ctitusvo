@@ -224,14 +224,10 @@
         }
 
         .audiobook-card {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            grid-template-areas:
-                "title cover"
-                "author cover"
-                "tags cover"
-                "icons cover";
-            gap: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            align-items: flex-start;
             background: white;
             border-radius: 4px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
@@ -240,8 +236,15 @@
             padding: 2rem;
         }
 
+        .audiobook-left {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .audiobook-tags {
-            grid-area: tags;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
@@ -251,15 +254,13 @@
 
 
         .audiobook-title {
-            grid-area: title;
             font-size: 1.5rem;
             font-weight: 600;
-            margin: 0 0 0.15rem 0 !important;
+            margin: 0 0 0.25rem 0 !important;
             line-height: 1.2;
         }
 
         .audiobook-author {
-            grid-area: author;
             font-size: 0.85rem;
             color: #999;
             font-style: italic;
@@ -267,11 +268,9 @@
         }
 
         .audiobook-subtitle {
-            grid-area: author;
-            font-size: 0.8rem;
-            color: #aaa;
-            font-style: italic;
-            margin: -0.5rem 0 0.75rem 0 !important;
+            font-size: 0.95rem;
+            color: #777;
+            margin: 0 0 0.35rem 0 !important;
             line-height: 1.4;
         }
 
@@ -324,18 +323,15 @@
         }
 
         .audiobook-cover {
-            grid-area: cover;
+            flex-shrink: 0;
+            width: 190px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 0 0 0 1.5rem;
+            justify-content: flex-start;
         }
 
-        .audiobook-card > .platform-icons {
-            grid-area: icons;
-            margin-top: 0;
-        }
+
 
         .audiobook-player::before {
             content: '';
@@ -480,17 +476,6 @@
             fill: currentColor;
         }
 
-        .audiobook-cover {
-            width: 280px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            gap: 1rem;
-        }
-
         .audiobook-cover img {
             max-width: 100%;
             max-height: 320px;
@@ -499,10 +484,6 @@
             display: block;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-        
-        .audiobook-cover .platform-icons {
-            margin-top: 0.5rem;
         }
 
         .cover-placeholder {
@@ -1782,7 +1763,8 @@
         <div class="carousel-track">
         <!-- Waste As A Critique -->
         <div class="audiobook-card carousel-active">
-            <h2 class="audiobook-title">Waste As A Critique</h2>
+            <div class="audiobook-left">
+                <h2 class="audiobook-title">Waste As A Critique</h2>
             <p class="audiobook-author">by Hervé Corvellec</p>
             <div class="audiobook-tags">
 
@@ -1802,6 +1784,7 @@
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </a>
             </div>
+            </div>
             <div class="audiobook-cover">
                 <img src="cover-waste-critique.png" alt="Waste As A Critique">
             </div>
@@ -1809,7 +1792,8 @@
 
         <!-- The Intermittent Fasting Revolution -->
         <div class="audiobook-card">
-            <h2 class="audiobook-title">The Intermittent Fasting Revolution</h2>
+            <div class="audiobook-left">
+                <h2 class="audiobook-title">The Intermittent Fasting Revolution</h2>
             <p class="audiobook-subtitle">The Science of Optimizing Health and Enhancing Performance</p>
             <p class="audiobook-author">by Mark P. Mattson</p>
             <div class="audiobook-tags">
@@ -1831,6 +1815,7 @@
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </span>
             </div>
+            </div>
             <div class="audiobook-cover">
                 <img src="cover-fasting-revolution.png" alt="The Intermittent Fasting Revolution">
             </div>
@@ -1838,7 +1823,8 @@
 
         <!-- Tapping -->
         <div class="audiobook-card">
-            <h2 class="audiobook-title">Tapping</h2>
+            <div class="audiobook-left">
+                <h2 class="audiobook-title">Tapping</h2>
             <p class="audiobook-subtitle">Self-Healing with the Transformative Power of Energy Psychology</p>
             <p class="audiobook-author">by Donna Eden &amp; David Feinstein PhD</p>
             <div class="audiobook-tags">
@@ -1861,6 +1847,7 @@
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </span>
             </div>
+            </div>
             <div class="audiobook-cover">
                 <img src="cover-tapping.png" alt="Tapping">
             </div>
@@ -1868,7 +1855,8 @@
 
         <!-- The Generosity Crisis -->
         <div class="audiobook-card">
-            <h2 class="audiobook-title">The Generosity Crisis</h2>
+            <div class="audiobook-left">
+                <h2 class="audiobook-title">The Generosity Crisis</h2>
             <p class="audiobook-subtitle">The Case for Radical Connection to Solve Humanity's Greatest Challenges</p>
             <p class="audiobook-author">by Brian Crimmins, Nathan Chappell &amp; Michael Ashley</p>
             <div class="audiobook-tags">
@@ -1889,6 +1877,7 @@
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </span>
             </div>
+            </div>
             <div class="audiobook-cover">
                 <img src="cover-generosity-crisis.png" alt="The Generosity Crisis">
             </div>
@@ -1896,7 +1885,8 @@
 
         <!-- Black Forest -->
         <div class="audiobook-card">
-            <h2 class="audiobook-title">Black Forest</h2>
+            <div class="audiobook-left">
+                <h2 class="audiobook-title">Black Forest</h2>
             <p class="audiobook-author">by J Scott Boyd</p>
             <div class="audiobook-tags">
 
@@ -1916,6 +1906,7 @@
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </span>
             </div>
+            </div>
             <div class="audiobook-cover">
                 <img src="cover-black-forest.png" alt="Black Forest">
             </div>
@@ -1923,7 +1914,9 @@
 
         <!-- Guard Railing -->
         <div class="audiobook-card">
-            <h2 class="audiobook-title">Guardrailing: Authentically Guide Your Natural Products Company from Spark to Sale</h2>
+            <div class="audiobook-left">
+                <h2 class="audiobook-title">Guardrailing</h2>
+            <p class="audiobook-subtitle">Authentically Guide Your Natural Products Company from Spark to Sale</p>
             <p class="audiobook-author">by Michael Bush</p>
             <div class="audiobook-tags">
 
@@ -1943,6 +1936,7 @@
                 <a href="https://books.apple.com/us/audiobook/guardrailing-authentically-guide-your-natural-products/id1790143845" target="_blank" class="platform-icon" title="Apple Books">
                     <svg viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.5 0C73.7335 0 95 21.2665 95 47.5C95 73.7335 73.7335 95 47.5 95C21.2665 95 0 73.7335 0 47.5C0 21.2665 21.2665 0 47.5 0ZM34.0039 20.708C25.0647 19.4847 15.4248 24.069 15.4248 28.5957V67.4189C15.4248 68.2953 16.3011 68.6574 17.0898 68.1201C31.1116 58.568 43.2052 63.6508 46.3604 74.5176V33.5029C46.4845 27.7419 41.9788 21.7994 34.0039 20.708ZM79.4902 28.5957C79.4902 24.069 69.8502 19.4848 60.9111 20.708C52.9362 21.7993 48.4296 27.7419 48.5537 33.5029V74.5176C51.7088 63.6506 63.8032 58.5677 77.8252 68.1201C78.6139 68.6574 79.4902 68.2953 79.4902 67.4189V28.5957Z" fill="currentColor"/></svg>
                 </a>
+            </div>
             </div>
             <div class="audiobook-cover">
                 <img src="cover-guard-railing.png" alt="Guard Railing">
