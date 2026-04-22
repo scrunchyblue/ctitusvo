@@ -2033,13 +2033,14 @@
 
             <!-- Reggie Rex Trailer -->
             <div class="card-trailer-inline">
-                <a href="https://watch.yippee.tv/reggie-rex/videos/reggie-rex-trailer" target="_blank" class="card-trailer-link">
-                    <div class="card-trailer-link-inner">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                        Watch Trailer on Yippee
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </div>
-                </a>
+                <div class="card-trailer-embed" style="background: #4a3f54; display:flex; align-items:center; justify-content:center;">
+                    <a href="https://watch.yippee.tv/reggie-rex/videos/reggie-rex-trailer" target="_blank" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem; color:white; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <span style="font-size:0.85rem; font-weight:500; letter-spacing:0.02em;">Watch on Yippee
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-left:4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </span>
+                    </a>
+                </div>
             </div>
             <div class="production-tags">
                     <span class="production-tag">Voice Production Coordinator</span>
@@ -3177,6 +3178,125 @@
                     label.textContent = input.files[0].name;
                 } else {
                     label.textContent = '';
+                }
+            });
+        });
+
+
+        document.querySelectorAll('.audio-player:not(.disabled)').forEach((player) => {
+            const playBtn = player.querySelector('.audio-icon');
+            const progressFill = player.querySelector('.audio-progress-fill');
+            const progressBar = player.querySelector('.audio-progress');
+            const currentTimeEl = player.querySelector('.audio-time.current');
+            const durationEl = player.querySelector('.audio-time.duration');
+            const svg = playBtn.querySelector('svg');
+            const bars = svg.querySelectorAll('rect');
+            const audioSrc = player.getAttribute('data-audio');
+            
+            let audio = null;
+            let isPlaying = false;
+            
+            // Play state (arrow shape)
+            const playState = [
+                { x: 0, y: 0, height: 41.4496 },
+                { x: 8.0459, y: 3.41382, height: 34.6226 },
+                { x: 16.0918, y: 7.0708, height: 27.5518 },
+                { x: 24.1377, y: 10.7281, height: 20.2372 },
+                { x: 32.1836, y: 14.1419, height: 13.1663 },
+                { x: 40.2305, y: 17.5554, height: 6.33935 }
+            ];
+            
+            // Pause state
+            const pauseState = [
+                { x: 8, y: 5, height: 32 },
+                { x: 8, y: 5, height: 0 },
+                { x: 8, y: 5, height: 0 },
+                { x: 30, y: 5, height: 0 },
+                { x: 30, y: 5, height: 0 },
+                { x: 30, y: 5, height: 32 }
+            ];
+            
+            function setButtonState(state) {
+                bars.forEach((bar, i) => {
+                    if (state[i]) {
+                        bar.setAttribute('x', state[i].x);
+                        bar.setAttribute('y', state[i].y);
+                        bar.setAttribute('height', state[i].height);
+                    }
+                });
+            }
+            
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function stopOtherPlayers() {
+                if (window.currentSampleAudio && window.currentSampleAudio !== audio) {
+                    window.currentSampleAudio.pause();
+                    window.currentSampleAudio.currentTime = 0;
+                    if (window.currentSamplePlayer) {
+                        const otherBars = window.currentSamplePlayer.querySelectorAll('rect');
+                        otherBars.forEach((bar, i) => {
+                            if (playState[i]) {
+                                bar.setAttribute('x', playState[i].x);
+                                bar.setAttribute('y', playState[i].y);
+                                bar.setAttribute('height', playState[i].height);
+                            }
+                        });
+                        window.currentSamplePlayer.querySelector('.audio-progress-fill').style.width = '0%';
+                        window.currentSamplePlayer.querySelector('.audio-time.current').textContent = '0:00';
+                    }
+                }
+            }
+
+            // Initialize audio
+            if (audioSrc) {
+                audio = new Audio(audioSrc);
+                
+                audio.addEventListener('loadedmetadata', () => {
+                    durationEl.textContent = formatTime(audio.duration);
+                });
+
+                audio.addEventListener('timeupdate', () => {
+                    const percentage = (audio.currentTime / audio.duration) * 100;
+                    progressFill.style.width = percentage + '%';
+                    currentTimeEl.textContent = formatTime(audio.currentTime);
+                });
+
+                audio.addEventListener('ended', () => {
+                    isPlaying = false;
+                    setButtonState(playState);
+                    progressFill.style.width = '0%';
+                    currentTimeEl.textContent = '0:00';
+                    audio.currentTime = 0;
+                    window.currentSampleAudio = null;
+                    window.currentSamplePlayer = null;
+                });
+
+                // Progress bar click to seek
+                progressBar.addEventListener('click', (e) => {
+                    const rect = progressBar.getBoundingClientRect();
+                    const percentage = (e.clientX - rect.left) / rect.width;
+                    audio.currentTime = percentage * audio.duration;
+                });
+            }
+            
+            playBtn.addEventListener('click', () => {
+                if (!audio) return;
+
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                    setButtonState(playState);
+                } else {
+                    stopOtherPlayers();
+                    audio.play();
+                    isPlaying = true;
+                    setButtonState(pauseState);
+                    window.currentSampleAudio = audio;
+                    window.currentSamplePlayer = player;
                 }
             });
         });
