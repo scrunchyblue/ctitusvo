@@ -3206,6 +3206,19 @@
                     audio.currentTime = percentage * audio.duration;
                 });
             }
+            // Download button
+            const downloadBtn = player.querySelector('.audio-download');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    if (!audioSrc) return;
+                    const a = document.createElement('a');
+                    a.href = audioSrc;
+                    a.download = audioSrc.split('/').pop();
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                });
+            }
             
             playBtn.addEventListener('click', () => {
                 if (!audio) return;

@@ -998,7 +998,7 @@
         }
 
         .brand-player {
-            max-width: 900px;
+            max-width: 630px;
             margin: 2.5rem auto 0;
             background: white;
             border-radius: 4px;
@@ -1923,7 +1923,7 @@
     </section>
 
     <!-- Tools Section -->
-    <section id="tools" style="padding: 8rem 4rem;">
+    <section id="tools">
         <h2 class="section-title" style="margin-bottom: 2rem;">Tools Of The Trade.</h2>
 
         <div class="tools-grid">
@@ -2413,6 +2413,19 @@
                     const rect = progressBar.getBoundingClientRect();
                     const percentage = (e.clientX - rect.left) / rect.width;
                     audio.currentTime = percentage * audio.duration;
+                });
+            }
+            // Download button
+            const downloadBtn = player.querySelector('.audio-download');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    if (!audioSrc) return;
+                    const a = document.createElement('a');
+                    a.href = audioSrc;
+                    a.download = audioSrc.split('/').pop();
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
                 });
             }
             
