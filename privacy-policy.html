@@ -21,6 +21,154 @@
             line-height: 1.6;
         }
 
+        header {
+            position: sticky;
+            top: 0;
+            background: #4a3f54;
+            z-index: 100;
+            border-bottom: none;
+        }
+
+        .header-content {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem max(2rem, calc(50% - 550px));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-content {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem max(2rem, calc(50% - 550px));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 49px;
+            width: auto;
+        }
+        .logo img {
+            height: 49px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 3.5rem;
+            position: relative;
+            margin-left: auto;
+        }
+        nav {
+            display: flex;
+            gap: 3.5rem;
+            position: relative;
+            margin-left: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding-bottom: 4px;
+            position: relative;
+        }
+        nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding-bottom: 4px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+        nav a:hover {
+            color: white;
+        }
+        .nav-underline {
+            position: absolute;
+            bottom: -2px;
+            height: 2px;
+            background: linear-gradient(90deg, #8EDCC3, #C7C0E6);
+            border-radius: 1px;
+            transition: left 0.3s ease, width 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 200;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #4a3f54;
+            z-index: 150;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
         .privacy-page {
             min-height: 100vh;
             display: flex;
@@ -29,35 +177,9 @@
             z-index: 1;
         }
 
-        .privacy-topbar {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.25rem max(2rem, calc(50% - 550px));
-            background: #4a3f54;
-            flex-shrink: 0;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
 
-        .privacy-back {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: opacity 0.2s;
-        }
 
-        .privacy-back:hover { opacity: 0.75; }
 
-        .privacy-topbar-title {
-            color: rgba(255,255,255,0.45);
-            font-size: 1rem;
-        }
 
         .privacy-scroll {
             flex: 1;
@@ -257,15 +379,31 @@
     <canvas id="electric-particles"></canvas>
 
     <div class="privacy-page">
-        <div class="privacy-topbar">
-            <a href="index.html" class="privacy-back">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                Back to Home
-            </a>
-            <span class="privacy-topbar-title">Privacy Policy</span>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="clogo.svg" alt="Christian Titus Voice Overs">
+            </div>
+            <nav>
+                <a href="index.html">Demos</a>
+                <a href="audiobooks.html">Audiobooks</a>
+                <a href="production.html">Production</a>
+                <a href="#contact">Contact</a>
+                <span class="nav-underline"></span>
+            </nav>
+            <div class="hamburger" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="privacy-scroll">
+    </header>
+<div class="privacy-scroll">
             <div class="container">
+                <a href="index.html" class="privacy-back" style="display:inline-flex; align-items:center; gap:0.4rem; color:#4a3f54; text-decoration:none; font-size:0.9rem; opacity:0.65; margin-bottom:1.5rem; transition:opacity 0.2s;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    Back to Home
+                </a>
                 <h1>Privacy Policy</h1>
                 <p class="last-updated">Last updated: January 2026</p>
 
