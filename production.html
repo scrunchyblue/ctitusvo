@@ -1130,15 +1130,29 @@
                 padding-right: 1.25rem;
             }
 
-            /* Header: replace nav with hamburger */
+            /* Header: replace nav with hamburger, smaller logo */
             .header-content {
-                padding: 1rem 1.25rem;
+                padding: 0.85rem 1.25rem;
+            }
+            .logo img {
+                height: 34px;
             }
             nav {
                 display: none;
             }
             .hamburger {
                 display: flex;
+            }
+
+            /* Tags wrap horizontally, stay on one line each */
+            .production-tags,
+            .audiobook-tags {
+                flex-wrap: wrap !important;
+                overflow-x: visible !important;
+            }
+            .production-tag,
+            .audiobook-tag {
+                white-space: nowrap;
             }
 
             /* Production card: tighter padding */
@@ -1161,14 +1175,19 @@
                 padding-right: 1.25rem;
             }
 
-            /* Contact section: stack vertically */
+            /* Contact section: stack, full-bleed form */
             .contact-wrapper {
                 flex-direction: column;
                 gap: 2.5rem;
-                padding: 0 1.25rem;
+                padding: 0 1rem;
             }
             .contact-info {
                 max-width: 100%;
+            }
+            .contact-form {
+                max-width: 100%;
+                flex: none;
+                width: 100%;
             }
 
             /* Footer: stack and breathe */
@@ -1989,7 +2008,7 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <img src="clogo.svg" alt="Christian Titus Voice Overs">
+                <a href="index.html" style="display:flex; align-items:center;"><img src="clogo.svg" alt="Christian Titus Voice Overs"></a>
             </div>
             <nav>
                 <a href="index.html">Demos</a>
