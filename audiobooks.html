@@ -945,12 +945,15 @@
             }
             .audiobook-cover {
                 order: 1;
-                width: 180px;
-                height: 240px;
+                width: 200px;
+                height: 280px;
             }
             .audiobook-cover img {
-                width: 180px;
-                height: 240px;
+                width: 200px !important;
+                height: 280px !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                background: #f5f5f7;
             }
             .audiobook-left .platform-icons {
                 margin-top: 1rem;
@@ -981,7 +984,7 @@
                 width: 100%;
             }
 
-            /* Footer: stack and breathe */
+            /* Footer: sitemap top, wave middle, copyright bottom */
             .footer-content {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -989,22 +992,33 @@
                 align-items: stretch;
             }
             .footer-left,
-            .footer-sound-bars {
+            .footer-divider,
+            .footer-sound-bars,
+            .footer-sitemap {
                 flex: none;
             }
+            .footer-divider {
+                display: none;
+            }
+            .footer-sitemap {
+                order: 1;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+            }
             .footer-sound-bars {
+                order: 2;
                 width: 100%;
                 justify-content: center !important;
-                padding-top: 1rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
             }
             .footer-sound-bars svg {
                 width: 100% !important;
                 height: auto;
                 max-width: 100%;
             }
-            .footer-sitemap {
-                flex-direction: column !important;
-                gap: 0.5rem !important;
+            .footer-left {
+                order: 3;
             }
 
             /* Carousel: stack cards (existing behaviour) */
@@ -1851,8 +1865,8 @@
                 overflow: hidden;
             }
             .audio-title {
-                flex: 0 0 38%;
-                max-width: 38%;
+                flex: 0 0 32%;
+                max-width: 32%;
                 min-width: 0;
                 overflow: hidden;
                 white-space: nowrap;

@@ -1196,7 +1196,7 @@
                 width: 100%;
             }
 
-            /* Footer: stack and breathe */
+            /* Footer: sitemap top, wave middle, copyright bottom */
             .footer-content {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -1204,22 +1204,33 @@
                 align-items: stretch;
             }
             .footer-left,
-            .footer-sound-bars {
+            .footer-divider,
+            .footer-sound-bars,
+            .footer-sitemap {
                 flex: none;
             }
+            .footer-divider {
+                display: none;
+            }
+            .footer-sitemap {
+                order: 1;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+            }
             .footer-sound-bars {
+                order: 2;
                 width: 100%;
                 justify-content: center !important;
-                padding-top: 1rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
             }
             .footer-sound-bars svg {
                 width: 100% !important;
                 height: auto;
                 max-width: 100%;
             }
-            .footer-sitemap {
-                flex-direction: column !important;
-                gap: 0.5rem !important;
+            .footer-left {
+                order: 3;
             }
 
             /* Carousel: stack cards (existing behaviour) */
@@ -1235,6 +1246,22 @@
                 transform: none;
             }
             .carousel-nav { display: none !important; }
+
+            /* Services header: stack icon above title so subtitle has full width */
+            .services-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-bottom: 1.75rem;
+            }
+            .services-header > svg {
+                width: 44px !important;
+                height: 44px !important;
+            }
+            .services-header .section-subtitle {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
         }
 
         .carousel-nav {
@@ -2023,8 +2050,8 @@
                 overflow: hidden;
             }
             .audio-title {
-                flex: 0 0 38%;
-                max-width: 38%;
+                flex: 0 0 32%;
+                max-width: 32%;
                 min-width: 0;
                 overflow: hidden;
                 white-space: nowrap;

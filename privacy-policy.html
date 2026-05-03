@@ -215,7 +215,7 @@
                 display: flex;
             }
 
-            /* Footer: stack and breathe */
+            /* Footer: sitemap top, wave middle, copyright bottom */
             .footer-content {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -223,22 +223,33 @@
                 align-items: stretch;
             }
             .footer-left,
-            .footer-sound-bars {
+            .footer-divider,
+            .footer-sound-bars,
+            .footer-sitemap {
                 flex: none;
             }
+            .footer-divider {
+                display: none;
+            }
+            .footer-sitemap {
+                order: 1;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+            }
             .footer-sound-bars {
+                order: 2;
                 width: 100%;
                 justify-content: center !important;
-                padding-top: 1rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
             }
             .footer-sound-bars svg {
                 width: 100% !important;
                 height: auto;
                 max-width: 100%;
             }
-            .footer-sitemap {
-                flex-direction: column !important;
-                gap: 0.5rem !important;
+            .footer-left {
+                order: 3;
             }
         }
 
