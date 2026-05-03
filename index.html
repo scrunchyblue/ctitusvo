@@ -625,10 +625,16 @@
 
         /* Mobile: 1 column, controls always visible */
         @media (max-width: 768px) {
-            /* Section padding compression on mobile */
+            /* Section padding compression on mobile - reduced top gap */
             section {
                 padding-left: 1.25rem;
                 padding-right: 1.25rem;
+                padding-top: 1.5rem;
+                padding-bottom: 2rem;
+            }
+            /* No top gap on hero */
+            .hero {
+                padding-top: 0.5rem;
             }
 
             /* Header: replace nav with hamburger, smaller logo */
@@ -645,7 +651,7 @@
                 display: flex;
             }
 
-            /* Hero: smaller headshot, smaller h1 */
+            /* Hero: smaller headshot, smaller h1 stacked */
             .hero-image img,
             .headshot-placeholder {
                 width: 224px !important;
@@ -657,8 +663,14 @@
             }
             .hero h1,
             .hero-content h1 {
-                font-size: 1.75rem;
-                line-height: 1.2;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-wrap: break-word;
+            }
+            .hero h1 strong,
+            .hero-content h1 strong {
+                display: block;
+                margin-top: 0.15rem;
             }
 
             /* Hide redundant Let's Talk + social row in hero footer */
@@ -682,22 +694,24 @@
 
             /* Audio player on mobile */
             .audio-player {
-                padding: 1rem 1.25rem;
-                gap: 0.75rem;
+                padding: 0.85rem 1rem;
+                gap: 0.6rem;
             }
             .audio-title {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
 
             /* Brand wall: 2 columns, much larger logos */
             .brands-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem 1.5rem;
-                padding: 1.5rem 1rem 2rem;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem 1.5rem !important;
+                padding: 1.5rem 1rem 2rem !important;
             }
             .brands-grid img {
-                max-width: 100%;
-                max-height: 90px;
+                max-width: 100% !important;
+                max-height: 90px !important;
+                width: 100% !important;
+                height: auto !important;
             }
 
             /* Brand player: full width */
@@ -708,7 +722,7 @@
                 padding: 1rem 1.25rem;
             }
 
-            /* Tools of the trade: horizontal layout (icon left, text right) */
+            /* Tools of the trade: horizontal layout, smaller icons */
             .tools-grid {
                 grid-template-columns: 1fr;
                 display: flex;
@@ -719,22 +733,30 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                gap: 1.25rem;
+                gap: 1rem;
                 text-align: left;
                 background: white;
-                padding: 1rem 1.25rem;
+                padding: 0.85rem 1.1rem;
                 border-radius: 4px;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             }
             .tool-icon {
-                width: 60px;
-                height: 60px;
+                width: 44px;
+                height: 44px;
                 margin: 0;
                 flex-shrink: 0;
+                border-radius: 4px;
             }
             .tool-icon img {
-                width: 32px;
-                height: 32px;
+                width: 24px;
+                height: 24px;
+            }
+            .tool-name {
+                font-size: 1rem;
+                margin-bottom: 0.15rem;
+            }
+            .tool-detail {
+                font-size: 0.85rem;
             }
 
             /* Testimonials: horizontal scrollable cards */
@@ -775,15 +797,26 @@
                 width: 100%;
             }
 
-            /* Footer: stack and breathe */
+            /* Footer: stack, sitemap centered, full-width sound bars below */
             .footer-content {
                 flex-direction: column;
                 gap: 1.5rem;
                 text-align: center;
+                align-items: stretch;
             }
             .footer-left,
             .footer-sound-bars {
                 flex: none;
+            }
+            .footer-sound-bars {
+                width: 100%;
+                justify-content: center !important;
+                padding-top: 1rem;
+            }
+            .footer-sound-bars svg {
+                width: 100% !important;
+                height: auto;
+                max-width: 100%;
             }
             .footer-sitemap {
                 flex-direction: column !important;
@@ -1695,6 +1728,47 @@
             margin-top: 0.4rem;
             margin-left: 0.25rem;
         }
+
+        /* Audio title ticker animation (mobile) */
+        @media (max-width: 768px) {
+            .audio-player {
+                flex-wrap: nowrap;
+                overflow: hidden;
+            }
+            .audio-title {
+                flex: 0 0 38%;
+                max-width: 38%;
+                min-width: 0;
+                overflow: hidden;
+                white-space: nowrap;
+                position: relative;
+            }
+            .audio-title.ticker-active {
+                -webkit-mask-image: linear-gradient(to right, black 0%, black 80%, transparent 100%);
+                mask-image: linear-gradient(to right, black 0%, black 80%, transparent 100%);
+            }
+            .audio-title .ticker-inner {
+                display: inline-block;
+                will-change: transform;
+            }
+            .audio-title.ticker-active .ticker-inner {
+                animation: ticker-scroll 12s linear infinite;
+                padding-right: 2.5rem;
+            }
+            @keyframes ticker-scroll {
+                0%, 8% { transform: translateX(0); }
+                92%, 100% { transform: translateX(calc(-100% + 100px)); }
+            }
+            .audio-progress-container {
+                flex: 1 1 auto;
+                min-width: 0;
+            }
+            .audio-time {
+                font-size: 0.8rem;
+                flex-shrink: 0;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -3182,6 +3256,39 @@
                 }
             });
         });
+
+    
+        // Audio title ticker (wraps text and detects overflow)
+        (function() {
+            function setupTickers() {
+                document.querySelectorAll('.audio-player .audio-title').forEach(t => {
+                    if (t.querySelector('.ticker-inner')) return;
+                    const text = t.textContent.trim();
+                    if (!text) return;
+                    t.innerHTML = '<span class="ticker-inner">' + text + '</span>';
+                });
+            }
+            function checkOverflow() {
+                const isMobile = window.innerWidth <= 768;
+                document.querySelectorAll('.audio-title').forEach(t => {
+                    const inner = t.querySelector('.ticker-inner');
+                    if (!inner) return;
+                    if (isMobile && inner.scrollWidth > t.clientWidth + 4) {
+                        t.classList.add('ticker-active');
+                    } else {
+                        t.classList.remove('ticker-active');
+                    }
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => { setupTickers(); checkOverflow(); });
+            } else {
+                setupTickers();
+                checkOverflow();
+            }
+            window.addEventListener('resize', checkOverflow);
+            window.addEventListener('load', checkOverflow);
+        })();
 
     </script>
 </body>

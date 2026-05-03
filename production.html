@@ -1128,6 +1128,12 @@
             section {
                 padding-left: 1.25rem;
                 padding-right: 1.25rem;
+                padding-top: 1.5rem;
+                padding-bottom: 2rem;
+            }
+            .audiobook-section,
+            .production-section {
+                padding-top: 0.5rem !important;
             }
 
             /* Header: replace nav with hamburger, smaller logo */
@@ -1195,10 +1201,21 @@
                 flex-direction: column;
                 gap: 1.5rem;
                 text-align: center;
+                align-items: stretch;
             }
             .footer-left,
             .footer-sound-bars {
                 flex: none;
+            }
+            .footer-sound-bars {
+                width: 100%;
+                justify-content: center !important;
+                padding-top: 1rem;
+            }
+            .footer-sound-bars svg {
+                width: 100% !important;
+                height: auto;
+                max-width: 100%;
             }
             .footer-sitemap {
                 flex-direction: column !important;
@@ -1996,6 +2013,47 @@
         .btn-primary:active {
             transform: scale(0.97);
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+
+        /* Audio title ticker animation (mobile) */
+        @media (max-width: 768px) {
+            .audio-player {
+                flex-wrap: nowrap;
+                overflow: hidden;
+            }
+            .audio-title {
+                flex: 0 0 38%;
+                max-width: 38%;
+                min-width: 0;
+                overflow: hidden;
+                white-space: nowrap;
+                position: relative;
+            }
+            .audio-title.ticker-active {
+                -webkit-mask-image: linear-gradient(to right, black 0%, black 80%, transparent 100%);
+                mask-image: linear-gradient(to right, black 0%, black 80%, transparent 100%);
+            }
+            .audio-title .ticker-inner {
+                display: inline-block;
+                will-change: transform;
+            }
+            .audio-title.ticker-active .ticker-inner {
+                animation: ticker-scroll 12s linear infinite;
+                padding-right: 2.5rem;
+            }
+            @keyframes ticker-scroll {
+                0%, 8% { transform: translateX(0); }
+                92%, 100% { transform: translateX(calc(-100% + 100px)); }
+            }
+            .audio-progress-container {
+                flex: 1 1 auto;
+                min-width: 0;
+            }
+            .audio-time {
+                font-size: 0.8rem;
+                flex-shrink: 0;
+            }
         }
 
     </style>
@@ -3327,6 +3385,39 @@
                 }
             });
         });
+
+    
+        // Audio title ticker (wraps text and detects overflow)
+        (function() {
+            function setupTickers() {
+                document.querySelectorAll('.audio-player .audio-title').forEach(t => {
+                    if (t.querySelector('.ticker-inner')) return;
+                    const text = t.textContent.trim();
+                    if (!text) return;
+                    t.innerHTML = '<span class="ticker-inner">' + text + '</span>';
+                });
+            }
+            function checkOverflow() {
+                const isMobile = window.innerWidth <= 768;
+                document.querySelectorAll('.audio-title').forEach(t => {
+                    const inner = t.querySelector('.ticker-inner');
+                    if (!inner) return;
+                    if (isMobile && inner.scrollWidth > t.clientWidth + 4) {
+                        t.classList.add('ticker-active');
+                    } else {
+                        t.classList.remove('ticker-active');
+                    }
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => { setupTickers(); checkOverflow(); });
+            } else {
+                setupTickers();
+                checkOverflow();
+            }
+            window.addEventListener('resize', checkOverflow);
+            window.addEventListener('load', checkOverflow);
+        })();
 
     </script>
 </body>
